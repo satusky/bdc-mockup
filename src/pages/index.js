@@ -4,34 +4,43 @@ import { SEO } from '../components/seo'
 import { DefaultLayoutWithHero as Layout } from '../layouts'
 import { Heading, Paragraph } from '../components/typography'
 import { Card, CardBox } from '../components/card'
-import { Container } from '../components/layout'
+import { Container, Hero, LineBreak } from '../components/layout'
 import { SearchInput, ButtonCta } from '../components/form'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
-import { HexagonGroup, Hexagon } from '../components/hexagon'
+import { HexagonContainer, Hexagon } from '../components/hexagon'
 
 const IndexPage = () => (
     <Layout>
-        <Container width="90%" maxWidth="900px" center>
-            <HexagonGroup>
-                <Hexagon color="#ccc">
-                    TEST
-                </Hexagon>
-                <Hexagon color="var(--color-crimson)">
-                    TEST
-                </Hexagon>
-                <Hexagon color="#ccc">
-                    TEST
-                </Hexagon>
-            </HexagonGroup>
-            
-            <Paragraph center>
-                <SearchInput />
-            </Paragraph>
-        </Container>
+        <Hero>
+            <Container width="75%" maxWidth="450px">
+                <Heading center>
+                    Biomedical Data <em>when</em> you need it and <em>how</em> you need it.
+                </Heading>
+                <Paragraph>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eveniet repudiandae maxime accusamus eos et, aliquid placeat sed iusto, veniam nesciunt temporibus, voluptate quisquam voluptatibus totam fuga. Tempore iusto, nesciunt.
+                </Paragraph>
+            </Container>
+        </Hero>
 
-        <br/>
-        <br/>
-        <br/>
+        <HexagonContainer>
+            <Hexagon color="#ccc">
+                TEST
+            </Hexagon>
+            <Hexagon color="var(--color-crimson)">
+                TEST
+            </Hexagon>
+            <Hexagon color="#ccc">
+                TEST
+            </Hexagon>
+        </HexagonContainer>
+        
+        <LineBreak count={ 4 } />
+
+        <Container center>
+            <SearchInput />
+        </Container>
+    
+        <LineBreak count={ 3 } />
 
         <Container width="90%" maxWidth="900px" center>
 

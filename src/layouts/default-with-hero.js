@@ -28,16 +28,6 @@ export const DefaultLayoutWithHero = ({ children }) => {
                 <Brand />
                 <Menu items={ menuItems } />
             </Header>
-            <Hero>
-                <Container width="75%" maxWidth="450px">
-                    <Heading center>
-                        Biomedical Data <em>when</em> you need it and <em>how</em> you need it.
-                    </Heading>
-                    <Paragraph>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eveniet repudiandae maxime accusamus eos et, aliquid placeat sed iusto, veniam nesciunt temporibus, voluptate quisquam voluptatibus totam fuga. Tempore iusto, nesciunt.
-                    </Paragraph>
-                </Container>
-            </Hero>
             <Main style={{ flex: 1 }}>
                 { children }
             </Main>

@@ -6,5 +6,4 @@ import React from "react"
 export const Main = styled.main`
   background-color: inherit;
   color: inherit;
-  padding: 2rem;
 `

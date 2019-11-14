@@ -1,2 +1,2 @@
 export * from './hexagon'
-export * from './hexagon-group'
+export * from './hexagon-container'

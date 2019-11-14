@@ -4,13 +4,14 @@ import { Input } from './input'
 import { MagnifyingGlassSVG } from '../images/icons/magnifying-glass.svg'
 
 const SearchContainer = styled.div`
+    // border: 1px solid #f99;
     display: flex;
     flex-direction: row;
     justify-content: center;
     position: relative;
     width: 90%;
     max-width: 500px;
-    // height: 3rem;
+    height: 3.1rem;
     z-index: 1;
     margin: auto;
     &:hover svg {
@@ -23,6 +24,7 @@ const TextInput = styled(Input)`
     position: absolute;
     left: 0;
     width: 100%;
+    height: 100%;
     z-index: 1;
     padding: 0 1.5rem;
 `
