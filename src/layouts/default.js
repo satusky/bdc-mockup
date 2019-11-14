@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { Header } from './header'
-import { Main } from './main'
-import { Footer } from './footer'
+import { Toolbar, Header, Brand, Hero, Main, Footer, Container } from '../components/layout'
+import { Button } from '../components/form'
+import { Heading, Paragraph } from '../components/typography'
+import { Menu } from '../components/menu'
+import { menuItems } from '../data/menu'
 
 import '../styles/normalize.css'
 import '../styles/customize.css'
@@ -19,8 +21,12 @@ const LayoutWrapper = styled.div`
 export const DefaultLayout = ({ children }) => {
     return (
         <LayoutWrapper>
+            <Toolbar>
+                <Button>Members Area</Button>
+            </Toolbar>
             <Header>
-                Site Name
+                <Brand />
+                <Menu items={ menuItems } />
             </Header>
             <Main style={{ flex: 1 }}>
                 { children }
