@@ -1,37 +1,32 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../components/seo'
-import { DefaultLayoutWithHero as Layout } from '../layouts'
+import { DefaultLayout as Layout } from '../layouts'
 import { Heading, Paragraph } from '../components/typography'
 import { Card, CardBox } from '../components/card'
 import { Container, Hero, LineBreak } from '../components/layout'
 import { SearchInput, ButtonCta } from '../components/form'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
 import { HexagonContainer, Hexagon } from '../components/hexagon'
+import { DataBoltIcon, EducationIcon, MicroscopeIcon } from '../components/icons'
 
 const IndexPage = () => (
     <Layout>
-        <Hero>
-            <Container width="75%" maxWidth="450px">
-                <Heading center>
+        <Hero image="http://picsum.photos/1200/600">
+            <Container width="75%" maxWidth="666px">
+                <Heading center style={{ fontSize: '220%' }}>
                     Biomedical Data <em>when</em> you need it and <em>how</em> you need it.
                 </Heading>
-                <Paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est eveniet repudiandae maxime accusamus eos et, aliquid placeat sed iusto, veniam nesciunt temporibus, voluptate quisquam voluptatibus totam fuga. Tempore iusto, nesciunt.
+                <Paragraph style={{ lineHeight: 1.25 }}>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident sed qui consequatur, voluptatem laudantium odio rerum minima culpa fuga ipsam nobis accusantium tempora non voluptatibus voluptas quibusdam, quia cupiditate. Laborum harum minus, dolorum, dolores maiores iste? Eaque unde veniam quidem molestiae.
                 </Paragraph>
             </Container>
         </Hero>
 
         <HexagonContainer>
-            <Hexagon color="#ccc">
-                TEST
-            </Hexagon>
-            <Hexagon color="var(--color-crimson)">
-                TEST
-            </Hexagon>
-            <Hexagon color="#ccc">
-                TEST
-            </Hexagon>
+            <Hexagon color="#ccc" icon={ MicroscopeIcon } text="Analysis" />
+            <Hexagon color="var(--color-crimson)" icon={ DataBoltIcon } text="Data" />
+            <Hexagon color="#ccc" icon={ EducationIcon } text="Training" />
         </HexagonContainer>
         
         <LineBreak count={ 4 } />

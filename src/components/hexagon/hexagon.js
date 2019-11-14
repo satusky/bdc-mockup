@@ -19,15 +19,23 @@ export const HexagonInterior = styled.div`
     background-color: ${ props => props.color || '#ccc' };
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 `
 
-export const Hexagon = ({ color, children }) => {
+const HexagonText = styled.span`
+    text-transform: uppercase;
+    margin-top: 1rem;
+`
+
+export const Hexagon = ({ color, icon, text }) => {
+    const Icon = icon
     return (
         <HexagonWrapper>
             <HexagonInterior color={ color }>
-                { children }
+                <Icon size="60" />
+                <HexagonText>{ text }</HexagonText>
             </HexagonInterior>
         </HexagonWrapper>
     )
