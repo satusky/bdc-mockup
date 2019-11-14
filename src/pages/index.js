@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment, useState } from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { DefaultLayout as Layout } from '../layouts'
@@ -10,24 +10,45 @@ import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
 import { HexagonContainer, Hexagon } from '../components/hexagon'
 import { DataBoltIcon, EducationIcon, MicroscopeIcon } from '../components/icons'
 
+const Carousel = () => {
+    const [index, setIndex] = useState(1)
+
+    const handleHover = newIndex => event =>{
+        console.log(newIndex)
+        setIndex(newIndex)
+    }
+    
+    const carouselImages = [
+        'http://picsum.photos/600/300',
+        'http://picsum.photos/600/301',
+        'http://picsum.photos/600/302',
+    ]
+
+    return (
+        <Fragment>
+            <Hero image={ carouselImages[index] }>
+                <Container width="75%" maxWidth="666px">
+                    <Heading center style={{ fontSize: '220%' }}>
+                        Biomedical Data <em>when</em> you need it and <em>how</em> you need it.
+                    </Heading>
+                    <Paragraph style={{ lineHeight: 1.25 }}>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident sed qui consequatur, voluptatem laudantium odio rerum minima culpa fuga ipsam nobis accusantium tempora non voluptatibus voluptas quibusdam, quia cupiditate. Laborum harum minus, dolorum, dolores maiores iste? Eaque unde veniam quidem molestiae.
+                    </Paragraph>
+                </Container>
+            </Hero>
+
+            <HexagonContainer>
+                <Hexagon active={ index === 0 } color="#ccc" icon={ MicroscopeIcon } text="Analysis" hoverHandler={ handleHover(0) } />
+                <Hexagon active={ index === 1 } color="var(--color-crimson)" icon={ DataBoltIcon } text="Data" hoverHandler={ handleHover(1) } />
+                <Hexagon active={ index === 2 } color="#ccc" icon={ EducationIcon } text="Training" hoverHandler={ handleHover(2) } />
+            </HexagonContainer>
+        </Fragment>
+    )
+}
+
 const IndexPage = () => (
     <Layout>
-        <Hero image="http://picsum.photos/1200/600">
-            <Container width="75%" maxWidth="666px">
-                <Heading center style={{ fontSize: '220%' }}>
-                    Biomedical Data <em>when</em> you need it and <em>how</em> you need it.
-                </Heading>
-                <Paragraph style={{ lineHeight: 1.25 }}>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident sed qui consequatur, voluptatem laudantium odio rerum minima culpa fuga ipsam nobis accusantium tempora non voluptatibus voluptas quibusdam, quia cupiditate. Laborum harum minus, dolorum, dolores maiores iste? Eaque unde veniam quidem molestiae.
-                </Paragraph>
-            </Container>
-        </Hero>
-
-        <HexagonContainer>
-            <Hexagon color="#ccc" icon={ MicroscopeIcon } text="Analysis" />
-            <Hexagon color="var(--color-crimson)" icon={ DataBoltIcon } text="Data" />
-            <Hexagon color="#ccc" icon={ EducationIcon } text="Training" />
-        </HexagonContainer>
+        <Carousel />
         
         <LineBreak count={ 4 } />
 

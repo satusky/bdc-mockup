@@ -22,6 +22,7 @@ export const HexagonInterior = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: background-color 250ms;
 `
 
 const HexagonText = styled.span`
@@ -29,11 +30,11 @@ const HexagonText = styled.span`
     margin-top: 1rem;
 `
 
-export const Hexagon = ({ color, icon, text }) => {
+export const Hexagon = ({ color, active, icon, text, hoverHandler }) => {
     const Icon = icon
     return (
         <HexagonWrapper>
-            <HexagonInterior color={ color }>
+            <HexagonInterior color={ active ? 'var(--color-crimson)' : '#ccc' } onMouseOver={ hoverHandler }>
                 <Icon size="60" />
                 <HexagonText>{ text }</HexagonText>
             </HexagonInterior>
