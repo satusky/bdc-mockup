@@ -22,7 +22,7 @@ export const HexagonInterior = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: background-color 250ms;
+    transition: background-color 500ms;
 `
 
 const HexagonText = styled.span`

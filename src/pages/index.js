@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useEffect, useRef, useState } from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../components/seo'
 import { DefaultLayout as Layout } from '../layouts'
@@ -12,6 +12,13 @@ import { DataBoltIcon, EducationIcon, MicroscopeIcon } from '../components/icons
 
 const Carousel = () => {
     const [index, setIndex] = useState(1)
+    const indexRef = useRef(index)
+    indexRef.current = index
+
+    useEffect(() => {
+        const timer = setInterval(() => setIndex((indexRef.current + 1) % 3), 3000)
+        return () => clearInterval(timer)
+    }, [index])
 
     const handleHover = newIndex => event =>{
         console.log(newIndex)
