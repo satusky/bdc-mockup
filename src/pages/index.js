@@ -66,7 +66,7 @@ const IndexPage = () => (
         <LineBreak count={ 3 } />
 
         <BandedContainer width="100%">
-            <Container width="90%" maxWidth="900px" center>
+            <Container width="90%" maxWidth="1080px" center>
 
                 <Grid fluid>
                     <Row gutterWidth={ 40 }>
@@ -103,7 +103,7 @@ const IndexPage = () => (
         <LineBreak count={ 3 } />
 
         <BackgroundImageContainer width="100%" image="https://picsum.photos/900/500">
-            <Container width="90%" maxWidth="900px" center>
+            <Container width="90%" maxWidth="1080px" center>
                 <Grid fluid>
                     <Row>
                         <Col xs={ 12 }>
