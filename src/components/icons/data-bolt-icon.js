@@ -1,8 +1,8 @@
 import React from 'react'
 
-export const DataBoltIcon = ({ size }) => {
+export const DataBoltIcon = ({ size, ...rest }) => {
 		return (
-				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={ `${ size }px` } height={ `${ size }px` } viewBox="0 0 400 400">
+				<svg { ...rest } version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width={ `${ size }px` } height={ `${ size }px` } viewBox="0 0 400 400">
 					<g>
 						<path fill="#FFFFFF" d="M79.6,134.21c24.74,7.57,55.43,13.18,89.5,15.28l-32.92,67.39c-69.42-9.33-118.9-33.46-118.9-61.72V98.18 c0-0.47,0.41-0.81,0.81-0.81c0.34,0,0.61,0.14,0.74,0.41c0,0.07,0,0.13,0.07,0.2C25.45,111.3,47.56,124.41,79.6,134.21z"/>
 						<path fill="#FFFFFF" d="M382.7,98.05c0,0,0,0.07,0,0.14v56.98c0,32.51-65.5,59.55-151.62,64.89l55.83-77.13 c48.8-9.13,83.55-25.75,94.23-44.95c0.07-0.07,0.07-0.07,0.07-0.14c0.14-0.27,0.41-0.47,0.74-0.47c0.27,0,0.54,0.2,0.68,0.41 C382.63,97.84,382.7,97.98,382.7,98.05z"/>

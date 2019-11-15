@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Container } from '../layout'
+import { Container } from '../../layout'
 
 export const HexagonContainer = styled(Container)`
     display: flex;

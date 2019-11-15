@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useRef, useState } from 'react'
-import { HexagonContainer, Hexagon } from '../hexagon'
-import { Container, Hero } from '../layout'
-import { Heading, Paragraph } from '../typography'
-import { DataBoltIcon, EducationIcon, MicroscopeIcon } from '../icons'
+import { Hexagon } from './hexagon'
+import { HexagonContainer } from './hexagon-container'
+import { Container, Hero } from '../../layout'
+import { Heading, Paragraph } from '../../typography'
+import { DataBoltIcon, EducationIcon, MicroscopeIcon } from '../../icons'
 
 export const Carousel = () => {
     const [index, setIndex] = useState(1)

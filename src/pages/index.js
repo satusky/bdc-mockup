@@ -5,7 +5,7 @@ import { Card } from '../components/card'
 import { Container, BandedContainer, BackgroundImageContainer, LineBreak } from '../components/layout'
 import { SearchInput, ButtonCta } from '../components/form'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
-import { Carousel } from '../components/carousel'
+import { Carousel, DataContainer } from '../components/modules'
 
 const IndexPage = () => (
     <Layout>
@@ -62,6 +62,8 @@ const IndexPage = () => (
                     <Row>
                         <Col xs={ 12 }>
                             <Card offsetTitle title="Available Data" bgColor="var(--color-crimson)" fgColor="#fff">
+                                <LineBreak count={ 4 } />
+                                <DataContainer />
                                 <Paragraph>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident quaerat consequuntur ratione.
                                 </Paragraph>
