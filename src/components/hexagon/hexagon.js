@@ -16,13 +16,15 @@ export const HexagonInterior = styled.div`
     height: 173px;
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     // width: 173px; height: 200px; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); // 30 deg rotation
-    background-color: ${ props => props.color || '#ccc' };
+    background-color: ${ props => props.color || '#ecc' };
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: background-color 500ms;
+    transition: background-color 500ms, transform 500ms ease-out;
+    transform: scale(${ props => props.active ? 1.05 : 1 });
+    cursor: pointer;
 `
 
 const HexagonText = styled.span`
@@ -34,7 +36,7 @@ export const Hexagon = ({ color, active, icon, text, hoverHandler }) => {
     const Icon = icon
     return (
         <HexagonWrapper>
-            <HexagonInterior color={ active ? 'var(--color-crimson)' : '#ccc' } onMouseOver={ hoverHandler }>
+            <HexagonInterior active={ active } color={ active ? 'var(--color-crimson)' : '#dcc' } onMouseOver={ hoverHandler }>
                 <Icon size="60" />
                 <HexagonText>{ text }</HexagonText>
             </HexagonInterior>
