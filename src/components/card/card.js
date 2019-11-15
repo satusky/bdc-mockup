@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const CardContainer = styled.div`
     overflow: hidden;
-    border-radius: 1rem;
+    border-radius: 2rem;
     box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);
     margin-bottom: 2rem;
     height: 100%;
@@ -22,7 +22,7 @@ const CardHeader = styled.div`
 
 const CardBody = styled.div`
     padding: 1rem 2rem;
-    background-color: ${ props => props.bgColor ? props.bgColor : 'inherit' };
+    background-color: ${ props => props.bgColor ? props.bgColor : '#fff' };
     color: ${ props => props.fgColor ? props.fgColor : 'inherit' };
     height: 100%;
 `
