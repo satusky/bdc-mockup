@@ -64,9 +64,6 @@ const IndexPage = () => (
                             <Card offsetTitle title="Available Data" bgColor="var(--color-crimson)" fgColor="#fff">
                                 <LineBreak count={ 4 } />
                                 <DataContainer />
-                                <Paragraph>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident quaerat consequuntur ratione.
-                                </Paragraph>
                             </Card>
                         </Col>
                     </Row>
