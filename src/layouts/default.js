@@ -9,6 +9,7 @@ import { Button } from '../components/form'
 import { Heading, Paragraph } from '../components/typography'
 import { Menu } from '../components/menu'
 import { menuItems } from '../data/menu'
+import { useWindowWidth } from '../hooks'
 
 import '../styles/normalize.css'
 import '../styles/customize.css'
@@ -25,17 +26,19 @@ const nhlbiHhsLogoQuery = graphql`
             edges {
                 node {
                     childImageSharp {
-                        fixed {
+                        fluid(maxWidth: 353, maxHeight: 100) {
                             base64
                             tracedSVG
                             aspectRatio
-                            width
-                            height
                             src
                             srcSet
                             srcWebp
                             srcSetWebp
+                            sizes
+                            originalImg
                             originalName
+                            presentationWidth
+                            presentationHeight
                         }
                     }
                 }
@@ -44,10 +47,10 @@ const nhlbiHhsLogoQuery = graphql`
     }
 `
 
-
 export const DefaultLayout = ({ children }) => {
     const data = useStaticQuery(nhlbiHhsLogoQuery)
-    const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fixed
+    const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fluid
+    const { isCompact } = useWindowWidth()
     return (
         <LayoutWrapper>
             <Toolbar>
@@ -61,30 +64,31 @@ export const DefaultLayout = ({ children }) => {
                 { children }
             </Main>
             <Footer>
-                <Grid fluid>
-                    <Row>
-                        <Col xs={ 12 } md={ 6 }>
-                            <Paragraph>
-                                Supported by the National Heart, Lung, and Blood Institute of the National Institutes of Health.
-                            </Paragraph>
-                            <Paragraph>
-                                For general inquiries, contact <a href="mailto:bdc3@renci.org">bdc3@renci.org</a>.
-                            </Paragraph>
-                        </Col>
-                        <Col xs={ 12 } md={ 6 }>
-                            <Paragraph right>
-                                <Img fixed={ nhlbiHhsLogo } />
-                            </Paragraph>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={ 12 }>
-                            <Paragraph center>
-                                &copy; { new Date().getFullYear() }
-                            </Paragraph>
-                        </Col>
-                    </Row>
-                </Grid>
+                <Container width="95%" maxWidth="1080px" center>
+                    <Grid fluid>
+                        <Row>
+                            <Col xs={ 12 } lg={ 7 }>
+                                <Paragraph center={ isCompact } left={ !isCompact }>
+                                    Supported by the National Heart, Lung, and Blood Institute of the National Institutes of Health.
+                                    <br/><br/>
+                                    For general inquiries, contact <a href="mailto:bdc3@renci.org">bdc3@renci.org</a>.
+                                </Paragraph>
+                            </Col>
+                            <Col xs={ 12 } lg={ 5 }>
+                                <Paragraph center>
+                                    <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: 'auto' }}/>
+                                </Paragraph>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={ 12 }>
+                                <Paragraph center>
+                                    &copy; { new Date().getFullYear() }
+                                </Paragraph>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </Container>
             </Footer>
         </LayoutWrapper>
     )
