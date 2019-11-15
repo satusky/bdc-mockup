@@ -15,7 +15,7 @@ const CardHeader = styled.div`
     color: #fff;
     font-weight: bold;
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 18%;
     border-bottom: 2px solid #fff;
     position: relative;
 `
