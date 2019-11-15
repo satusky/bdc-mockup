@@ -9,7 +9,7 @@ export const MenuContainer = styled.nav`
     justify-content: flex-end;
     align-items: center;
     background-color: transparent;
-    min-width: 600px;
+    min-width: 350px;
 `
 
 export const MenuLink = styled(Link)`
