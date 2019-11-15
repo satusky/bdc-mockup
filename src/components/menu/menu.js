@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import { Match } from '@reach/router'
 
 export const MenuContainer = styled.nav`
     display: flex;

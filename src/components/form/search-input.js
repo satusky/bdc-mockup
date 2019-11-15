@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Input } from './input'
 import { MagnifyingGlassIcon } from '../icons'
