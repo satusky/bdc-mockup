@@ -54,7 +54,7 @@ const IndexPage = () => (
             </Container>
         </BandedContainer>
         
-        <LineBreak count={ 3 } />
+        <LineBreak count={ 5 } />
 
         <BackgroundImageContainer width="100%" image="https://picsum.photos/900/500">
             <Container width="90%" maxWidth="1080px" center>
@@ -62,13 +62,14 @@ const IndexPage = () => (
                     <Row>
                         <Col xs={ 12 }>
                             <Card offsetTitle title="Available Data" bgColor="var(--color-crimson)" fgColor="#fff">
-                                <LineBreak count={ 4 } />
+                                <LineBreak count={ 2 } />
                                 <DataContainer />
                             </Card>
                         </Col>
                     </Row>
                     <Row>
                         <Col xs={ 12 }>
+                            <LineBreak count={ 3 } />
                             <Heading center>
                                 Have and idea for BioData Catalyst?<br/>
                                 We want to hear from you!
@@ -76,6 +77,7 @@ const IndexPage = () => (
                             <Paragraph center>
                                 <ButtonCta>Submit your idea here</ButtonCta>
                             </Paragraph>
+                            <LineBreak count={ 3 } />
                         </Col>
                     </Row>
                 </Grid>
