@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { useWindowWidth } from '../../hooks'
 
 const CardContainer = styled.div`
     overflow: hidden;
@@ -45,13 +46,16 @@ const OffsetCardTitle = styled(CardTitle)`
     background-color: #fff;
     color: #333;
     padding: 0.5rem 2rem;
+    width: 75%;
 `
 
 export const Card = ({ title, offsetTitle, bgColor, fgColor, children }) => {
+    const { isCompact } = useWindowWidth()
+
     return (
         <CardContainer>
             <CardHeader style={{ height: offsetTitle ? '3rem' : '6rem' }}>
-                { offsetTitle ? <OffsetCardTitle>{ title }</OffsetCardTitle> : <CardTitle>{ title }</CardTitle> }
+                { offsetTitle ? <OffsetCardTitle style={{ width: isCompact ? '70%' : '40%' }}>{ title }</OffsetCardTitle> : <CardTitle>{ title }</CardTitle> }
             </CardHeader>
             <CardBody bgColor={ bgColor } fgColor={ fgColor }>
                 { children }
