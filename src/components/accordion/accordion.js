@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import { ExpandDownIcon } from '../icons'
+import { Rotator } from '../anim'
 
 const AccordionWrapper = styled.div`
     border: 1px solid #f99;
@@ -8,6 +10,8 @@ const AccordionWrapper = styled.div`
 `
 
 const AccordionTitle = styled.span`
+    display: flex;
+    justify-content: space-between;
     font-weight: bold;
     font-size: 120%;
     padding: 1rem;
@@ -23,12 +27,13 @@ const AccordionTitle = styled.span`
 const AccordionBody = styled.div`
     overflow: hidden;
     transition: ${ props => props.active
-        ? `max-height 250ms ease, opacity 500ms 250ms`
-        : `max-height 500ms ease 250ms, opacity 500ms`
+        ? `max-height 250ms, opacity 500ms 100ms`
+        : `max-height 500ms 100ms, opacity 250ms`
     };
     max-height: ${ props => props.height }px;
     opacity: ${ props => props.active ? 1 : 0 };
 `
+
 const AccordionContents = styled.div`
     margin: 2rem;
 `
@@ -49,7 +54,10 @@ export const Accordion = ({ title, content, children }) => {
     return (
         <AccordionWrapper>
             <AccordionTitle onClick={ handleToggle } active={ active }>
-                { title }
+                <span>{ title }</span>
+                <Rotator rotated={ active }>
+                    <ExpandDownIcon size="16" color={ active ? 'var(--color-crimson' : '#333' } />
+                </Rotator>
             </AccordionTitle>
             <AccordionBody ref={ contentElement } active={ active } height={ height }>
                 <AccordionContents>
