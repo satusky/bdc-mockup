@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import { Toolbar, Header, Brand, Main, Footer, Container } from '../components/layout'
+import { Toolbar, Header, Brand, Main, Footer, Container, StickyWrapper } from '../components/layout'
 import { Button } from '../components/form'
 import { Paragraph } from '../components/typography'
 import { Menu } from '../components/menu'
 import { menuItems } from '../data/menu'
-import { useWindowWidth } from '../hooks'
+import { useScrollPosition, useWindowWidth } from '../hooks'
 
 import '../styles/normalize.css'
 import '../styles/customize.css'
@@ -51,15 +51,25 @@ export const DefaultLayout = ({ children }) => {
     const data = useStaticQuery(nhlbiHhsLogoQuery)
     const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fluid
     const { isCompact } = useWindowWidth()
+    const toolbarElement = useRef(null)
+    const scrollPosition = useScrollPosition()
+    const [stuckHeader, setStuckHeader] = useState(false)
+
+    useEffect(() => {
+        setStuckHeader(scrollPosition > toolbarElement.current.getBoundingClientRect().height)
+    }, [scrollPosition])
+
     return (
         <LayoutWrapper>
-            <Toolbar>
+            <Toolbar ref={ toolbarElement }>
                 <Button>Members Area</Button>
             </Toolbar>
-            <Header>
-                <Brand />
-                <Menu items={ menuItems } />
-            </Header>
+            <StickyWrapper stuck={ stuckHeader }>
+                <Header>
+                    <Brand />
+                    <Menu items={ menuItems } />
+                </Header>
+            </StickyWrapper>
             <Main style={{ flex: 1 }}>
                 { children }
             </Main>
