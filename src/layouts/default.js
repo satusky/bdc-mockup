@@ -7,7 +7,7 @@ import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Toolbar, Header, Brand, Main, Footer, Container, StickyWrapper } from '../components/layout'
 import { Button } from '../components/form'
 import { Paragraph } from '../components/typography'
-import { Menu } from '../components/menu'
+import { Menu, MobileMenu } from '../components/menu'
 import { menuItems } from '../data/menu'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 
@@ -67,7 +67,11 @@ export const DefaultLayout = ({ marginTop = false, marginBottom = false, childre
             <StickyWrapper stuck={ stuckHeader }>
                 <Header>
                     <Brand />
-                    <Menu items={ menuItems } />
+                    {
+                        isCompact
+                            ? <MobileMenu items={ menuItems } />
+                            : <Menu items={ menuItems } />
+                    }
                 </Header>
             </StickyWrapper>
             <Main
