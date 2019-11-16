@@ -21,7 +21,7 @@ const FaqPage = () => {
     const faqs = data.allFaqsJson.edges.map(({node}) => node)
 
     return (
-        <Layout>
+        <Layout marginTop marginBottom>
             <Container width="95%" maxWidth="1080px" center>
             
                 <Title>Frequently Asked Questions</Title>

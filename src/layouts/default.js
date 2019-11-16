@@ -47,7 +47,7 @@ const nhlbiHhsLogoQuery = graphql`
     }
 `
 
-export const DefaultLayout = ({ children }) => {
+export const DefaultLayout = ({ marginTop = false, marginBottom = false, children }) => {
     const data = useStaticQuery(nhlbiHhsLogoQuery)
     const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fluid
     const { isCompact } = useWindowWidth()
@@ -70,7 +70,12 @@ export const DefaultLayout = ({ children }) => {
                     <Menu items={ menuItems } />
                 </Header>
             </StickyWrapper>
-            <Main style={{ flex: 1 }}>
+            <Main
+                style={{
+                    marginTop: marginTop ? '3rem' : '0',
+                    marginBottom: marginBottom ? '4rem' : '0',
+                }}
+            >
                 { children }
             </Main>
             <Footer>
