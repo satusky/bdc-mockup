@@ -85,9 +85,7 @@ export const DefaultLayout = ({ children }) => {
                                 </Paragraph>
                             </Col>
                             <Col xs={ 12 } lg={ 5 }>
-                                <Paragraph center>
-                                    <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: 'auto' }}/>
-                                </Paragraph>
+                                <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: 'auto' }}/>
                             </Col>
                         </Row>
                         <Row>
