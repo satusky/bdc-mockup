@@ -81,10 +81,7 @@ export const Carousel = () => {
         return () => clearInterval(timer)
     }, [index])
 
-    const handleHover = newIndex => event =>{
-        console.log(newIndex)
-        setIndex(newIndex)
-    }
+    const handleHover = newIndex => event => setIndex(newIndex)
     
     return (
         <Fragment>
