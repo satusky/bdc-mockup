@@ -10,6 +10,10 @@ const FaqPage = () => {
             <Container width="95%" maxWidth="1080px" center>
             
                 <Title>Frequently Asked Questions</Title>
+
+                <Paragraph>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. At dolores molestiae nisi dolore facere sapiente asperiores autem ea excepturi debitis atque itaque ipsa eius laudantium cupiditate aspernatur, voluptate, error accusamus!
+                </Paragraph>
                 
                 <Accordion title="Who lorem ipsum?">
                     <Paragraph>
