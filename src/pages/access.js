@@ -1,7 +1,7 @@
 import React from 'react'
 import { DefaultLayout as Layout } from '../layouts'
 import { Container } from '../components/layout'
-import { Title, Paragraph } from '../components/typography'
+import { Title } from '../components/typography'
 
 const AccessPage = () => (
     <Layout>

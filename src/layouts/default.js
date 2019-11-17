@@ -47,7 +47,7 @@ const nhlbiHhsLogoQuery = graphql`
     }
 `
 
-export const DefaultLayout = ({ marginTop = false, marginBottom = false, children }) => {
+export const DefaultLayout = ({ noMargins = false, children }) => {
     const data = useStaticQuery(nhlbiHhsLogoQuery)
     const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fluid
     const { isCompact } = useWindowWidth()
@@ -74,12 +74,7 @@ export const DefaultLayout = ({ marginTop = false, marginBottom = false, childre
                     }
                 </Header>
             </StickyWrapper>
-            <Main
-                style={{
-                    marginTop: marginTop ? '3rem' : '0',
-                    marginBottom: marginBottom ? '4rem' : '0',
-                }}
-            >
+            <Main style={ noMargins ? null : { margin: '3rem 0' }}>
                 { children }
             </Main>
             <Footer>

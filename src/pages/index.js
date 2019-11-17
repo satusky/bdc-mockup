@@ -8,7 +8,7 @@ import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
 import { Carousel, DataContainer } from '../components/modules'
 
 const IndexPage = () => (
-    <Layout>
+    <Layout noMargins>
         <Carousel />
         
         <LineBreak count={ 4 } />
