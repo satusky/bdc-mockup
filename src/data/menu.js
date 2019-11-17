@@ -8,11 +8,19 @@ export const menuItems = [
         path: '/about',
     },
     {
+        text: 'Support',
+        path: '/support',
+    },
+    {
         text: 'FAQ',
         path: '/faq',
     },
+    // {
+    //     text: 'Access',
+    //     path: '/access',
+    // },
     {
-        text: 'Access',
-        path: '/access',
+        text: 'Contact',
+        path: '/contact',
     },
 ]
