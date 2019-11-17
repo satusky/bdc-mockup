@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Toolbar, Header, Brand, Main, Footer, Container, StickyWrapper } from '../components/layout'
-import { Button } from '../components/form'
+import { Button, ExternalButtonLink } from '../components/form'
 import { Paragraph } from '../components/typography'
 import { Menu, MobileMenu } from '../components/menu'
 import { menuItems } from '../data/menu'
@@ -62,7 +62,7 @@ export const DefaultLayout = ({ noMargins = false, children }) => {
     return (
         <LayoutWrapper>
             <Toolbar ref={ toolbarElement }>
-                <Button>Members Area</Button>
+                <ExternalButtonLink href="https://nhlbidatastage.org/">Members Area</ExternalButtonLink>
             </Toolbar>
             <StickyWrapper stuck={ stuckHeader }>
                 <Header>
