@@ -4,20 +4,38 @@ import { Hexagon } from './hexagon'
 import { Container } from '../../layout'
 import { Heading, Paragraph } from '../../typography'
 import { DataBoltIcon, EducationIcon, MicroscopeIcon } from '../../icons'
+import { useWindowWidth } from '../../../hooks'
+
+const INTERVAL = 5 * 1000
+const carouselItems = [
+    {
+        text: 'Analysis',
+        icon: MicroscopeIcon,
+        backgroundImage: 'http://picsum.photos/600/300',
+        heading: 'Biomedical Data when you need it and how you need it.',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam temporibus laboriosam maiores hic, doloribus ratione animi cupiditate, debitis nihil commodi provident. Laboriosam tempora alias molestiae aliquam, cumque. Modi fugit cum labore, ex beatae, voluptate earum ratione repellat doloribus inventore expedita. Libero, neque deleniti mollitia.',
+    },
+    {
+        text: 'Data',
+        icon: DataBoltIcon,
+        backgroundImage: 'http://picsum.photos/600/301',
+        heading: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non hic harum commodi optio dignissimos, reprehenderit quam laudantium temporibus enim. Amet, dolor, distinctio. Vitae sapiente sed alias voluptatum. Porro natus, vero placeat ipsa aliquam non eaque! Laudantium minus vero fugit sit ipsa! Modi sequi, id placeat!',
+    },
+    {
+        text: 'Training',
+        icon: EducationIcon,
+        backgroundImage: 'http://picsum.photos/600/302',
+        heading: 'Lorem ipsum dolor sit amet.',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut soluta non similique odio fuga eius vel distinctio commodi, porro in, nam adipisci consectetur neque laborum, quibusdam accusantium quas veritatis, nisi. Quibusdam quasi nemo quos odio praesentium eum ea omnis nostrum repellat dolores, optio rerum atque.',
+    },
+]
 
 export const SlideDeckContainer = styled(Container)`
     padding: 3rem;
-    min-height: 400px;
+    min-height: 500px;
     position: relative;
 `
-
-const INTERVAL = 5 * 1000
-
-const carouselImages = [
-    'http://picsum.photos/600/300',
-    'http://picsum.photos/600/301',
-    'http://picsum.photos/600/302',
-]
 
 export const Slide = styled.div`
     color: #ddd;
@@ -75,9 +93,10 @@ export const Carousel = () => {
     const [index, setIndex] = useState(1)
     const indexRef = useRef(index)
     indexRef.current = index
+    const { isCompact } = useWindowWidth()
 
     useEffect(() => {
-        const timer = setInterval(() => setIndex((indexRef.current + 1) % carouselImages.length), INTERVAL)
+        const timer = setInterval(() => setIndex((indexRef.current + 1) % carouselItems.length), INTERVAL)
         return () => clearInterval(timer)
     }, [index])
 
@@ -86,45 +105,37 @@ export const Carousel = () => {
     return (
         <Fragment>
             <SlideDeckContainer>
-                <Slide backgroundImage={ carouselImages[0] } active={ index === 0 }>
-                    <SlideText width="75%" maxWidth="666px" active={ index === 0 }>
-                        <Heading center style={{ fontSize: '220%' }}>
-                            Biomedical Data <em>when</em> you need it and <em>how</em> you need it.
-                        </Heading>
-                        <Paragraph style={{ lineHeight: 1.25 }}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident sed qui consequatur, voluptatem laudantium odio rerum minima culpa fuga ipsam nobis accusantium tempora non voluptatibus voluptas quibusdam, quia cupiditate. Laborum harum minus, dolorum, dolores maiores iste? Eaque unde veniam quidem molestiae.
-                        </Paragraph>
-                    </SlideText>
-                </Slide>
-                <Slide backgroundImage={ carouselImages[1] } active={ index === 1 }>
-                    <SlideText width="75%" maxWidth="700px" active={ index === 1 }>
-                        <Heading center style={{ fontSize: '220%' }}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </Heading>
-                        <Paragraph style={{ lineHeight: 1.25 }}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eveniet.
-                        </Paragraph>
-                        <Paragraph style={{ lineHeight: 1.25 }}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore nulla id itaque, impedit possimus.
-                        </Paragraph>
-                    </SlideText>
-                </Slide>
-                <Slide backgroundImage={ carouselImages[2] } active={ index === 2 }>
-                    <SlideText width="75%" maxWidth="800px" active={ index === 2 }>
-                        <Heading center style={{ fontSize: '220%' }}>
-                            Lorem ipsum dolor sit amet.
-                        </Heading>
-                        <Paragraph style={{ lineHeight: 1.25 }}>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia odio quos quibusdam architecto atque maxime omnis expedita consequuntur ratione ut illo blanditiis, illum repellendus natus eos provident molestiae nostrum ex nihil ad soluta quod.
-                        </Paragraph>
-                    </SlideText>
-                </Slide>
+                {
+                    carouselItems.map((item, i) => (
+                        <Slide backgroundImage={ item.backgroundImage } active={ index === i }>
+                            <SlideText width="75%" maxWidth="700px" active={ index === i }>
+                                <Heading center style={{ fontSize: '220%' }}>
+                                    { item.heading }
+                                </Heading>
+                                <Paragraph style={{ lineHeight: 1.25 }}>
+                                    { item.body }
+                                </Paragraph>
+                            </SlideText>
+                        </Slide>
+                    ))
+                }
             </SlideDeckContainer>
 
             <TabsContainer>
-                <Hexagon active={ index === 0 } color="#ccc" icon={ MicroscopeIcon } text="Analysis" hoverHandler={ handleHover(0) } />
-                <Hexagon active={ index === 1 } color="var(--color-crimson)" icon={ DataBoltIcon } text="Data" hoverHandler={ handleHover(1) } />
-                <Hexagon active={ index === 2 } color="#ccc" icon={ EducationIcon } text="Training" hoverHandler={ handleHover(2) } />
+                {
+                    carouselItems.map((tab, i) => (
+                        <Hexagon
+                            key={ i }
+                            active={ index === i }
+                            size={ isCompact ? window.innerWidth / 3.5 : 200 }
+                            growOnActive={ !isCompact }
+                            showtext={ !isCompact }
+                            text={ tab.text }
+                            icon={ tab.icon }
+                            hoverHandler={ handleHover(i) }
+                        />
+                    ))
+                }
             </TabsContainer>
         </Fragment>
     )
