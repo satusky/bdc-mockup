@@ -6,11 +6,13 @@ import { Title, Paragraph } from '../components/typography'
 import { Accordion } from '../components/accordion'
 
 const faqsQuery = graphql`{
-    allFaqsJson {
+    allMarkdownRemark(sort: {order: ASC, fields: fileAbsolutePath}) {
         edges {
             node {
-                question
-                answer
+                frontmatter{ 
+                    question: title
+                }
+                answer: html
             }
         }
     }
@@ -18,7 +20,7 @@ const faqsQuery = graphql`{
 
 const FaqPage = () => {
     const data = useStaticQuery(faqsQuery)
-    const faqs = data.allFaqsJson.edges.map(({node}) => node)
+    const faqs = data.allMarkdownRemark.edges.map(({node}) => ({ question: node.frontmatter.question, answer: node.answer }))
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
