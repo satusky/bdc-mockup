@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { CloseIcon, HamburgerIcon } from '../icons'
@@ -97,22 +97,34 @@ export const MobileMenu = ({ items }) => {
     const handleToggleMenu = () => setVisible(!visible)
     const handleCloseMenu = () => setVisible(false)
 
+    useEffect(() => {
+        const escapeHatch = e => {
+            if (e.keyCode === 27) {
+                handleCloseMenu()
+            }
+        }
+        if (visible) {
+            document.addEventListener('keydown', escapeHatch)
+        }
+        return () => document.removeEventListener('keydown', escapeHatch)
+    }, [visible])
+
     return (
         <Wrapper>
             <Toggler onClick={ handleToggleMenu }>
                 { visible ? <CloseIcon size="24" fill="var(--color-crimson)" /> : <HamburgerIcon size="24" /> }
             </Toggler>
-            <MobileNavDrawer active={ visible }>
+            <MobileNavDrawer active={ visible } onKeyDown={ e => console.log(e) }>
                 <Brand white />
                 <MobileNav>
-                    { items.map(item => <MenuLink to={ item.path }>{ item.text }</MenuLink>) }
+                    { items.map(item => <MenuLink to={ item.path } key={ item.text }>{ item.text }</MenuLink>) }
                 </MobileNav>
                 <SocialLinks>
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
                 </SocialLinks>
             </MobileNavDrawer>
-            <Overlay shaded={ visible } onClick={ handleCloseMenu }/>
+            <Overlay shaded={ visible } onClick={ handleCloseMenu } />
         </Wrapper>
     )
 }
