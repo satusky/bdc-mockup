@@ -8,7 +8,7 @@ export const MenuContainer = styled.nav`
     justify-content: flex-end;
     align-items: center;
     background-color: transparent;
-    min-width: 350px;
+    // min-width: 350px;
 `
 
 export const MenuLink = styled(Link)`
@@ -18,7 +18,7 @@ export const MenuLink = styled(Link)`
     text-transform: uppercase;
     color: #444;
     text-decoration: none;
-    padding: 1.5rem 1.5rem;
+    padding: 1.5rem 1rem;
     margin: 0;
     background-color: transparent;
     letter-spacing: 2px;
