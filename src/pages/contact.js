@@ -7,7 +7,7 @@ const ContactPage = () => (
     <Layout>
         <Container width="95%" maxWidth="1080px" center>
 
-            <Title>Support & User Engagement</Title>
+            <Title>Contact</Title>
 
         </Container>
         
