@@ -70,12 +70,12 @@ const IndexPage = () => (
                     <Row>
                         <Col xs={ 12 }>
                             <LineBreak count={ 3 } />
-                            <Heading center>
+                            <Heading center light>
                                 Have and idea for BioData Catalyst?<br/>
                                 We want to hear from you!
                             </Heading>
                             <Paragraph center>
-                                <ButtonCta>Submit your idea here</ButtonCta>
+                                <ButtonCta to ="/contact">Submit your idea here</ButtonCta>
                             </Paragraph>
                             <LineBreak count={ 3 } />
                         </Col>
