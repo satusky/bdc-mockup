@@ -91,11 +91,7 @@ export const DefaultLayout = ({ noMargins = false, children }) => {
             <StickyWrapper stuck={ stuckHeader }>
                 <Header>
                     <Brand />
-                    {
-                        isCompact
-                            ? <MobileMenu items={ menuItems } />
-                            : <Menu items={ menuItems } />
-                    }
+                    { isCompact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
                 </Header>
             </StickyWrapper>
             <Main style={ noMargins ? null : { margin: '3rem 0' }}>

@@ -1,5 +1,7 @@
+export * from './close-icon'
 export * from './data-bolt-icon'
 export * from './expand-icons'
 export * from './education-icon'
+export * from './hamburger-icon'
 export * from './magnifying-glass-icon'
 export * from './microscope-icon'

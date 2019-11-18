@@ -1,20 +1,118 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { CloseIcon, HamburgerIcon } from '../icons'
+import { Brand } from '../layout'
+import githubLogo from '../../images/icons/github-logo.png'
+import twitterLogo from '../../images/icons/twitter-logo.png'
 
-const Toggler = () => {
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-        </svg>
-    )
-}
+const Overlay = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: #000000;
+    transition: filter 250ms;
+    filter: opacity(${ props => props.shaded ? '0.75' : '0' });
+    pointer-events: ${ props => props.shaded ? 'auto' : 'none' };
+`
 
-const MobileMenuWrapper = styled.nav``
+const Wrapper = styled.div`
+`
+
+const Toggler = styled.button`
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    z-index: 3;
+`
+
+const MobileNavDrawer = styled.div`
+    // & * { border: 2px solid #f99; }
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20rem;
+    max-width: 90%;
+    background: linear-gradient(to bottom, crimson, var(--color-crimson));
+    clip-path: polygon(0 0, calc(100% - 4rem) 0, 100% 80%, calc(100% - 4rem) 100%, 0 100%);
+    transition: transform 500ms;
+    transform: ${ props => props.active ? 'translateX(0)' : 'translateX(-100vw)'};
+    padding: 2rem 3rem 0 2rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`
+
+const MobileNav = styled.nav`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    flex: 1;
+`
+
+const MenuLink = styled(Link)`
+    padding: 1rem 0.5rem;
+    width: 100%;
+    color: #eee;
+    letter-spacing: 2px;
+    font-size: 125%;
+    font-weight: bold;
+    text-decoration: none;
+    transform: translateX(0);
+    transition: color 250ms, transform 250ms;
+    text-transform: uppercase;
+    &:hover {
+        transform: translateX(0.25rem);
+        color: #c99;
+    }
+`
+
+const SocialLinks = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem 0;
+`
+
+const SocialIcon = styled.img`
+    margin: 0 1rem;
+    padding: 0;
+    transition: filter 250ms;
+    filter: opacity(0.5);
+    &:hover {
+        filter: opacity(1.0);
+    }
+`
 
 export const MobileMenu = ({ items }) => {
+    const [visible, setVisible] = useState()
+    
+    const handleToggleMenu = () => setVisible(!visible)
+    const handleCloseMenu = () => setVisible(false)
+
     return (
-        <MobileMenuWrapper>
-            <Toggler />
-        </MobileMenuWrapper>
+        <Wrapper>
+            <Toggler onClick={ handleToggleMenu }>
+                { visible ? <CloseIcon size="24" fill="var(--color-crimson)" /> : <HamburgerIcon size="24" /> }
+            </Toggler>
+            <MobileNavDrawer active={ visible }>
+                <Brand white />
+                <MobileNav>
+                    { items.map(item => <MenuLink to={ item.path }>{ item.text }</MenuLink>) }
+                </MobileNav>
+                <SocialLinks>
+                    <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
+                    <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
+                </SocialLinks>
+            </MobileNavDrawer>
+            <Overlay shaded={ visible } onClick={ handleCloseMenu }/>
+        </Wrapper>
     )
 }
