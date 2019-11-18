@@ -109,7 +109,7 @@ export const Carousel = () => {
                     carouselItems.map((item, i) => (
                         <Slide backgroundImage={ item.backgroundImage } active={ index === i }>
                             <SlideText width="75%" maxWidth="700px" active={ index === i }>
-                                <Heading center style={{ fontSize: '220%' }}>
+                                <Heading center style={{ fontSize: '220%', color: '#eee' }}>
                                     { item.heading }
                                 </Heading>
                                 <Paragraph style={{ lineHeight: 1.25 }}>
