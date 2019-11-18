@@ -21,6 +21,7 @@ export const HexagonInterior = styled.div`
     justify-content: center;
     align-items: center;
     transition: background-color 500ms, transform 500ms ease-out;
+    transform-origin: 50% 50%;
     transform: scale(${ props => props.growOnActive && props.active ? 1.05 : 1 });
     cursor: pointer;
 `
