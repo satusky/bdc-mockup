@@ -10,15 +10,11 @@ import { Paragraph } from '../components/typography'
 import { Menu, MobileMenu } from '../components/menu'
 import { menuItems } from '../data/menu'
 import { useScrollPosition, useWindowWidth } from '../hooks'
+import githubLogo from '../images/icons/github-logo.png'
+import twitterLogo from '../images/icons/twitter-logo.png'
 
 import '../styles/normalize.css'
 import '../styles/customize.css'
-
-const LayoutWrapper = styled.div`
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-`
 
 const nhlbiHhsLogoQuery = graphql`
     query {
@@ -47,6 +43,29 @@ const nhlbiHhsLogoQuery = graphql`
     }
 `
 
+const LayoutWrapper = styled.div`
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+`
+
+const SocialLinks = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`
+
+const SocialIcon = styled.img`
+    margin: 0 0.5rem;
+    padding: 0;
+    transition: filter 250ms;
+    filter: opacity(0.5);
+    &:hover {
+        filter: opacity(1.0);
+    }
+`
+
 export const DefaultLayout = ({ noMargins = false, children }) => {
     const data = useStaticQuery(nhlbiHhsLogoQuery)
     const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fluid
@@ -62,6 +81,11 @@ export const DefaultLayout = ({ noMargins = false, children }) => {
     return (
         <LayoutWrapper>
             <Toolbar ref={ toolbarElement }>
+                <SocialLinks>
+                    <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
+                    <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
+                </SocialLinks>
+
                 <ExternalButtonLink href="https://nhlbidatastage.org/">Members Area</ExternalButtonLink>
             </Toolbar>
             <StickyWrapper stuck={ stuckHeader }>

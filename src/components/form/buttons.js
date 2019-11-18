@@ -9,6 +9,10 @@ export const Button = styled.button`
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     text-decoration: none;
+    white-space: nowrap;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 `
 
 export const ButtonLink = styled(Button).attrs({ as: Link })`
