@@ -12,14 +12,14 @@ const carouselItems = [
         text: 'Analysis',
         icon: MicroscopeIcon,
         backgroundImage: 'http://picsum.photos/600/300',
-        heading: 'Biomedical Data when you need it and how you need it.',
+        heading: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ullam temporibus laboriosam maiores hic, doloribus ratione animi cupiditate, debitis nihil commodi provident. Laboriosam tempora alias molestiae aliquam, cumque. Modi fugit cum labore, ex beatae, voluptate earum ratione repellat doloribus inventore expedita. Libero, neque deleniti mollitia.',
     },
     {
         text: 'Data',
         icon: DataBoltIcon,
         backgroundImage: 'http://picsum.photos/600/301',
-        heading: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        heading: 'Biomedical Data when you need it and how you need it.',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non hic harum commodi optio dignissimos, reprehenderit quam laudantium temporibus enim. Amet, dolor, distinctio. Vitae sapiente sed alias voluptatum. Porro natus, vero placeat ipsa aliquam non eaque! Laudantium minus vero fugit sit ipsa! Modi sequi, id placeat!',
     },
     {
