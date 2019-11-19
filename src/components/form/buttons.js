@@ -41,9 +41,10 @@ export const ButtonCta = styled(Button).attrs({ as: Link })`
     padding: 1rem 2rem;
     text-transform: uppercase;
     font-size: 120%;
-    transition: filter 250ms;
     text-decoration: none;
+    transition: filter 250ms;
+    filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, 0.5)) brightness(1.0);
     &:hover {
-        filter: brightness(1.25);
+        filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, 0.5)) brightness(1.25);
     }
 `
