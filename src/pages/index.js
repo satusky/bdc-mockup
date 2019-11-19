@@ -27,7 +27,15 @@ const IndexPage = () => (
                         <Col xs={ 12 } lg={ 6 }>
                             <Card title="What is BioData Catalyst?">
                                 <Paragraph>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam natus, ratione sunt enim, quos deleniti veritatis accusamus delectus fugiat, alias fugit quae iusto omnis repellendus at veniam! Vero fugit incidunt sapiente in cum impedit magni autem adipisci commodi quia quam ipsam, iure perferendis sed quidem facilis obcaecati laboriosam distinctio. Sed illo sit reprehenderit eveniet at, temporibus aut soluta dolorem, assumenda repellat veniam amet. Beatae maxime, qui blanditiis modi expedita cum, dolore ut alias harum exercitationem, ab dolor suscipit quo, nemo quae? Accusantium hic, voluptate rerum aspernatur enim a amet itaque sequi esse voluptatem, illum nobis! Pariatur commodi omnis officiis. Harum!
+                                    For NHLBI research investigators who need to find, access, share, store, cross-link, and compute on large scale data sets,
+                                    NHLBI DataSTAGE will serve as a cloud-based platform providing tools, applications, and workflows
+                                    to enable these capabilities in secure workspaces.
+                                    DataSTAGE is a rationally organized digital environment that will
+                                    accelerate efficient biomedical research and maximize community engagement and productivity
+                                    through increased access to NHLBI data sets and innovative data analysis capabilities.
+                                    By making these data sets accessible and usable to varied users,
+                                    DataSTAGE will drive discovery and scientific advancement,
+                                    leading to novel diagnostic tools, therapeutic options, and prevention strategies for heart, lung, blood, and sleep disorders.
                                 </Paragraph>
                             </Card>
                         </Col>
