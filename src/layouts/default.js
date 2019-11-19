@@ -90,7 +90,7 @@ export const DefaultLayout = ({ children }) => {
             </Toolbar>
             <StickyWrapper stuck={ stuckHeader }>
                 <Header>
-                    <Brand />
+                    <Brand height="100%" />
                     { isCompact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
                 </Header>
             </StickyWrapper>

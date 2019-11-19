@@ -9,4 +9,5 @@ export const Header = styled.header`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 4rem;
 `
