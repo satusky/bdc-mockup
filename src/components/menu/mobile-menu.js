@@ -41,7 +41,7 @@ const MobileNavDrawer = styled.div`
     clip-path: polygon(0 0, calc(100% - 4rem) 0, 100% 80%, calc(100% - 4rem) 100%, 0 100%);
     transition: transform 500ms;
     transform: ${ props => props.active ? 'translateX(0)' : 'translateX(-100vw)'};
-    padding: 2rem 3rem 0 2rem;
+    padding: 2rem 0 0 0;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -49,6 +49,7 @@ const MobileNavDrawer = styled.div`
 `
 
 const MobileNav = styled.nav`
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,19 +58,23 @@ const MobileNav = styled.nav`
 `
 
 const MenuLink = styled(Link)`
-    padding: 1rem 0.5rem;
+    padding: 1rem 2rem;
     width: 100%;
-    color: #eee;
+    color: #eef;
     letter-spacing: 2px;
     font-size: 125%;
     font-weight: bold;
     text-decoration: none;
     transform: translateX(0);
-    transition: color 250ms, transform 250ms;
+    transition: color 250ms, background-color 250ms;
     text-transform: uppercase;
+    &.active {
+        background-color: #ffffff33;
+        color: #eee;
+    }
     &:hover {
-        transform: translateX(0.25rem);
-        color: #c99;
+        color: #eee;
+        background-color: #ffffff22;
     }
 `
 
@@ -115,9 +120,11 @@ export const MobileMenu = ({ items }) => {
                 { visible ? <CloseIcon size="24" fill="var(--color-crimson)" /> : <HamburgerIcon size="24" /> }
             </Toggler>
             <MobileNavDrawer active={ visible } onKeyDown={ e => console.log(e) }>
-                <Brand white />
+                <div style={{ marginLeft: '2rem' }}>
+                    <Brand white/>
+                </div>
                 <MobileNav>
-                    { items.map(item => <MenuLink to={ item.path } key={ item.text }>{ item.text }</MenuLink>) }
+                    { items.map(item => <MenuLink to={ item.path } key={ item.text } activeClassName="active">{ item.text }</MenuLink>) }
                 </MobileNav>
                 <SocialLinks>
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
