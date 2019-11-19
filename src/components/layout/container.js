@@ -8,6 +8,14 @@ export const Container = styled.div`
     ${ props => props.center ? 'margin: auto;' : undefined }
 `
 
+const TOP_GUTTER = '3rem'
+const BOTTOM_GUTTER = '3rem'
+
+export const PageContent = styled(Container)`
+    margin-top: ${ props => props.gutters ? TOP_GUTTER : 0 };
+    margin-bottom: ${ props => props.gutters ? BOTTOM_GUTTER : 0 };
+`
+
 export const BandedContainer = styled(Container)`
     position: relative;
     &::before {

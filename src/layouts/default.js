@@ -66,7 +66,7 @@ const SocialIcon = styled.img`
     }
 `
 
-export const DefaultLayout = ({ noMargins = false, children }) => {
+export const DefaultLayout = ({ children }) => {
     const data = useStaticQuery(nhlbiHhsLogoQuery)
     const nhlbiHhsLogo = data.logo.edges[0].node.childImageSharp.fluid
     const { isCompact } = useWindowWidth()
@@ -94,7 +94,7 @@ export const DefaultLayout = ({ noMargins = false, children }) => {
                     { isCompact ? <MobileMenu items={ menuItems } /> : <Menu items={ menuItems } /> }
                 </Header>
             </StickyWrapper>
-            <Main style={ noMargins ? null : { margin: '3rem 0' }}>
+            <Main>
                 { children }
             </Main>
             <Footer>

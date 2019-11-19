@@ -125,7 +125,7 @@ export const MobileMenu = ({ items }) => {
                     <Brand white/>
                 </div>
                 <MobileNav>
-                    { items.map(item => <MenuLink to={ item.path } key={ item.text } activeClassName="active">{ item.text }</MenuLink>) }
+                    { items.map(item => <MenuLink to={ item.path } key={ item.text } activeClassName="active" onClick={ handleCloseMenu }>{ item.text }</MenuLink>) }
                 </MobileNav>
                 <SocialLinks>
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;

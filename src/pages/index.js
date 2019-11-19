@@ -2,13 +2,13 @@ import React from 'react'
 import { DefaultLayout as Layout } from '../layouts'
 import { Heading, Paragraph } from '../components/typography'
 import { Card } from '../components/card'
-import { Container, BandedContainer, BackgroundImageContainer, LineBreak } from '../components/layout'
+import { PageContent, Container, BandedContainer, BackgroundImageContainer, LineBreak } from '../components/layout'
 import { SearchInput, ButtonCta } from '../components/form'
 import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
 import { Carousel, DataContainer } from '../components/modules'
 
 const IndexPage = () => (
-    <Layout noMargins>
+    <PageContent>
         <Carousel />
         
         <LineBreak count={ 4 } />
@@ -92,7 +92,7 @@ const IndexPage = () => (
             </Container>
         </BackgroundImageContainer>
         
-    </Layout>
+    </PageContent>
 )
 
 export default IndexPage

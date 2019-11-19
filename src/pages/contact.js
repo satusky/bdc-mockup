@@ -1,17 +1,13 @@
 import React from 'react'
-import { DefaultLayout as Layout } from '../layouts'
-import { Container } from '../components/layout'
+import { PageContent } from '../components/layout'
 import { Title } from '../components/typography'
 
 const ContactPage = () => (
-    <Layout>
-        <Container width="95%" maxWidth="1080px" center>
+    <PageContent width="95%" maxWidth="1080px" center gutters>
 
-            <Title>Contact</Title>
+        <Title>Contact</Title>
 
-        </Container>
-        
-    </Layout>
+    </PageContent>
 )
 
 export default ContactPage
