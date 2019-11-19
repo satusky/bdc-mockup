@@ -111,6 +111,9 @@ export const MobileMenu = ({ items }) => {
         }
         if (visible) {
             document.addEventListener('keydown', escapeHatch)
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = 'auto'
         }
         return () => document.removeEventListener('keydown', escapeHatch)
     }, [visible])
@@ -118,7 +121,7 @@ export const MobileMenu = ({ items }) => {
     return (
         <Wrapper>
             <Toggler onClick={ handleToggleMenu }>
-                { visible ? <CloseIcon size="24" fill="var(--color-crimson)" /> : <HamburgerIcon size="24" /> }
+                { visible ? <CloseIcon size="56" fill="var(--color-crimson)" /> : <HamburgerIcon size="56" fill="var(--color-crimson)"  /> }
             </Toggler>
             <MobileNavDrawer active={ visible } onKeyDown={ e => console.log(e) }>
                 <div style={{ marginLeft: '2rem' }}>
