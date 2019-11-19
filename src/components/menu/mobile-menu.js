@@ -84,6 +84,7 @@ const SocialLinks = styled.div`
     justify-content: flex-start;
     align-items: center;
     margin: 2rem 0;
+    padding-left: 2rem;:
 `
 
 const SocialIcon = styled.img`
