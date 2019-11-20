@@ -1,5 +1,4 @@
 import React from 'react'
-import { DefaultLayout as Layout } from '../layouts'
 import { Heading, Paragraph } from '../components/typography'
 import { Card } from '../components/card'
 import { PageContent, Container, BandedContainer, BackgroundImageContainer, LineBreak } from '../components/layout'

@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { DefaultLayout as Layout } from '../layouts'
 import { PageContent } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
 
