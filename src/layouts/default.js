@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 import { useStaticQuery, graphql } from 'gatsby'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Toolbar, Header, Brand, Main, Footer, Container, StickyWrapper } from '../components/layout'
@@ -9,6 +10,7 @@ import { ExternalButtonLink } from '../components/form'
 import { Paragraph } from '../components/typography'
 import { Menu, MobileMenu } from '../components/menu'
 import { menuItems } from '../data/menu'
+import { List, ListItem } from '../components/list'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 import githubLogo from '../images/icons/github-logo.png'
 import twitterLogo from '../images/icons/twitter-logo.png'
@@ -101,15 +103,27 @@ export const DefaultLayout = ({ children }) => {
                 <Container width="95%" maxWidth="1080px" center>
                     <Grid fluid>
                         <Row>
-                            <Col xs={ 12 } lg={ 7 }>
+                            <Col xs={ 12 } lg={ 6 }>
                                 <Paragraph center={ isCompact } left={ !isCompact }>
                                     Supported by the National Heart, Lung, and Blood Institute of the National Institutes of Health.
                                     <br/><br/>
                                     For general inquiries, contact <a href="mailto:bdc3@renci.org">bdc3@renci.org</a>.
                                 </Paragraph>
                             </Col>
-                            <Col xs={ 12 } lg={ 5 }>
-                                <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: 'auto' }}/>
+                            <Col xs={ 12 } lg={ 6 }>
+                                <Paragraph right>
+                                    <List>
+                                        <ListItem primary={ <Link to="/">FAQs</Link> } />
+                                        <ListItem primary={ <Link to="/">Documents</Link> } />
+                                        <ListItem primary={ <Link to="/">Support</Link> } />
+                                        <ListItem primary={ <Link to="/">Legal</Link> } />
+                                    </List>
+                                </Paragraph>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs={ 12 }>
+                                <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: '2rem auto' }}/>
                             </Col>
                         </Row>
                         <Row>
