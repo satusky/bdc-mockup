@@ -4,15 +4,15 @@ import { ExpandDownIcon } from '../icons'
 import { Rotator } from '../anim'
 
 const AccordionWrapper = styled.div`
-    border: 1px solid #f99;
+    // border: 1px solid #f99;
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.5rem;
 `
 
 const AccordionTitle = styled.span`
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
     font-size: 120%;
     padding: 1rem;
     cursor: pointer;
