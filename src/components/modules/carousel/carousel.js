@@ -9,7 +9,7 @@ import { useWindowWidth } from '../../../hooks'
 const INTERVAL = 5 * 1000
 const carouselItems = [
     {
-        text: 'Analysis',
+        text: 'Tools',
         icon: MicroscopeIcon,
         backgroundImage: 'http://picsum.photos/600/300',
         heading: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -23,7 +23,7 @@ const carouselItems = [
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non hic harum commodi optio dignissimos, reprehenderit quam laudantium temporibus enim. Amet, dolor, distinctio. Vitae sapiente sed alias voluptatum. Porro natus, vero placeat ipsa aliquam non eaque! Laudantium minus vero fugit sit ipsa! Modi sequi, id placeat!',
     },
     {
-        text: 'Training',
+        text: 'Learn',
         icon: EducationIcon,
         backgroundImage: 'http://picsum.photos/600/302',
         heading: 'Lorem ipsum dolor sit amet.',
