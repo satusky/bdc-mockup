@@ -1,22 +1,72 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { PageContent } from '../components/layout'
-import { Title, Paragraph } from '../components/typography'
+import { Title, Heading, Subheading, Paragraph } from '../components/typography'
 
 const SupportPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
 
-        <Title>Support & User Engagement</Title>
+        <Title>Learn & Support</Title>
+    
+        <Heading>Documentation</Heading>
 
+        <Paragraph>
+            Find step by step instructions on how to use BioData Catalyst services and tools.
+        </Paragraph>
+
+        <Subheading>Teams</Subheading>
+
+        <ul>
+            <li>Gen3</li>
+            <li>Terra</li>
+            <li>Etc.</li>
+        </ul>
+
+        <Heading>Services & Tools</Heading>
+
+        <Paragraph>
+            Learn about the different services and tools in BioData Catalyst and what you can do with them.
+        </Paragraph>
+
+        <div>Possibly render matrix of Tools &times; Abilities</div>
+
+        <Heading>FAQs</Heading>
+        <Paragraph>
+            Browse our answers to <Link to="/faq">frequently asked questions</Link> from BioData Catalyst users.
+        </Paragraph>
+
+        <Heading>Community Forums</Heading>
+        <Paragraph>
+            Connect with others using the BioData Catalyst and learn how they are using the system.
+        </Paragraph>
+
+        <Heading>Videos</Heading>
+        <Paragraph>
+            View BioData Catalyst team webinars, workshops, and how-to videos.
+        </Paragraph>
+
+        <Heading>Blog Posts & Tutorials</Heading>
         <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus cum dolorum officia minus consequuntur rem odit adipisci assumenda doloremque in repellat dicta nesciunt facere deleniti omnis, quibusdam, voluptate ullam, cumque.
         </Paragraph>
-
+        
+        <Heading>Help Desk</Heading>
         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam quia, saepe tempora, est aliquid, molestiae dolorum velit corrupti ipsam, id placeat sint fugiat harum vitae a illo. Libero veniam fugiat, praesentium atque quasi! Amet similique eligendi dolorum in veritatis alias quae, est incidunt vel distinctio aliquid vitae consectetur debitis quidem ex consequatur, id temporibus? Vero id sunt voluptas repellendus deleniti ab ipsa doloremque consequuntur obcaecati labore porro pariatur perspiciatis commodi, atque ut. Laboriosam dolore tempore accusantium est dolorum quidem omnis voluptatibus iste deserunt voluptates provident modi inventore voluptatum sapiente vitae non harum nesciunt, tenetur! Nemo facere laboriosam, impedit doloremque voluptate.
+            Are you seeking help on working with BioData Catalyst? <Link to="/">Connect with our Support Team now</Link>!
         </Paragraph>
 
+        <Heading>Follow Us</Heading>
         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem atque quam quod corporis aliquam ipsam tempora doloribus ipsa nobis praesentium velit, laborum repellat ullam ex officia deserunt, quis vero tenetur eveniet vitae deleniti. Delectus ipsum ea rerum a esse animi quidem incidunt. Harum, perspiciatis dolore, iure consequatur eaque similique. Nisi.
+            Tweet at us @bcd_help or twwet with hashtag bcdhelp or something
+        </Paragraph>
+
+        <Heading>Ideas & Suggestions</Heading>
+        <div>front page cta</div>
+        <div>Move up in site tree</div>
+
+        <Heading>Legal</Heading>
+        <Paragraph>
+            Learn more about our privacy policies, terms of use, copyright policies, data use, and financial conflicts of interest.
         </Paragraph>
 
     </PageContent>
