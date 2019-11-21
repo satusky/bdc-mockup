@@ -10,6 +10,7 @@ const INTERVAL = 5 * 1000
 const carouselItems = [
     {
         text: 'Tools',
+        path: '/tools',
         icon: MicroscopeIcon,
         backgroundImage: 'http://picsum.photos/600/300',
         heading: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -17,13 +18,15 @@ const carouselItems = [
     },
     {
         text: 'Data',
+        path: '/data',
         icon: DataBoltIcon,
         backgroundImage: 'http://picsum.photos/600/301',
         heading: 'Biomedical Data when you need it and how you need it.',
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non hic harum commodi optio dignissimos, reprehenderit quam laudantium temporibus enim. Amet, dolor, distinctio. Vitae sapiente sed alias voluptatum. Porro natus, vero placeat ipsa aliquam non eaque! Laudantium minus vero fugit sit ipsa! Modi sequi, id placeat!',
     },
     {
-        text: 'Learn',
+        text: 'Training',
+        path: '/training',
         icon: EducationIcon,
         backgroundImage: 'http://picsum.photos/600/302',
         heading: 'Lorem ipsum dolor sit amet.',
@@ -126,6 +129,7 @@ export const Carousel = () => {
                     carouselItems.map((tab, i) => (
                         <Hexagon
                             key={ i }
+                            path={ tab.path }
                             active={ index === i }
                             size={ isCompact ? window.innerWidth / 3.5 : 200 }
                             growOnActive={ !isCompact }

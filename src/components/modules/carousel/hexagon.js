@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
-export const HexagonWrapper = styled.div`
+export const HexagonWrapper = styled(Link)`
+    text-decoration: none;
     filter: drop-shadow(0 0 16px rgba(0, 0, 2, 0.15));
     margin: 0 -1rem; // squish hexagons together horizontally
     &:nth-child(2n - 1) { // offset every other hexagon vertically
@@ -31,11 +33,11 @@ const HexagonText = styled.span`
     margin-top: 1rem;
 `
 
-export const Hexagon = ({ size, color, active, growOnActive, icon, text, showtext, hoverHandler }) => {
+export const Hexagon = ({ size, color, active, growOnActive, path, icon, text, showtext, hoverHandler }) => {
     const Icon = icon
 
     return (
-        <HexagonWrapper>
+        <HexagonWrapper to={ path }>
             <HexagonInterior active={ active } growOnActive={ growOnActive } size={ size } color={ active ? 'var(--color-crimson)' : '#dcc' } onMouseOver={ hoverHandler }>
                 <Icon size={ Math.ceil(size / 3) } />
                 { showtext && <HexagonText>{ text }</HexagonText> }
