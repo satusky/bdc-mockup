@@ -23,13 +23,9 @@ export const menuItems = [
         text: 'Data',
         path: '/data',
     },
-    {
-        text: 'FAQ',
-        path: '/faq',
-    },
     // {
-    //     text: 'Access',
-    //     path: '/access',
+    //     text: 'FAQ',
+    //     path: '/faq',
     // },
     {
         text: 'Contact',
