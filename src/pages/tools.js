@@ -2,12 +2,12 @@ import React from 'react'
 import { PageContent } from '../components/layout'
 import { Title } from '../components/typography'
 
-const AccessPage = () => (
+const ToolsPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
 
-        <Title>Access</Title>
+        <Title>Tools & Analysis</Title>
 
     </PageContent>
 )
 
-export default AccessPage
+export default ToolsPage
