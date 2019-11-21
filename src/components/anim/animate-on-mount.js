@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useSpring, animated } from 'react-spring'
 
-
 export const AnimateOnMount = ({
     children,
     mass = 2, tension = 80, friction = 30,
