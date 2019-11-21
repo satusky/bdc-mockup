@@ -3,10 +3,10 @@ import { Link } from 'gatsby'
 import { PageContent } from '../components/layout'
 import { Title, Heading, Subheading, Paragraph } from '../components/typography'
 
-const SupportPage = () => (
+const ResourcesPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
 
-        <Title>Learn & Support</Title>
+        <Title>Resources</Title>
     
         <Heading>Documentation</Heading>
 
@@ -72,4 +72,4 @@ const SupportPage = () => (
     </PageContent>
 )
 
-export default SupportPage
+export default ResourcesPage
