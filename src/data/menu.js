@@ -11,18 +11,18 @@ export const menuItems = [
         text: 'Resources',
         path: '/resources',
     },
-    {
-        text: 'Training',
-        path: '/training',
-    },
-    {
-        text: 'Tools',
-        path: '/tools',
-    },
-    {
-        text: 'Data',
-        path: '/data',
-    },
+    // {
+    //     text: 'Data',
+    //     path: '/data',
+    // },
+    // {
+    //     text: 'Tools',
+    //     path: '/tools',
+    // },
+    // {
+    //     text: 'Training',
+    //     path: '/training',
+    // },
     // {
     //     text: 'FAQ',
     //     path: '/faq',
