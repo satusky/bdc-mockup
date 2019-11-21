@@ -46,11 +46,12 @@ const SearchButton = styled.button`
     }
 `
 
-export const MonarchSearch = () => {
+export const MonarchSearch = ({ value, onChange, onSubmit }) => {
+    console.log(value)
     return (
         <SearchContainer>
-            <TextInput placeholder="Monarch Search" />
-            <SearchButton>
+            <TextInput value={ value } onChange={ onChange } placeholder="Monarch Search" />
+            <SearchButton onClick={ onSubmit }>
                 <MagnifyingGlassIcon size="30" fill="#999" />
             </SearchButton>
         </SearchContainer>

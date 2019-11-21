@@ -1,5 +1,6 @@
 export * from './close-icon'
 export * from './data-bolt-icon'
+export * from './delete-icon'
 export * from './expand-icons'
 export * from './education-icon'
 export * from './hamburger-icon'
