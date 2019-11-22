@@ -27,7 +27,7 @@ const SearchPage = () => {
     const handleChangeQuery = e => setQuery(e.target.value)
 
     const handleChangeOption = property => e => {
-        setSearchOptions({ ...searchOptions, [property]: e.target.value })
+        setSearchOptions({ ...searchOptions, [property]: Math.max(0, +e.target.value) })
     }
 
     const handleSubmit = e => {
@@ -49,8 +49,8 @@ const SearchPage = () => {
         }).then(response => {
                 console.log(response.data)
                 setResults({
-                    rows: +searchOptions.rows,
-                    start: +searchOptions.start,
+                    rows: searchOptions.rows,
+                    start: searchOptions.start,
                     data: response.data.docs,
                 })
             })
@@ -69,11 +69,11 @@ const SearchPage = () => {
             </Paragraph>
             
             <Paragraph center>
-                <label htmlFor="search-results-rows">Rows</label>
-                <input id="search-results-rows" type="number" value={ searchOptions.rows } onChange={ handleChangeOption('rows') }/>
-
-                <label htmlFor="search-results-start">Start</label>
+                <label htmlFor="search-results-start">Start:</label>
                 <input id="search-results-start" type="number" value={ searchOptions.start } onChange={ handleChangeOption('start') }/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label htmlFor="search-results-rows">Rows:</label>
+                <input id="search-results-rows" type="number" value={ searchOptions.rows } onChange={ handleChangeOption('rows') }/>
             </Paragraph>
 
             <MonarchSearch value={ query } onChange={ handleChangeQuery } onSubmit={ handleSubmit } />
@@ -83,7 +83,7 @@ const SearchPage = () => {
                     <Col xs={ 12 } sm={ 10 }>
                         <Heading>
                             Results &nbsp;
-                            { results.data.length > 0 && <span>({ 1 + results.start } - { +results.start + results.data.length })</span> }
+                            { results.data.length > 0 && <span>({ results.start } - { -1 + results.start + results.data.length })</span> }
                         </Heading>
                     </Col>
                     <Col xs={ 12 } sm={ 2 }>
@@ -97,7 +97,7 @@ const SearchPage = () => {
                 loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <pre style={{ backgroundColor: '#ccc', overflowX: 'hidden' }}>
+                    <pre style={{ padding: '2rem', backgroundColor: '#ccc', overflowX: 'scroll' }}>
                         { JSON.stringify(results.data, null, 2) }
                     </pre>
                 )
