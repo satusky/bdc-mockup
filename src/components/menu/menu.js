@@ -63,8 +63,6 @@ export const SubmenuHeader = styled.div`
     cursor: pointer;
     transition: color 500ms, background-color 250ms;
     height: 100%;
-    &:hover {
-    }
     & svg {
         transition: transform 250ms;
         transform: ${ props => props.open ? 'translateY(0.25rem)' : 'translateY(0)' };
@@ -120,7 +118,8 @@ export const Menu = ({ items, showBrand }) => {
                                                     // console.log(props.location.pathname, 'contains', item.path, ':', props.location.pathname.includes(item.path))
                                                     return (
                                                         <SubmenuHeader active={ thisSubmenuIsActive } open={ openSubmenu === currentIndex }>
-                                                            { item.text } &nbsp; <ExpandDownIcon color="#333" />
+                                                            { item.text } &nbsp;
+                                                            <ExpandDownIcon size="16" />
                                                         </SubmenuHeader>
                                                     )
                                                 }
