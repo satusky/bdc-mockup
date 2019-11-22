@@ -1,8 +1,8 @@
 export const menuItems = [
-    {
-        text: 'Home',
-        path: '/',
-    },
+    // {
+    //     text: 'Home',
+    //     path: '/',
+    // },
     {
         text: 'About',
         path: '/about',
@@ -10,19 +10,21 @@ export const menuItems = [
     {
         text: 'Resources',
         path: '/resources',
+        submenu: [
+            {
+                text: 'Data',
+                path: '/resources/data',
+            },
+            {
+                text: 'Tools',
+                path: '/resources/tools',
+            },
+            {
+                text: 'Training',
+                path: '/resources/training',
+            },
+        ],
     },
-    // {
-    //     text: 'Data',
-    //     path: '/data',
-    // },
-    // {
-    //     text: 'Tools',
-    //     path: '/tools',
-    // },
-    // {
-    //     text: 'Training',
-    //     path: '/training',
-    // },
     // {
     //     text: 'FAQ',
     //     path: '/faq',

@@ -1,8 +1,13 @@
 import React from 'react'
+<<<<<<< HEAD:src/pages/tools.js
 import { PageContent } from '../components/layout'
 import { Title, Heading } from '../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Card } from '../components/card'
+=======
+import { PageContent } from '../../components/layout'
+import { Title } from '../../components/typography'
+>>>>>>> implement submenus:src/pages/resources/tools.js
 
 const ToolsPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
