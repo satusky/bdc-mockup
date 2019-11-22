@@ -7,18 +7,25 @@ import { LineBreak } from '../components/layout'
 import { Container as Grid, Row, Col} from 'react-grid-system'
 import { DeleteIcon } from '../components/icons'
 
+const initialState = {
+    rows: 10,
+    start: 0,
+}
+
 const SearchPage = () => {
     const [query, setQuery] = useState('')
+    const [searchOptions, setSearchOptions] = useState(initialState)
     const [results, setResults] = useState([])
-    const [rows, setRow] = useState(10)
-    const [start, setStart] = useState(0)
+    const [loading, setLoading] = useState(false)
+
     const handleChangeQuery = e => setQuery(e.target.value)
 
     const handleSubmit = e => {
+        setLoading(true)
         console.log('Searching...')
         var params = new URLSearchParams()
-        params.append('rows', rows)
-        params.append('start', start)
+        params.append('rows', searchOptions.rows)
+        params.append('start', searchOptions.start)
         params.append('highlight_class', 'hilite')
         params.append('boost_q', 'category:genotype%5E-10')
         params.append('prefix', 'HP')
@@ -34,7 +41,8 @@ const SearchPage = () => {
                 setResults(response.data.docs)
             })
             .catch(error => console.error(error))
-       fetchResults()
+        fetchResults()
+        setLoading(false)
     }
 
     return (
@@ -54,9 +62,8 @@ const SearchPage = () => {
                 <Row>
                     <Col xs={ 12 } sm={ 10 }>
                         <Heading>
-                            Results {
-                                results.length > 0 && <span>({ start + 1 } - { start + 1 + results.length })</span>
-                            }
+                            Results &nbsp;
+                            { results.length > 0 && <span>({ searchOptions.start + 1 } - { searchOptions.start + 1 + results.length })</span> }
                         </Heading>
                     </Col>
                     <Col xs={ 12 } sm={ 2 }>
@@ -66,9 +73,15 @@ const SearchPage = () => {
                 </Row>
             </Grid>
 
-            <pre style={{ backgroundColor: '#ccc', overflowX: 'hidden' }}>
-                { JSON.stringify(results.map(({ id }) => id), null, 2) }
-            </pre>
+            {
+                loading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <pre style={{ backgroundColor: '#ccc', overflowX: 'hidden' }}>
+                        { JSON.stringify(results, null, 2) }
+                    </pre>
+                )
+            }
 
         </PageContent>
     )
