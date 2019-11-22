@@ -12,13 +12,23 @@ const initialState = {
     start: 0,
 }
 
+const initialResponse = {
+    rows: 0,
+    start: 0,
+    data: [],
+}
+
 const SearchPage = () => {
     const [query, setQuery] = useState('')
     const [searchOptions, setSearchOptions] = useState(initialState)
-    const [results, setResults] = useState([])
+    const [results, setResults] = useState(initialResponse)
     const [loading, setLoading] = useState(false)
 
     const handleChangeQuery = e => setQuery(e.target.value)
+
+    const handleChangeOption = property => e => {
+        setSearchOptions({ ...searchOptions, [property]: e.target.value })
+    }
 
     const handleSubmit = e => {
         setLoading(true)
@@ -38,7 +48,11 @@ const SearchPage = () => {
             params: params
         }).then(response => {
                 console.log(response.data)
-                setResults(response.data.docs)
+                setResults({
+                    rows: +searchOptions.rows,
+                    start: +searchOptions.start,
+                    data: response.data.docs,
+                })
             })
             .catch(error => console.error(error))
         fetchResults()
@@ -53,9 +67,15 @@ const SearchPage = () => {
             <Paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ea dolorem natus unde aspernatur, rerum excepturi maiores nobis in iusto adipisci, voluptate quod quas fugit voluptatum. Nostrum maiores dignissimos deleniti.
             </Paragraph>
-
-            <input type="number" value={ 500 } />
             
+            <Paragraph center>
+                <label htmlFor="search-results-rows">Rows</label>
+                <input id="search-results-rows" type="number" value={ searchOptions.rows } onChange={ handleChangeOption('rows') }/>
+
+                <label htmlFor="search-results-start">Start</label>
+                <input id="search-results-start" type="number" value={ searchOptions.start } onChange={ handleChangeOption('start') }/>
+            </Paragraph>
+
             <MonarchSearch value={ query } onChange={ handleChangeQuery } onSubmit={ handleSubmit } />
 
             <Grid fluid>
@@ -63,7 +83,7 @@ const SearchPage = () => {
                     <Col xs={ 12 } sm={ 10 }>
                         <Heading>
                             Results &nbsp;
-                            { results.length > 0 && <span>({ searchOptions.start + 1 } - { searchOptions.start + 1 + results.length })</span> }
+                            { results.data.length > 0 && <span>({ 1 + results.start } - { +results.start + results.data.length })</span> }
                         </Heading>
                     </Col>
                     <Col xs={ 12 } sm={ 2 }>
@@ -78,7 +98,7 @@ const SearchPage = () => {
                     <div>Loading...</div>
                 ) : (
                     <pre style={{ backgroundColor: '#ccc', overflowX: 'hidden' }}>
-                        { JSON.stringify(results, null, 2) }
+                        { JSON.stringify(results.data, null, 2) }
                     </pre>
                 )
             }
