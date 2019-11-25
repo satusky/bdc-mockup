@@ -10,7 +10,7 @@ const INTERVAL = 5 * 1000
 const carouselItems = [
     {
         text: 'Tools',
-        path: '/tools',
+        path: '/resources/tools',
         icon: MicroscopeIcon,
         backgroundImage: 'http://picsum.photos/600/300',
         heading: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
@@ -18,7 +18,7 @@ const carouselItems = [
     },
     {
         text: 'Data',
-        path: '/data',
+        path: '/resources/data',
         icon: DataBoltIcon,
         backgroundImage: 'http://picsum.photos/600/301',
         heading: 'Biomedical Data when you need it and how you need it.',
@@ -26,7 +26,7 @@ const carouselItems = [
     },
     {
         text: 'Training',
-        path: '/training',
+        path: '/resources/training',
         icon: EducationIcon,
         backgroundImage: 'http://picsum.photos/600/302',
         heading: 'Lorem ipsum dolor sit amet.',
