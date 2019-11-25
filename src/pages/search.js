@@ -86,7 +86,7 @@ const SearchPage = () => {
                             { results.data.length > 0 && <span>({ results.start } - { -1 + results.start + results.data.length })</span> }
                         </Heading>
                     </Col>
-                    <Col xs={ 12 } sm={ 2 }>
+                    <Col xs={ 12 } sm={ 2 } style={{ textAlign: 'right' }}>
                         <br/>
                         <button onClick={ () => setResults([]) }><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
                     </Col>
@@ -97,9 +97,20 @@ const SearchPage = () => {
                 loading ? (
                     <div>Loading...</div>
                 ) : (
-                    <pre style={{ padding: '2rem', backgroundColor: '#ccc', overflowX: 'scroll' }}>
-                        { JSON.stringify(results.data, null, 2) }
-                    </pre>
+                    <div>
+                        {
+                            results.data.length > 0 && results.data.map(item => {
+                                return (
+                                    <Fragment>
+                                        <a href={ `https://monarch-initiative.github.io/HeliumPhenotypeSearch/${ item.id }` } target="_blank" rel="noreferrer noopener">{ item.id }</a>
+                                        <pre style={{ fontSize: '80%', padding: '2rem', backgroundColor: '#ccc', overflowX: 'scroll' }}>
+                                            { JSON.stringify(item, null, 2) }
+                                        </pre>
+                                    </Fragment>
+                                )
+                            })
+                        }
+                    </div>
                 )
             }
 
