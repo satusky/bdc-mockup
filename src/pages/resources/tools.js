@@ -38,34 +38,6 @@ const ToolsPage = () => (
                         </Paragraph>
                     </Card>
                 </Col>
-                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Jupyter Notebook 1">
-                        <Paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
-                        </Paragraph>
-                        <Paragraph center>
-                            <Button light>Launch</Button>
-                            <br/><br/>
-                            <Button light>Learn More</Button>
-                        </Paragraph>
-                    </Card>
-                </Col>
-                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Jupyter Notebook 2">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
-                    </Card>
-                </Col>
-                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Pipeline Builder">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, temporibus assumenda? Debitis.
-                    </Card>
-                </Col>
-                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="DocServer">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic minima soluta temporibus.
-                    </Card>
-                </Col>
-
             </Row>
         </Grid>
 
