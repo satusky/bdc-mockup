@@ -123,7 +123,9 @@ export const DefaultLayout = ({ children }) => {
                         </Row>
                         <Row>
                             <Col xs={ 12 }>
-                                <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: '2rem auto' }}/>
+                                <a href="https://www.nhlbi.nih.gov/" target="_blank" rel="noreferrer noopener">
+                                    <Img fluid={ nhlbiHhsLogo } style={{ maxWidth: '353px', height: 'auto', margin: '2rem auto' }}/>
+                                </a>
                             </Col>
                         </Row>
                         <Row>
