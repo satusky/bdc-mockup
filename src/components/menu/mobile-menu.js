@@ -98,7 +98,7 @@ const SocialIcon = styled.img`
 `
 
 export const MobileMenu = ({ items }) => {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
     
     const handleToggleMenu = () => setVisible(!visible)
     const handleCloseMenu = () => setVisible(false)
