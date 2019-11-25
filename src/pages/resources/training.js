@@ -14,7 +14,7 @@ const TrainingPage = () => (
             Find step by step instructions on how to use BioData Catalyst services and tools.
         </Paragraph>
 
-        <Subheading>Team-Specific Support</Subheading>
+        <Heading>Team-Specific Support</Heading>
 
         <ul>
             <li>Gen3</li>
@@ -56,6 +56,19 @@ const TrainingPage = () => (
         <Paragraph>
             Tweet at us @bcd_help or twwet with hashtag bcdhelp or something
         </Paragraph>
+
+        <Title>Release Notes</Title>
+
+        <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, repudiandae impedit totam doloribus facilis illum nam cumque! Dolorem amet non ea veniam laborum.
+        </Paragraph>
+
+        <Title>Collaborations & Research Partners</Title>
+
+        <Paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae omnis a distinctio, optio eaque minus veritatis, dolorem, quia aut quidem consequatur molestiae modi consequuntur cupiditate quaerat! Quo neque similique iusto, quibusdam odit sequi perferendis eligendi consectetur, ipsam recusandae magnam animi, et ex minus provident eum!
+        </Paragraph>
+
     </PageContent>
 )
 
