@@ -98,7 +98,7 @@ const SocialIcon = styled.img`
 `
 
 export const MobileMenu = ({ items }) => {
-    const [visible, setVisible] = useState()
+    const [visible, setVisible] = useState(true)
     
     const handleToggleMenu = () => setVisible(!visible)
     const handleCloseMenu = () => setVisible(false)
@@ -128,7 +128,13 @@ export const MobileMenu = ({ items }) => {
                     <Brand white/>
                 </div>
                 <MobileNav>
-                    { items.map(item => <MenuLink to={ item.path } key={ item.text } activeClassName="active" onClick={ handleCloseMenu }>{ item.text }</MenuLink>) }
+                    {
+                        items.map(item => {
+                            return item.submenu
+                            ? item.submenu.map(subitem => <MenuLink to={ subitem.path } key={ subitem.text } activeClassName="active" onClick={ handleCloseMenu }>{ subitem.text }</MenuLink>)
+                            : <MenuLink to={ item.path } key={ item.text } activeClassName="active" onClick={ handleCloseMenu }>{ item.text }</MenuLink>
+                        })
+                    }
                 </MobileNav>
                 <SocialLinks>
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
