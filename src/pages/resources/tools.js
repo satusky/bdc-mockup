@@ -2,7 +2,7 @@ import React from 'react'
 import { PageContent } from '../../components/layout'
 import { Title, Heading, Paragraph } from '../../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import { Button } from '../../components/form'
+import { Button } from '../../components/buttons'
 import { Card } from '../../components/card'
 
 const ToolsPage = () => (
