@@ -129,7 +129,7 @@ export const Menu = ({ items, showBrand }) => {
                                             { item.submenu.map(subitem => <MenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>) }
                                         </Submenu>
                                     </Fragment>
-                                    : <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>
+                                    : <MenuLink exact={ true } to={ item.path } activeClassName="active" partiallyActive={ false }>{ item.text }</MenuLink>
                             }
                         </MenuItem>
                     )}
