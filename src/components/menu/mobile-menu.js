@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import { CloseIcon, ExpandDownIcon, HamburgerIcon } from '../icons'
+import { CloseIcon, HamburgerIcon } from '../icons'
 import { Brand } from '../layout'
 import githubLogo from '../../images/icons/github-logo.png'
 import twitterLogo from '../../images/icons/twitter-logo.png'
-import { Rotator } from '../anim'
 
 const Overlay = styled.div`
     position: fixed;
@@ -58,44 +57,7 @@ const MobileNav = styled.nav`
     flex: 1;
 `
 
-export const MobileSubmenuHeader = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    color: var(--color-white);
-    border: 0;
-    padding: 0.5rem 1rem;
-    margin: 0;
-    letter-spacing: 2px;
-    position: relative;
-    cursor: pointer;
-    font-weight: 400;
-    transition: color 500ms, background-color 250ms;
-    background-color: var(--color-primary);
-    position: relative;
-    &:hover {
-        background-color: var(--color-primary-dark);
-        & svg {
-            fill: var(--color-light);
-        }
-    }
-    &.active {
-        color: var(--color-real-black);
-        background-color: var(--color-primary-dark);
-        &:hover {
-            color: var(--color-real-black);
-            background-color: var(--color-primary-dark);
-        }
-    }
-`
-
-export const MobileMenuItem = styled.div`
-    // border: 1px solid #f99;
-`
-
-const MobileMenuLink = styled(Link)`
+const MenuLink = styled(Link)`
     padding: 1rem 2rem;
     width: 100%;
     color: #eef;
@@ -114,15 +76,6 @@ const MobileMenuLink = styled(Link)`
         color: #eee;
         background-color: #ffffff22;
     }
-`
-
-export const MobileSubmenu = styled.nav.attrs({ className: 'submenu' })`
-    font-size: 80%;
-    min-width: 100%;
-    border: solid var(--color-primary-dark);
-    border-width: 1px;
-    background-color: var(--color-primary);
-    transition: transform 150ms, opacity 250ms;
 `
 
 const SocialLinks = styled.div`
@@ -146,18 +99,6 @@ const SocialIcon = styled.img`
 
 export const MobileMenu = ({ items }) => {
     const [visible, setVisible] = useState()
-    const [activeSubmenus, setActiveSubmenus] = useState([])
-
-    const handleToggleSubmenu = index => event => {
-        let newActiveSubmenus = []
-        if (activeSubmenus.includes(index)) {
-            newActiveSubmenus = newActiveSubmenus.filter(i => i !== index)
-        } else {
-            newActiveSubmenus = activeSubmenus.concat([index])
-        }
-        setActiveSubmenus(newActiveSubmenus)
-    }
-    const closeAllSubmenus = () => setActiveSubmenus([])
     
     const handleToggleMenu = () => setVisible(!visible)
     const handleCloseMenu = () => setVisible(false)
@@ -187,32 +128,7 @@ export const MobileMenu = ({ items }) => {
                     <Brand white/>
                 </div>
                 <MobileNav>
-                {
-                    items.map((item, currentIndex) => (
-                        <MobileMenuItem key={ item.path } onClick={ item.submenu && handleToggleSubmenu(currentIndex) }>
-                            {
-                                item.submenu
-                                ? (
-                                    <Fragment>
-                                        <MobileSubmenuHeader key={ item.path } to={ item.path } active={ activeSubmenus.includes(currentIndex) }>
-                                            { item.text }
-                                            <Rotator style={{ position: 'absolute', right: '1rem' }} rotated={ activeSubmenus.includes(currentIndex) }>
-                                                <ExpandDownIcon color="var(--color-primary-dark)" />
-                                            </Rotator>
-                                        </MobileSubmenuHeader>
-                                            <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>
-                                                { item.submenu.map(subitem => <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MobileMenuLink>) }
-                                            </MobileSubmenu>
-                                    </Fragment>
-                                ) : (
-                                    <MobileMenuLink onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>
-                                        { item.text }
-                                    </MobileMenuLink>
-                                )
-                            }
-                        </MobileMenuItem>
-                    ))
-                }
+                    { items.map(item => <MenuLink to={ item.path } key={ item.text } activeClassName="active" onClick={ handleCloseMenu }>{ item.text }</MenuLink>) }
                 </MobileNav>
                 <SocialLinks>
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
