@@ -1,7 +1,8 @@
 import React from 'react'
 import { PageContent } from '../../components/layout'
-import { Title, Heading } from '../../components/typography'
+import { Title, Heading, Paragraph } from '../../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
+import { Button } from '../../components/form'
 import { Card } from '../../components/card'
 
 const ToolsPage = () => (
@@ -13,32 +14,53 @@ const ToolsPage = () => (
 
         <Grid fluid>
             <Row>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Picture Cohort Explorer">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste exercitationem, totam deserunt!
+                        <Paragraph>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste exercitationem, totam deserunt!
+                        </Paragraph>
+                        <Paragraph center>
+                            <Button light>Launch</Button>
+                            <br/><br/>
+                            <Button light>Learn More</Button>
+                        </Paragraph>
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Ashok's Image Analysis">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae non ea commodi.
+                        <Paragraph>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae non ea commodi.
+                        </Paragraph>
+                        <Paragraph center>
+                            <Button light>Launch</Button>
+                            <br/><br/>
+                            <Button light>Learn More</Button>
+                        </Paragraph>
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Jupyter Notebook 1">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
+                        <Paragraph>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
+                        </Paragraph>
+                        <Paragraph center>
+                            <Button light>Launch</Button>
+                            <br/><br/>
+                            <Button light>Learn More</Button>
+                        </Paragraph>
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Jupyter Notebook 2">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Pipeline Builder">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, temporibus assumenda? Debitis.
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="DocServer">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic minima soluta temporibus.
                     </Card>
@@ -51,17 +73,17 @@ const ToolsPage = () => (
 
         <Grid fluid>
             <Row>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="GWAS Analysis Pipeline 1">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="GWAS Analysis Pipeline 2">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="GWAS Analysis Pipeline 3">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
                     </Card>
@@ -74,12 +96,12 @@ const ToolsPage = () => (
 
         <Grid fluid>
             <Row>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Jupyter Notebook 1">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Jupyter Notebook 2">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
                     </Card>
@@ -92,12 +114,12 @@ const ToolsPage = () => (
 
         <Grid fluid>
             <Row>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="Pipeline Builder">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, temporibus assumenda? Debitis.
                     </Card>
                 </Col>
-                <Col xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } style={{ marginBottom: '2rem' }}>
+                <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
                     <Card title="DocServer">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic minima soluta temporibus.
                     </Card>
