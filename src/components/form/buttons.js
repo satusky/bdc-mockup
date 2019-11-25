@@ -2,14 +2,15 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 export const Button = styled.button`
-    background-color: var(--color-crimson);
+    background-color: ${ props => props.light ? '#fff' : 'var(--color-crimson)' };
     border-radius: 1rem;
-    border: 0;
-    color: #fff;
+    border: ${ props => props.light ? '2px solid var(--color-crimson)' : '0' };
+    color: ${ props => props.light ? 'var(--color-crimson)' : '#fff' };
     padding: 0.5rem 1rem;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
     // display: flex;
     // justify-content: center;
     // align-items: center;
