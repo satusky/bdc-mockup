@@ -1,8 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: `Default Starter`,
-    description: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum possimus iusto inventore.`,
-    author: `mbwatson`,
+    title: `BioData Catalyst`,
+    description: `BioData Catalyst`,
+    author: `BioData Catalyst`,
+    keywords: ["datastage"],
+    siteUrl: 'https://biodatacatalyst.nhlbi.org/',
+    twitterUsername: '',
   },
   plugins: [
     {
