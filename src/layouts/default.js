@@ -111,14 +111,12 @@ export const DefaultLayout = ({ children }) => {
                                 </Paragraph>
                             </Col>
                             <Col xs={ 12 } lg={ 6 }>
-                                <Paragraph right>
-                                    <List>
-                                        <ListItem primary={ <Link to="/faq">FAQs</Link> } />
-                                        <ListItem primary={ <Link to="/docs">Documents</Link> } />
-                                        <ListItem primary={ <Link to="/support">Support</Link> } />
-                                        <ListItem primary={ <Link to="/legal">Legal</Link> } />
-                                    </List>
-                                </Paragraph>
+                                <List right>
+                                    <ListItem primary={ <Link to="/faq">FAQs</Link> } />
+                                    <ListItem primary={ <Link to="/docs">Documents</Link> } />
+                                    <ListItem primary={ <Link to="/support">Support</Link> } />
+                                    <ListItem primary={ <Link to="/legal">Legal</Link> } />
+                                </List>
                             </Col>
                         </Row>
                         <Row>

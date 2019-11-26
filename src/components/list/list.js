@@ -6,6 +6,9 @@ export const UnorderedList = styled.ul`
     list-style-type: none;
     margin: 0 0 2rem 0;
     padding: 0;
+    text-align: left;
+    ${ props => props.center === true ? 'text-align: center;' : undefined}
+    ${ props => props.right === true ? 'text-align: right;' : undefined}
 `
 
 export const ListTitle = styled.h4`
@@ -41,9 +44,9 @@ ListItem.propTypes = {
     secondary: PropTypes.node,
 }
 
-export const List = ({ children }) => {
+export const List = ({ children, ...props }) => {
     return (
-        <UnorderedList>
+        <UnorderedList { ...props }>
             { children }
         </UnorderedList>
     )
