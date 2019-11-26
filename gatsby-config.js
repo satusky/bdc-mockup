@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `BioData Catalyst`,
-    description: `BioData Catalyst`,
+    description: `BioData Catalyst serves as a cloud-based platform of tools, applictions, and workflows to help NHLBI research investigators securely find, access, share, store, cross-link, and compute on large scale data sets,`,
     author: `BioData Catalyst`,
     keywords: ["datastage"],
     siteUrl: 'https://biodatacatalyst.nhlbi.org/',
