@@ -32,7 +32,7 @@ const OffsetCardTitle = styled(CardTitle)`
     width: 75%;
 `
 
-export const Card = ({ offsetTitle, bgColor, fgColor, children }) => {
+export const Card = ({ children }) => {
     const { isCompact } = useWindowWidth()
     
     return (
@@ -43,6 +43,5 @@ export const Card = ({ offsetTitle, bgColor, fgColor, children }) => {
 }
 
 Card.propTypes = {
-    title: PropTypes.node.isRequired,
     children: PropTypes.node.isRequired,
 }
