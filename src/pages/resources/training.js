@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../../components/seo'
 import { PageContent } from '../../components/layout'
-import { Title, Heading, Subheading, Paragraph } from '../../components/typography'
+import { Title, Heading, Paragraph } from '../../components/typography'
 
 const TrainingPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
