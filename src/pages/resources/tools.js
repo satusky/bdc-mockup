@@ -8,6 +8,11 @@ import { Card, CardHeader, CardBody } from '../../components/card'
 
 const ToolsPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
+        <SEO
+            title="Available Tools"
+            description=""
+            keywords=""
+        />
 
         <Title>Tools & Analysis</Title>
         

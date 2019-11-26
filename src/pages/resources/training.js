@@ -6,6 +6,11 @@ import { Title, Heading, Subheading, Paragraph } from '../../components/typograp
 
 const TrainingPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
+        <SEO
+            title="Training Resources"
+            description=""
+            keywords=""
+        />
 
         <Title>Training</Title>
 

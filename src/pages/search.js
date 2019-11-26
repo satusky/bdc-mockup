@@ -62,6 +62,11 @@ const SearchPage = () => {
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
+            <SEO
+                title="Data Search"
+                description=""
+                keywords=""
+            />
 
             <Title>Search</Title>
 

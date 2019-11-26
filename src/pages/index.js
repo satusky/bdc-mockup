@@ -10,6 +10,11 @@ import { Carousel, DataContainer } from '../components/modules'
 
 const IndexPage = () => (
     <PageContent>
+        <SEO
+            title="Home"
+            description=""
+            keywords=""
+        />
         <Carousel />
         
         <LineBreak count={ 4 } />

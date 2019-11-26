@@ -6,6 +6,11 @@ import { Title, Heading, Subheading, Paragraph } from '../components/typography'
 
 const ResourcesPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
+        <SEO
+            title="Available Resources"
+            description=""
+            keywords=""
+        />
 
         <Title>Resources</Title>
     

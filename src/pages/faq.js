@@ -22,6 +22,11 @@ const FaqPage = () => {
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
+            <SEO
+                title="Frequently Asked Questions"
+                description=""
+                keywords=""
+            />
         
             <Title>Frequently Asked Questions</Title>
 
