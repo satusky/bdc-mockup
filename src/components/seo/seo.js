@@ -14,7 +14,6 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                         author
                         keywords
                         siteUrl
-                        twitterUsername
                     }
                 }
             }
@@ -24,13 +23,13 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
     const metaTitle = title || site.siteMetadata.title
     const metaDescription = description || site.siteMetadata.description
     const metaKeywords = site.siteMetadata.keywords.concat(keywords)
-    const { siteUrl, twitterUsername } = site.siteMetadata
+    const { siteUrl } = site.siteMetadata
 
     return (
         <Helmet
             htmlAttributes={{ lang: 'en' }}
-            title={metaTitle}
-            titleTemplate={`%s | ${site.siteMetadata.title}`}
+            title={ metaTitle }
+            titleTemplate={`%s | ${ site.siteMetadata.title }`}
             meta={[
                 {
                     name: `title`,
