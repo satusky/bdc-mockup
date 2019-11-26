@@ -1,4 +1,5 @@
 import React from 'react'
+import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
 import { Title } from '../components/typography'
 

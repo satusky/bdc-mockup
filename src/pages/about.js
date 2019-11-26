@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
 
@@ -44,6 +45,11 @@ const AboutPage = () => {
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
+            <SEO
+                title="About BioData Catalyst"
+                description=""
+                keywords=""
+            />
 
             <Title>About</Title>
             

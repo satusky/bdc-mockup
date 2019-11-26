@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { SEO } from '../../components/seo'
 import { PageContent } from '../../components/layout'
 import { Title, Heading, Subheading, Paragraph } from '../../components/typography'
 

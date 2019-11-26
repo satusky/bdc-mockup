@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 import { Accordion } from '../components/accordion'

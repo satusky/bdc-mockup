@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import axios from 'axios'
+import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
 import { MonarchSearch } from '../components/form'
 import { Title, Heading, Paragraph } from '../components/typography'
