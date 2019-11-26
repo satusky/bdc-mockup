@@ -110,7 +110,7 @@ export const Carousel = () => {
             <SlideDeckContainer>
                 {
                     carouselItems.map((item, i) => (
-                        <Slide backgroundImage={ item.backgroundImage } active={ index === i }>
+                        <Slide key={ i } backgroundImage={ item.backgroundImage } active={ index === i }>
                             <SlideText width="75%" maxWidth="700px" active={ index === i }>
                                 <Heading center light style={{ fontSize: '220%' }}>
                                     { item.heading }
