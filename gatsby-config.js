@@ -4,7 +4,7 @@ module.exports = {
     description: `BioData Catalyst serves as a cloud-based platform of tools, applictions, and workflows to help NHLBI research investigators securely find, access, share, store, cross-link, and compute on large scale data sets,`,
     author: `BioData Catalyst`,
     keywords: ["datastage"],
-    siteUrl: 'https://biodatacatalyst.nhlbi.org/',
+    siteUrl: 'https://biodatacatalyst.nhlbi.nih.gov/',
     twitterUsername: '',
   },
   plugins: [
