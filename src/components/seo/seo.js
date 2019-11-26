@@ -93,7 +93,7 @@ export const SEO = ({ title, description, keywords = [], meta }) => {
                 },
                 {
                     name: 'theme-color',
-                    content: '#C1272D'
+                    content: '#c1272d'
                 }
             ].concat(meta)}
         />

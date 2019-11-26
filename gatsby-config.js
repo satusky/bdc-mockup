@@ -39,11 +39,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `default-starter`,
-        short_name: `starter`,
+        name: `biodata-catalyst`,
+        short_name: `bdc`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#c1272d`,
+        theme_color: `#c1272d`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
