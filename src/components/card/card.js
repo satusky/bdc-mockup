@@ -11,23 +11,6 @@ const CardContainer = styled.div`
     height: 100%;
 `
 
-const CardHeader = styled.div`
-    background-color: var(--color-crimson);
-    color: #fff;
-    font-weight: bold;
-    text-align: center;
-    padding: 2rem 18%;
-    border-bottom: 2px solid #fff;
-    position: relative;
-`
-
-const CardBody = styled.div`
-    padding: 1rem 2rem;
-    background-color: ${ props => props.bgColor ? props.bgColor : '#fff' };
-    color: ${ props => props.fgColor ? props.fgColor : 'inherit' };
-    height: 100%;
-`
-
 const CardTitle = styled.div`
     font-size: 133%;
     display: flex;
@@ -49,17 +32,12 @@ const OffsetCardTitle = styled(CardTitle)`
     width: 75%;
 `
 
-export const Card = ({ title, offsetTitle, bgColor, fgColor, children }) => {
+export const Card = ({ offsetTitle, bgColor, fgColor, children }) => {
     const { isCompact } = useWindowWidth()
-
+    
     return (
         <CardContainer>
-            <CardHeader style={{ height: offsetTitle ? '3rem' : '6rem' }}>
-                { offsetTitle ? <OffsetCardTitle style={{ width: isCompact ? '70%' : '40%' }}>{ title }</OffsetCardTitle> : <CardTitle>{ title }</CardTitle> }
-            </CardHeader>
-            <CardBody bgColor={ bgColor } fgColor={ fgColor }>
-                { children }
-            </CardBody>
+            { children }
         </CardContainer>
     )
 }

@@ -3,7 +3,7 @@ import { PageContent } from '../../components/layout'
 import { Title, Heading, Paragraph } from '../../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Button } from '../../components/buttons'
-import { Card } from '../../components/card'
+import { Card, CardHeader, CardBody } from '../../components/card'
 
 const ToolsPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
@@ -15,27 +15,33 @@ const ToolsPage = () => (
         <Grid fluid>
             <Row>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Picture Cohort Explorer">
-                        <Paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste exercitationem, totam deserunt!
-                        </Paragraph>
-                        <Paragraph center>
-                            <Button light>Launch</Button>
-                            <br/><br/>
-                            <Button light>Learn More</Button>
-                        </Paragraph>
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">Picture Cohort Explorer</CardHeader>
+                        <CardBody>
+                            <Paragraph>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste exercitationem, totam deserunt!
+                            </Paragraph>
+                            <Paragraph center>
+                                <Button light>Launch</Button>
+                                <br/><br/>
+                                <Button light>Learn More</Button>
+                            </Paragraph>
+                        </CardBody>
                     </Card>
                 </Col>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Ashok's Image Analysis">
-                        <Paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae non ea commodi.
-                        </Paragraph>
-                        <Paragraph center>
-                            <Button light>Launch</Button>
-                            <br/><br/>
-                            <Button light>Learn More</Button>
-                        </Paragraph>
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">Ashok's Image Analysis</CardHeader>
+                        <CardBody>
+                            <Paragraph>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae non ea commodi.
+                            </Paragraph>
+                            <Paragraph center>
+                                <Button light>Launch</Button>
+                                <br/><br/>
+                                <Button light>Learn More</Button>
+                            </Paragraph>
+                        </CardBody>
                     </Card>
                 </Col>
             </Row>
@@ -46,18 +52,27 @@ const ToolsPage = () => (
         <Grid fluid>
             <Row>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="GWAS Analysis Pipeline 1">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">GWAS Analysis Pipeline 1</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
+                        </CardBody>
                     </Card>
                 </Col>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="GWAS Analysis Pipeline 2">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">GWAS Analysis Pipeline 2</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
+                        </CardBody>
                     </Card>
                 </Col>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="GWAS Analysis Pipeline 3">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">GWAS Analysis Pipeline 3</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo saepe consequatur, animi?
+                        </CardBody>
                     </Card>
                 </Col>
 
@@ -69,13 +84,19 @@ const ToolsPage = () => (
         <Grid fluid>
             <Row>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Jupyter Notebook 1">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">Jupyter Notebook 1</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
+                        </CardBody>
                     </Card>
                 </Col>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Jupyter Notebook 2">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">Jupyter Notebook 2</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error suscipit deleniti nihil.
+                        </CardBody>
                     </Card>
                 </Col>
 
@@ -87,13 +108,19 @@ const ToolsPage = () => (
         <Grid fluid>
             <Row>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="Pipeline Builder">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, temporibus assumenda? Debitis.
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">Pipeline Builder</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, temporibus assumenda? Debitis.
+                        </CardBody>
                     </Card>
                 </Col>
                 <Col xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                    <Card title="DocServer">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic minima soluta temporibus.
+                    <Card>
+                        <CardHeader bgColor="#eee" fgColor="#333">DocServer</CardHeader>
+                        <CardBody>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic minima soluta temporibus.
+                        </CardBody>
                     </Card>
                 </Col>
 
