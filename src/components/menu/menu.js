@@ -52,7 +52,6 @@ export const SubmenuHeader = styled.div`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    border: 0;
     padding: 0.5rem 1.25rem;
     margin: 0;
     background-color: ${ props => props.active ? 'var(--color-crimson)' : 'transparent' };
@@ -64,9 +63,12 @@ export const SubmenuHeader = styled.div`
     transition: color 500ms, background-color 250ms;
     height: 100%;
     & svg {
-        transition: transform 250ms;
-        transform: ${ props => props.open ? 'translateY(0.25rem)' : 'translateY(0)' };
+        transition: transform 50ms;
+        transform: ${ props => props.open ? 'translateY(0.15rem)' : 'translateY(0)' };
         fill: ${ props => props.active ? '#fff' : '#333' };
+    }
+    &:hover svg {
+        transition: transform 250ms;
     }
 `
 
