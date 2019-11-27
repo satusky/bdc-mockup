@@ -84,7 +84,6 @@ export const DefaultLayout = ({ children }) => {
         <LayoutWrapper>
             <Toolbar ref={ toolbarElement }>
                 <SocialLinks>
-                    <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ twitterLogo } alt="Twitter Logo" /></a> &nbsp;&nbsp;
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
                 </SocialLinks>
 

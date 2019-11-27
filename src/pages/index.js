@@ -95,7 +95,7 @@ const IndexPage = () => (
                         <Col xs={ 12 }>
                             <LineBreak count={ 3 } />
                             <Heading center light>
-                                Have and idea for BioData Catalyst?<br/>
+                                Have an idea for BioData Catalyst?<br/>
                                 We want to hear from you!
                             </Heading>
                             <Paragraph center>
