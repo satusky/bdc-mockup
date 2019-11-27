@@ -25,7 +25,7 @@ const carouselItems = [
         body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non hic harum commodi optio dignissimos, reprehenderit quam laudantium temporibus enim. Amet, dolor, distinctio. Vitae sapiente sed alias voluptatum. Porro natus, vero placeat ipsa aliquam non eaque! Laudantium minus vero fugit sit ipsa! Modi sequi, id placeat!',
     },
     {
-        text: 'Training',
+        text: 'Learn',
         path: '/resources/training',
         icon: EducationIcon,
         backgroundImage: 'http://picsum.photos/600/302',
