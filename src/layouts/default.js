@@ -88,7 +88,7 @@ export const DefaultLayout = ({ children }) => {
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
                 </SocialLinks>
 
-                <ExternalButtonLink href="https://nhlbidatastage.org/">Members Area</ExternalButtonLink>
+                <ExternalButtonLink href="https://nhlbidatastage.org/Security/login">Members Area</ExternalButtonLink>
             </Toolbar>
             <StickyWrapper stuck={ stuckHeader }>
                 <Header>
