@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-export const HexagonWrapper = styled(Link)`
+export const HexagonWrapper = styled.div`
     text-decoration: none;
     filter: drop-shadow(0 0 16px rgba(0, 0, 2, 0.15));
     margin: 0 -1rem; // squish hexagons together horizontally
@@ -25,7 +25,7 @@ export const HexagonInterior = styled.div`
     transition: background-color 500ms, transform 500ms ease-out;
     transform-origin: 50% 50%;
     transform: scale(${ props => props.growOnActive && props.active ? 1.05 : 1 });
-    cursor: pointer;
+    // cursor: pointer;
 `
 
 const HexagonText = styled.span`
