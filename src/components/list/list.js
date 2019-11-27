@@ -11,6 +11,11 @@ export const UnorderedList = styled.ul`
     ${ props => props.right === true ? 'text-align: right;' : undefined}
 `
 
+export const BulletedList = styled(UnorderedList)`
+    list-style-type: disc;
+    margin: 0 0 2rem 1rem;
+`
+
 export const ListTitle = styled.h4`
 `
 

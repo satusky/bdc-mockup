@@ -55,22 +55,24 @@ const AboutPage = () => {
             
             <Paragraph>
                 For NHLBI research investigators who need to find, access, share, store, cross-link, and compute on large scale data sets,
-                NHLBI DataSTAGE will serve as a cloud-based platform providing tools, applications, and workflows to enable these capabilities in secure workspaces.
-                DataSTAGE is a rationally organized digital environment that will accelerate efficient biomedical research and maximize community engagement and productivity
-                through increased access to NHLBI data sets and innovative data analysis capabilities.
-                By making these data sets accessible and usable to varied users, DataSTAGE will drive discovery and scientific advancement,
+                NHLBI BioData Catalyst serves as a cloud-based platform providing tools, applications, and workflows to enable these capabilities in secure workspaces. 
+            </Paragraph>
+
+            <Paragraph>
+                BioData Catalyst is a rationally organized digital environment that accelerates efficient biomedical research and
+                maximizes community engagement and productivity through increased access to NHLBI data sets and innovative data analysis capabilities.
+                By making these data sets accessible and usable, BioData Catalyst drives discovery and scientific advancement,
                 leading to novel diagnostic tools, therapeutic options, and prevention strategies for heart, lung, blood, and sleep disorders.
             </Paragraph>
 
             <Paragraph>
-                DataSTAGE is a dynamic resource that will be continually developed and refined.
-                The DataSTAGE consortium will solicit feedback from members and NHLBI on
-                the development of significant processes, emerging standards, and decisions using an RFC process
-                that has been described here (access to link requires a login).
-                This process endorses transparency and openness during the evolution of DataSTAGE
-                as a groundbreaking platform providing unparalleled data access and capabilities to researchers across the globe.
+                BioData Catalyst is a dynamic resource that will be continually developed and refined.
+                The BioData Catalyst Consortium solicits feedback from members and NHLBI
+                on the development of significant processes, emerging standards, and decisions using an RFC process.
+                This process endorses transparency and openness during the evolution of BioData Catalyst as a groundbreaking platform
+                providing unparalleled data access and capabilities to researchers across the globe.
             </Paragraph>
-            
+           
             <Heading>Coordinating Center</Heading>
             
             <pre style={{ fontSize: '75%' }}>{ JSON.stringify(contacts, null, 1) }</pre>
