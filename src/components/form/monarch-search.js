@@ -27,6 +27,8 @@ const TextInput = styled(Input)`
     height: 100%;
     z-index: 1;
     padding: 0 1.5rem;
+    color: var(--color-eggplant);
+    letter-spacing: 1px;
 `
 
 const SearchButton = styled.button`
@@ -50,8 +52,8 @@ export const MonarchSearch = ({ value, onChange, onSubmit }) => {
     console.log(value)
     return (
         <SearchContainer>
-            <TextInput value={ value } onChange={ onChange } placeholder="Monarch Search" />
-            <SearchButton onClick={ onSubmit }>
+            <TextInput value={ value } onChange={ onChange } placeholder="Monarch Search" aria-label="Search query" />
+            <SearchButton onClick={ onSubmit } aria-label="Search">
                 <MagnifyingGlassIcon size="30" fill="#999" />
             </SearchButton>
         </SearchContainer>

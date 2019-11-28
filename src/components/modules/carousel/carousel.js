@@ -111,11 +111,11 @@ export const Carousel = () => {
                 {
                     carouselItems.map((item, i) => (
                         <Slide key={ i } backgroundImage={ item.backgroundImage } active={ index === i }>
-                            <SlideText width="75%" maxWidth="700px" active={ index === i }>
-                                <Heading center light style={{ fontSize: '220%' }}>
+                            <SlideText width="80%" maxWidth="700px" active={ index === i }>
+                                <Heading center light style={{ width: '90%', margin: '0 auto', fontSize: '220%', padding: '1rem', backgroundColor: '#111133aa' }}>
                                     { item.heading }
                                 </Heading>
-                                <Paragraph style={{ lineHeight: 1.25 }}>
+                                <Paragraph style={{ lineHeight: 1.25, padding: '1rem', backgroundColor: '#111133aa'  }}>
                                     { item.body }
                                 </Paragraph>
                             </SlideText>

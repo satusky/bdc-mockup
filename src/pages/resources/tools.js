@@ -28,9 +28,9 @@ const ToolsPage = () => (
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste exercitationem, totam deserunt!
                             </Paragraph>
                             <Paragraph center>
-                                <Button light>Launch</Button>
+                                <Button light aria-label="Launch">Launch</Button>
                                 <br/><br/>
-                                <Button light>Learn More</Button>
+                                <Button light aria-label="Learn More">Learn More</Button>
                             </Paragraph>
                         </CardBody>
                     </Card>
@@ -43,9 +43,9 @@ const ToolsPage = () => (
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae non ea commodi.
                             </Paragraph>
                             <Paragraph center>
-                                <Button light>Launch</Button>
+                                <Button light aria-label="Launch">Launch</Button>
                                 <br/><br/>
-                                <Button light>Learn More</Button>
+                                <Button light aria-label="Learn More">Learn More</Button>
                             </Paragraph>
                         </CardBody>
                     </Card>

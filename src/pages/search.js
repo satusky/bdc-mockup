@@ -75,10 +75,10 @@ const SearchPage = () => {
             
             <Paragraph center>
                 <label htmlFor="search-results-start">Start:</label>
-                <input id="search-results-start" type="number" value={ searchOptions.start } onChange={ handleChangeOption('start') }/>
+                <input id="search-results-start" type="number" aria-label="Search results starting position" value={ searchOptions.start } onChange={ handleChangeOption('start') }/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label htmlFor="search-results-rows">Rows:</label>
-                <input id="search-results-rows" type="number" value={ searchOptions.rows } onChange={ handleChangeOption('rows') }/>
+                <input id="search-results-rows" type="number" aria-label="Number of search results to render" value={ searchOptions.rows } onChange={ handleChangeOption('rows') }/>
             </Paragraph>
 
             <MonarchSearch value={ query } onChange={ handleChangeQuery } onSubmit={ handleSubmit } />
@@ -93,7 +93,7 @@ const SearchPage = () => {
                     </Col>
                     <Col xs={ 12 } sm={ 2 } style={{ textAlign: 'right' }}>
                         <br/>
-                        <button onClick={ () => setResults([]) }><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
+                        <button onClick={ () => setResults([]) } aria-label="Search"><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
                     </Col>
                 </Row>
             </Grid>

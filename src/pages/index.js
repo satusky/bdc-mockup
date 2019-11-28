@@ -93,10 +93,11 @@ const IndexPage = () => (
                     <Row>
                         <Col xs={ 12 }>
                             <LineBreak count={ 3 } />
-                            <Heading center light>
+                            <Heading center light style={{ width: '90%', margin: '0 auto', fontSize: '180%', lineHeight: 1.5, padding: '1rem', backgroundColor: '#111133aa' }}>
                                 Have an idea for BioData Catalyst?<br/>
                                 We want to hear from you!
                             </Heading>
+                            <LineBreak count={ 3 } />
                             <Paragraph center>
                                 <ButtonCta to ="/contact">Submit your idea here</ButtonCta>
                             </Paragraph>
