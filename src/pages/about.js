@@ -112,7 +112,7 @@ const AboutPage = () => {
             <Heading>Data Stewards</Heading>
 
             <Paragraph>
-                The stewards for each of the following data sets received supplemental funding to existing grants to participate as members of the DataSTAGE. These data sets will serve as test cases to develop the capabilities of the DataSTAGE.
+                The stewards for each of the following data sets received supplemental funding to existing grants to participate as members of the BioData Catalyst. These data sets will serve as test cases to develop the capabilities of the BioData Catalyst.
             </Paragraph>
 
             {
