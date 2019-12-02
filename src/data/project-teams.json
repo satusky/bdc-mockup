@@ -1,6 +1,7 @@
 [
   {
     "name": "Calcium",
+    "symbol": "Ca",
     "members": [
       {
         "Institution": "Broad Institute",
@@ -10,7 +11,7 @@
       },
       {
         "Institution": "The University of Calcium, Santa Cruz",
-        "Principal Investigator": "benedict Paten",
+        "Principal Investigator": "Benedict Paten",
         "Institution Lead": "",
         "Department": "Bioengineering, Jack Baskin School of Engineering; UC Santa Cruz Genomics Institute"
       },
@@ -30,6 +31,7 @@
   },
   {
     "name": "Carbon",
+    "symbol": "C",
     "members": [
       {
         "Institution": "Harvard Medical School",
@@ -47,6 +49,7 @@
   },
   {
     "name": "Helium",
+    "symbol": "He",
     "members": [
       {
         "Institution": "University of North Carolina at Chapel Hill",
@@ -88,6 +91,7 @@
   },
   {
     "name": "Xenon",
+    "symbol": "Xe",
     "members": [
       {
         "Institution": "Seven Bridges Genomics Inc.",

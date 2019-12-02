@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
+import { Accordion } from '../components/accordion'
 
 const ccQuery = graphql`{
     coordinatingCenter: allCoordinatingCenterJson {
@@ -18,6 +19,7 @@ const ccQuery = graphql`{
         edges {
             node {
                 name
+                symbol
                 members {
                     Institution
                     Principal_Investigator
@@ -39,7 +41,7 @@ const ccQuery = graphql`{
 
 const AboutPage = () => {
     const data = useStaticQuery(ccQuery)
-    const contacts = data.coordinatingCenter.edges.map(({ node }) => ({ ...node }))
+    const cc = data.coordinatingCenter.edges.map(({ node }) => ({ ...node }))
     const projectTeams = data.projectTeams.edges.map(({ node }) => ({ ...node }))
     const dataStewards = data.dataStewards.edges.map(({ node }) => ({ ...node }))
 
@@ -73,17 +75,38 @@ const AboutPage = () => {
                 providing unparalleled data access and capabilities to researchers across the globe.
             </Paragraph>
            
-            <Heading>Coordinating Center</Heading>
-            
-            <pre style={{ fontSize: '75%' }}>{ JSON.stringify(contacts, null, 1) }</pre>
-
             <Heading>Project Teams</Heading>
+            
+            <Accordion title="Coordinating Center (CC)">
+                {
+                    cc.map(member => (
+                        <div>
+                            <strong>{ member.title }:</strong> { member.name } - { member.email }
+                            <br/><br/>
+                        </div>
+                    ))
+                }
+            </Accordion>
+            
+            {
+                projectTeams.map(team => (
+                    <Accordion title={ `${ team.name } (${ team.symbol })` }>
+                        {
+                            team.members.map(member => (
+                                <Fragment>
+                                    <h4>{ member.Institution }</h4>
+                                    <div>
+                                        <strong>PI:</strong> { member.Principal_Investigator } <br/>
+                                        <strong>Insitution Lead:</strong> { member.Insitution_Lead } <br/>
+                                        <strong>Department:</strong> { member.Department } <br/>
+                                    </div>
+                                </Fragment>
+                            ))
+                        }
+                    </Accordion>
+                ))
+            }
 
-            <Paragraph>
-                The following projects were awarded using a special type of funding mechanism called Other Transactions (OT). The OT mechanism gives NHLBI considerable flexibility in making and managing awards. This will be particularly important for the DataSTAGE to stay nimble as it approaches the complex task involved in the development of the DataSTAGE under the ever-changing conditions of data science and biomedical science.
-            </Paragraph>
-
-            <pre style={{ fontSize: '75%' }}>{ JSON.stringify(projectTeams, null, 1) }</pre>
 
 
             <Heading>Data Stewards</Heading>
@@ -92,7 +115,14 @@ const AboutPage = () => {
                 The stewards for each of the following data sets received supplemental funding to existing grants to participate as members of the DataSTAGE. These data sets will serve as test cases to develop the capabilities of the DataSTAGE.
             </Paragraph>
 
-            <pre style={{ fontSize: '75%' }}>{ JSON.stringify(dataStewards, null, 1) }</pre>
+            {
+                dataStewards.map(steward => (
+                    <div>
+                        <strong>{ steward.name }:</strong> <a href={ steward.url } rel="noopener noreferrer">{ steward.url }</a>
+                        <br/><br/>
+                    </div>
+                ))
+            }
 
         </PageContent>
     )
