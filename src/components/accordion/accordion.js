@@ -14,7 +14,7 @@ const AccordionTitle = styled.span`
     display: flex;
     justify-content: space-between;
     font-size: 120%;
-    padding: 1rem;
+    padding: 1rem 2rem;
     cursor: pointer;
     background-color: #eee;
     color: ${ props => props.active ? 'var(--color-crimson)' : '#333' };

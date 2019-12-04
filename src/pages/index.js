@@ -33,7 +33,9 @@ const IndexPage = () => (
                     <Row gutterWidth={ 40 }>
                         <Col xs={ 12 } lg={ 6 }>
                             <Card>
-                                <CardHeader>What is BioData Catalyst?</CardHeader>
+                                <CardHeader size="large">
+                                    What is BioData Catalyst?
+                                </CardHeader>
                                 <CardBody>
                                     <Paragraph>
                                         NHLBI BioData Catalyst is a cloud-based platform providing tools, applications, and workflows in secure workspaces. By increasing access to NHLBI data sets and innovative data analysis capabilities, BioData Catalyst accelerates efficient biomedical research that drives discovery and scientific advancement, leading to novel diagnostic tools, therapeutic options, and prevention strategies for heart, lung, blood, and sleep disorders.
@@ -53,7 +55,7 @@ const IndexPage = () => (
                         </Visible>
                         <Col xs={ 12 } lg={ 6 }>
                             <Card>
-                                <CardHeader>
+                                <CardHeader size="large">
                                     What can BioData Catalyst do for you?
                                 </CardHeader>
                                 <CardBody>
