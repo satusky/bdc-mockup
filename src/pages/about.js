@@ -6,6 +6,7 @@ import { Title, DecoratedTitle, Heading, Paragraph } from '../components/typogra
 import { Accordion } from '../components/accordion'
 import { Hero } from '../components/hero'
 import { Card, CardHeader, CardBody } from '../components/card'
+import AboutBioDataCatalystSvg from '../images/about-hero.svg'
 
 const ccQuery = graphql`{
     coordinatingCenter: allCoordinatingCenterJson {
@@ -62,6 +63,7 @@ const AboutPage = () => {
                 title="About BioDataCatalyst"
                 backgroundColor="var(--color-eggplant)"
                 backgroundImage="http://picsum.photos/800/400"
+                overlay={ <img src={ AboutBioDataCatalystSvg } alt="" style={{ width: '95%', maxWidth: '900px' }}/> }
             />
             
             <Container width="90%" maxWidth="1080px" center>

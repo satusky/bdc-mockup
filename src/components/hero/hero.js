@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const HeroWrapper = styled.div`
-    height: 500px;
+    height: 550px;
     position: relative;
     margin-bottom: 4rem;
     &::before {
@@ -18,6 +18,7 @@ const HeroWrapper = styled.div`
         background-position: center;
         background-size: cover;
         background-blend-mode: multiply;
+        filter: brightness(1.5);
     }
 `
 
@@ -27,7 +28,14 @@ HeroWrapper.propTypes = {
     backgroundImage: PropTypes.string.isRequired,
 }
 
-const Overlay = styled.div``
+const Overlay = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
 Overlay.propTypes = {
     children: PropTypes.node.isRequired,
@@ -63,7 +71,7 @@ export const Hero = ({ backgroundColor, backgroundImage, overlay, title }) => {
     return (
         <HeroWrapper backgroundColor={ backgroundColor } backgroundImage={ backgroundImage }>
             <Overlay>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, minima!
+                { overlay }
             </Overlay>
             <TitleWrapper><Title>{ title }</Title></TitleWrapper>
         </HeroWrapper>
