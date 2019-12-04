@@ -3,9 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '../components/seo'
 import { PageContent, Container } from '../components/layout'
 import { Title, DecoratedTitle, Heading, Paragraph } from '../components/typography'
-import { Accordion } from '../components/accordion'
 import { Hero } from '../components/hero'
 import { Card, CardHeader, CardBody } from '../components/card'
+import { Accordion } from '../components/accordion'
+import { Badge } from '../components/badge'
 import AboutBioDataCatalystSvg from '../images/about-hero.svg'
 
 const ccQuery = graphql`{
@@ -114,7 +115,12 @@ const AboutPage = () => {
                     <CardBody style={{ padding: '0 0 3rem 0' }}>
                         {
                             projectTeams.map(team => (
-                                <Accordion title={ `${ team.name } (${ team.symbol })` } key={ team.id }>
+                                <Accordion title={
+                                        <div>
+                                            <Badge margin="0 1rem 0 0">{ team.symbol }</Badge>
+                                            <span>{ `${ team.name }` }</span>
+                                        </div>
+                                    } key={ team.id }>
                                     {
                                         team.members.map(member => (
                                             <Fragment key={ `${ member.Institution } - ${ member.Principal_Investigator }` }>
