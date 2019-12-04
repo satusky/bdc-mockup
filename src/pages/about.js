@@ -107,6 +107,8 @@ const AboutPage = () => {
                     </CardBody>
                 </Card>
 
+                <LineBreak count={ 2 } />
+                
                 <Card>
                     <CardHeader>Project Teams</CardHeader>
                     <CardBody>
@@ -144,6 +146,8 @@ const AboutPage = () => {
                     </CardBody>
                 </Card>
                 
+                <LineBreak count={ 2 } />
+                
                 <Card>
                     <CardHeader>Data Stewards</CardHeader>
                     <CardBody>
@@ -163,6 +167,8 @@ const AboutPage = () => {
                     </CardBody>
                 </Card>
 
+                <LineBreak count={ 2 } />
+                
             </Container>
 
         </PageContent>
