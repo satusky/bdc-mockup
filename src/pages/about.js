@@ -9,6 +9,7 @@ const ccQuery = graphql`{
     coordinatingCenter: allCoordinatingCenterJson {
         edges {
             node {
+                id
                 name
                 title
                 email
@@ -18,6 +19,7 @@ const ccQuery = graphql`{
     projectTeams: allProjectTeamsJson {
         edges {
             node {
+                id
                 name
                 symbol
                 members {
@@ -32,6 +34,7 @@ const ccQuery = graphql`{
     dataStewards: allDataStewardsJson {
         edges {
             node {
+                id
                 name
                 url
             }
@@ -80,7 +83,7 @@ const AboutPage = () => {
             <Accordion title="Coordinating Center (CC)">
                 {
                     cc.map(member => (
-                        <div>
+                        <div key={ member.id }>
                             <strong>{ member.title }:</strong> { member.name } - { member.email }
                             <br/><br/>
                         </div>
@@ -90,10 +93,10 @@ const AboutPage = () => {
             
             {
                 projectTeams.map(team => (
-                    <Accordion title={ `${ team.name } (${ team.symbol })` }>
+                    <Accordion title={ `${ team.name } (${ team.symbol })` } key={ team.id }>
                         {
                             team.members.map(member => (
-                                <Fragment>
+                                <Fragment key={ `${ member.Institution } - ${ member.Principal_Investigator }` }>
                                     <h4>{ member.Institution }</h4>
                                     <div>
                                         <strong>PI:</strong> { member.Principal_Investigator } <br/>
@@ -117,7 +120,7 @@ const AboutPage = () => {
 
             {
                 dataStewards.map(steward => (
-                    <div>
+                    <div key={ steward.id }>
                         <strong>{ steward.name }:</strong> <a href={ steward.url } rel="noopener noreferrer">{ steward.url }</a>
                         <br/><br/>
                     </div>
