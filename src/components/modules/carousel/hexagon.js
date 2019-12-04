@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-export const HexagonWrapper = styled.div`
+export const HexagonWrapper = styled(Link)`
     text-decoration: none;
     filter: drop-shadow(0 0 0.5rem rgba(0, 0, 2, 0.15));
     margin: 0 -1rem; // squish hexagons together horizontally
