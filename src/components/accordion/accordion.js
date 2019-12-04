@@ -1,7 +1,34 @@
 import React, { useEffect, useRef, useState } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { ExpandDownIcon } from '../icons'
+// import { ExpandDownIcon as ExpandIcon } from '../icons'
 import { Rotator } from '../anim'
+
+const ExpandIcon = ({ size, color, active, ...rest }) => (
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+        height={ `${ size }px` } width={ `${ size }px` }
+        viewBox="0 0 24 24"
+        { ...rest }
+        fill={ color } 
+    >
+        <path d="M 0,10 L 24,10 L 24,14 L 0,14" />
+        <path d="M 10,0 L 10,24 L 14,24 L 14,0"
+            style={{
+                transition: 'transform 500ms', transformOrigin: 'center center',
+                transform: active ? 'scaleY(0.0)' : 'scaleY(1.0)'
+            }}
+        />
+  </svg>
+)
+
+ExpandIcon.propTypes = {
+    color: PropTypes.string.isRequired,
+}
+
+ExpandIcon.propTypes = {
+    color: '#fff',
+    size: 24,
+}
 
 const AccordionWrapper = styled.div`
     // border: 1px solid #f99;
@@ -11,8 +38,15 @@ const AccordionWrapper = styled.div`
 `
 
 const AccordionTitle = styled.span`
+    margin-right: 2rem;
+    flex: 1;
+`
+
+const AccordionHeader = styled.div`
+    // & * { border: 1px solid #f99; }
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 120%;
     padding: 1rem 2rem;
     cursor: pointer;
@@ -53,12 +87,10 @@ export const Accordion = ({ title, content, children }) => {
 
     return (
         <AccordionWrapper>
-            <AccordionTitle onClick={ handleToggle } active={ active }>
-                <span>{ title }</span>
-                <Rotator rotated={ active }>
-                    <ExpandDownIcon size="16" color={ active ? 'var(--color-crimson' : '#333' } />
-                </Rotator>
-            </AccordionTitle>
+            <AccordionHeader onClick={ handleToggle } active={ active }>
+                <AccordionTitle>{ title }</AccordionTitle>
+                <ExpandIcon size="18" active={ active } color={ active ? 'var(--color-crimson)' : '#333' } />
+            </AccordionHeader>
             <AccordionBody ref={ contentElement } active={ active } height={ height }>
                 <AccordionContents>
                     { children }

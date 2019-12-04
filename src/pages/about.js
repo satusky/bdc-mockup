@@ -64,7 +64,7 @@ const AboutPage = () => {
                 title="About BioDataCatalyst"
                 backgroundColor="var(--color-eggplant)"
                 backgroundImage="http://picsum.photos/800/400"
-                overlay={ <img src={ AboutBioDataCatalystSvg } alt="" style={{ width: '95%', maxWidth: '900px' }}/> }
+                overlay={ <img src={ AboutBioDataCatalystSvg } alt="" style={{ width: '95%', maxWidth: '1000px' }}/> }
             />
             
             <Container width="90%" maxWidth="1080px" center>

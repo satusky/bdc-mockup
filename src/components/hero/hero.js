@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const HeroWrapper = styled.div`
-    height: 550px;
+    height: 600px;
     position: relative;
     margin-bottom: 4rem;
     &::before {
