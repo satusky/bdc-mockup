@@ -122,17 +122,20 @@ const AboutPage = () => {
                     <CardBody style={{ padding: '0 0 3rem 0' }}>
                         {
                             projectTeams.map(team => (
-                                <Accordion title={
+                                <Accordion
+                                    key={ team.id }
+                                    title={
                                         <div>
                                             <Badge margin="0 1rem 0 0">{ team.symbol }</Badge>
                                             <span>{ `${ team.name }` }</span>
                                         </div>
-                                    } key={ team.id }>
+                                    }
+                                >
                                     {
                                         team.members.map(member => (
                                             <Fragment key={ `${ member.Institution } - ${ member.Principal_Investigator }` }>
-                                                <h4>{ member.Institution }</h4>
-                                                <div>
+                                                <h3>◦ { member.Institution }</h3>
+                                                <div style={{ color: '#544', padding: '0 0 0 1.2rem' }}>
                                                     <strong>PI:</strong> { member.Principal_Investigator } <br/>
                                                     <strong>Insitution Lead:</strong> { member.Insitution_Lead } <br/>
                                                     <strong>Department:</strong> { member.Department } <br/>
