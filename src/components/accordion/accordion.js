@@ -10,12 +10,16 @@ const ExpandIcon = ({ size, color, active, ...rest }) => (
         viewBox="0 0 24 24"
         { ...rest }
         fill={ color } 
+        style={{
+            transition: 'transform 500ms', transformOrigin: 'center center',
+            transform: active ? 'rotate(180deg)' : 'rotate(0deg)'
+        }}
     >
         <path d="M 0,10 L 24,10 L 24,14 L 0,14" />
         <path d="M 10,0 L 10,24 L 14,24 L 14,0"
             style={{
-                transition: 'transform 500ms', transformOrigin: 'center center',
-                transform: active ? 'scaleY(0.0)' : 'scaleY(1.0)'
+                transition: 'transform 500ms 500ms', transformOrigin: 'center center',
+                transform: active ? 'scale(0.0)' : 'scale(1.0)'
             }}
         />
   </svg>
