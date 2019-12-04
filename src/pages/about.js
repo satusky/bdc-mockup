@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SEO } from '../components/seo'
-import { PageContent, Container } from '../components/layout'
+import { PageContent, Container, LineBreak } from '../components/layout'
 import { Title, DecoratedTitle, Heading, Paragraph } from '../components/typography'
 import { Hero } from '../components/hero'
 import { Card, CardHeader, CardBody } from '../components/card'
@@ -68,6 +68,9 @@ const AboutPage = () => {
             />
             
             <Container width="90%" maxWidth="1080px" center>
+
+                <LineBreak />
+
                 <Paragraph>
                     For NHLBI research investigators who need to find, access, share, store, cross-link, and compute on large scale data sets,
                     NHLBI BioData Catalyst serves as a cloud-based platform providing tools, applications, and workflows to enable these capabilities in secure workspaces. 
@@ -88,6 +91,8 @@ const AboutPage = () => {
                     providing unparalleled data access and capabilities to researchers across the globe.
                 </Paragraph>
                
+                <LineBreak count={ 2 } />
+                
                 <Card>
                     <CardHeader>Coordinating Center</CardHeader>
                     <CardBody>
