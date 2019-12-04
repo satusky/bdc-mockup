@@ -135,7 +135,7 @@ const AboutPage = () => {
                                         team.members.map(member => (
                                             <Fragment key={ `${ member.Institution } - ${ member.Principal_Investigator }` }>
                                                 <h3>◦ { member.Institution }</h3>
-                                                <div style={{ color: '#544', padding: '0 0 0 1.2rem' }}>
+                                                <div style={{ color: '#555', padding: '0 0 0 1.2rem' }}>
                                                     <strong>PI:</strong> { member.Principal_Investigator } <br/>
                                                     <strong>Insitution Lead:</strong> { member.Insitution_Lead } <br/>
                                                     <strong>Department:</strong> { member.Department } <br/>
