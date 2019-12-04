@@ -161,7 +161,7 @@ const AboutPage = () => {
                         {
                             dataStewards.map(steward => (
                                 <div key={ steward.id }>
-                                    <strong>{ steward.name }:</strong> <a href={ steward.url } rel="noopener noreferrer">{ steward.url }</a>
+                                    <strong>{ steward.name }:</strong> <a href={ steward.url } target="_blank" rel="noopener noreferrer">{ steward.url }</a>
                                     <br/><br/>
                                 </div>
                             ))
