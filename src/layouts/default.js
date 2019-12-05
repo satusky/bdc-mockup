@@ -14,6 +14,8 @@ import { List, ListItem } from '../components/list'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 import githubLogo from '../images/icons/github-logo.png'
 import twitterLogo from '../images/icons/twitter-logo.png'
+import hexBackgroundLeftSvg from '../images/hex-background-left.svg'
+import hexBackgroundRightSvg from '../images/hex-background-right.svg'
 
 import '../styles/normalize.css'
 import '../styles/customize.css'
@@ -49,6 +51,23 @@ const LayoutWrapper = styled.div`
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    ${
+        props => props.compact
+        ? `
+            background-image: url(${ hexBackgroundLeftSvg });
+            background-position: -4rem 0;
+            background-size: 400px;
+            background-repeat: repeat-y;
+            background-attachment: fixed;
+        `
+        : `
+            background-image: url(${ hexBackgroundLeftSvg }), url(${ hexBackgroundRightSvg });
+            background-position: -4rem 0, calc(100% + 4rem) 0;
+            background-size: 400px, 400px;
+            background-repeat: repeat-y, repeat-y;
+            background-attachment: fixed;
+        `
+    }
 `
 
 const SocialLinks = styled.div`
@@ -81,7 +100,7 @@ export const DefaultLayout = ({ children }) => {
     }, [scrollPosition])
 
     return (
-        <LayoutWrapper>
+        <LayoutWrapper compact={ isCompact }>
             <Toolbar ref={ toolbarElement }>
                 <SocialLinks>
                     <a href="tbd" target="_blank" rel="noopener noreferrer"><SocialIcon src={ githubLogo } alt="GitHub Octocat Logo" /></a> &nbsp;&nbsp;
