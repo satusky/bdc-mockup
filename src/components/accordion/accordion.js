@@ -27,9 +27,10 @@ const ExpandIcon = ({ size, color, active, ...rest }) => (
 
 ExpandIcon.propTypes = {
     color: PropTypes.string.isRequired,
+    size: PropTypes.number.isRequired,
 }
 
-ExpandIcon.propTypes = {
+ExpandIcon.defaultProps = {
     color: '#fff',
     size: 24,
 }
@@ -93,7 +94,7 @@ export const Accordion = ({ title, content, children }) => {
         <AccordionWrapper>
             <AccordionHeader onClick={ handleToggle } active={ active }>
                 <AccordionTitle>{ title }</AccordionTitle>
-                <ExpandIcon size="18" active={ active } color={ active ? 'var(--color-crimson)' : '#333' } />
+                <ExpandIcon size={ 12 } active={ active } color={ active ? 'var(--color-crimson)' : '#333' } />
             </AccordionHeader>
             <AccordionBody ref={ contentElement } active={ active } height={ height }>
                 <AccordionContents>
