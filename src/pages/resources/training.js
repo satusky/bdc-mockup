@@ -3,7 +3,6 @@ import { SEO } from '../../components/seo'
 import { PageContent, LineBreak } from '../../components/layout'
 import { Title, Paragraph } from '../../components/typography'
 import { HexBadge } from '../../components/badge'
-import { DataBoltIcon as TestIcon } from '../../components/icons'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { Card, CardHeader, CardBody, CardFooter } from '../../components/card'
 import { List, ListItem } from '../../components/list'
@@ -47,7 +46,7 @@ const TrainingPage = () => (
                 {
                     [...Array(9).keys()].map(i => (
                         <Col key={ i } xs={ 12 } md={ 6 } lg={ 4 } style={{ marginBottom: '2rem' }}>
-                            <SupportCard title="Lorem ipsum dolor" icon={ <TestIcon fill="var(--color-crimson)" size={ 64 } /> }>
+                            <SupportCard title="Lorem ipsum dolor" icon={ 'ICON' }>
                                 <List>
                                     {
                                         [...Array(Math.floor(Math.random() * 3 ) + 1).keys()].map(i => {
