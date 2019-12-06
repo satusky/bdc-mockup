@@ -101,7 +101,7 @@ const IndexPage = () => (
                             </Heading>
                             <LineBreak count={ 3 } />
                             <Paragraph center>
-                                <ButtonCta to ="/contact">Submit your idea here</ButtonCta>
+                                <ButtonCta to ="/contact">Submit Your Idea</ButtonCta>
                             </Paragraph>
                             <LineBreak count={ 3 } />
                         </Col>
