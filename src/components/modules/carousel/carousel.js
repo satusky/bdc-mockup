@@ -36,7 +36,7 @@ const carouselItems = [
 
 export const SlideDeckContainer = styled(Container)`
     padding: 3rem;
-    min-height: 500px;
+    min-height: 400px;
     position: relative;
 `
 
