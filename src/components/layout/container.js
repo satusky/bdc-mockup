@@ -26,7 +26,7 @@ export const BandedContainer = styled(Container)`
         width: 100%;
         height: calc(100% - 6rem);
         transform: translateY(3rem);
-        background-color: #8997b4;
+        background-color: #8997b4aa;
     }
 `
 

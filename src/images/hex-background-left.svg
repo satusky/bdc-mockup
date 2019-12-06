@@ -9,8 +9,8 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg904"
    version="1.1"
-   viewBox="0 0 195.66325 342.33203"
-   height="800mm"
+   viewBox="0 0 195.66325 299.54053"
+   height="700mm"
    width="195.66325mm"
    sodipodi:docname="hex-background-left.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
@@ -23,15 +23,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="2560"
-     inkscape:window-height="1440"
+     inkscape:window-width="1877"
+     inkscape:window-height="1025"
      id="namedview896"
      showgrid="false"
-     inkscape:zoom="0.8830585"
-     inkscape:cx="510.61808"
-     inkscape:cy="99.895194"
-     inkscape:window-x="2560"
-     inkscape:window-y="0"
+     inkscape:zoom="0.22076463"
+     inkscape:cx="1024.8768"
+     inkscape:cy="1509.394"
+     inkscape:window-x="43"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg904" />
   <defs
@@ -41,7 +41,8 @@
        clipPathUnits="userSpaceOnUse">
       <path
          id="path704"
-         d="M -117.254,2458.72 H 437.382 V 1488.33 H -117.254 Z" />
+         d="M -117.254,2458.72 H 437.382 V 1488.33 H -117.254 Z"
+         inkscape:connector-curvature="0" />
     </clipPath>
   </defs>
   <metadata
@@ -52,12 +53,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-3.5642e-7,274.16601)"
+     transform="translate(-3.5642e-7,118.10362)"
      id="layer1">
     <g
        id="g700"

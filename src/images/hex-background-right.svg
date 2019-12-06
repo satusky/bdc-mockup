@@ -8,8 +8,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="195.66325mm"
-   height="800mm"
-   viewBox="0 0 195.66325 342.33203"
+   height="700mm"
+   viewBox="0 0 195.66325 299.54053"
    version="1.1"
    id="svg904"
    sodipodi:docname="hex-background-right.svg"
@@ -24,14 +24,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1280"
-     inkscape:window-height="1080"
+     inkscape:window-height="1025"
      id="namedview845"
      showgrid="false"
-     inkscape:zoom="0.72496858"
-     inkscape:cx="422.94942"
-     inkscape:cy="247.27236"
-     inkscape:window-x="2984"
-     inkscape:window-y="18"
+     inkscape:zoom="0.18124215"
+     inkscape:cx="-679.68192"
+     inkscape:cy="1397.2158"
+     inkscape:window-x="640"
+     inkscape:window-y="27"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg904" />
   <defs
@@ -41,7 +41,8 @@
        id="clipPath706">
       <path
          d="M -117.254,2458.72 H 437.382 V 1488.33 H -117.254 Z"
-         id="path704" />
+         id="path704"
+         inkscape:connector-curvature="0" />
     </clipPath>
   </defs>
   <metadata
@@ -52,13 +53,13 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      id="layer1"
-     transform="rotate(180,97.831626,262.917)">
+     transform="matrix(-0.99891824,0,0,-1,195.45157,369.77164)">
     <g
        transform="matrix(0.35277777,0,0,-0.35277777,41.364605,822.04974)"
        id="g700">
