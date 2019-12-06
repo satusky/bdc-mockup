@@ -8,6 +8,10 @@ html {
     font-size: 11pt;
 }
 
+a {
+    color: var(--color-eggplant);
+}
+
 :root {
     --color-crimson: #C1272D;
     --color-eggplant: #323268;

@@ -5,7 +5,8 @@ export const CardBody = styled.div`
     padding: 1rem 2rem;
     background-color: ${ props => props.bgColor ? props.bgColor : '#fff' };
     color: ${ props => props.fgColor ? props.fgColor : 'inherit' };
-    height: 100%;
+    // height: 100%;
+    flex: 1;
 `
 
 CardBody.propTypes = {

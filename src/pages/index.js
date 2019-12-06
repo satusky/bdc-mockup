@@ -1,7 +1,7 @@
 import React from 'react'
 import { SEO } from '../components/seo'
 import { Heading, Paragraph } from '../components/typography'
-import { Card, CardHeader, CardBody } from '../components/card'
+import { Card, CardHeader, CardBody, CardFooter } from '../components/card'
 import { PageContent, Container, BandedContainer, BackgroundImageContainer, LineBreak } from '../components/layout'
 import { SearchInput } from '../components/form'
 import { ButtonCta } from '../components/buttons'

@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 export const Badge = styled.span`
@@ -15,3 +16,37 @@ export const Badge = styled.span`
     margin: 0;
     ${ props => props.margin && `margin: ${ props.margin };` }
 `
+
+const HexWrapper = styled.span`
+    display: inline-block;
+    background-color: var(--color-crimson);
+    padding: 0;
+    width: calc(1.118 * 6rem);
+    height: 6rem;
+    clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+const HexInterior = styled.span`
+    display: inline-block;
+    background: #fff;
+    width: 60%;
+    height: calc(1.118 * 60%);
+    border-radius: 50%;
+    padding: 1rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const HexBadge = ({ children }) => {
+    return (
+        <HexWrapper>
+            <HexInterior>{ children }</HexInterior>
+        </HexWrapper>
+    )
+}
