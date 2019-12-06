@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { SEO } from '../../components/seo'
 import { PageContent } from '../../components/layout'
-import { Title, Heading, Subheading, Paragraph } from '../../components/typography'
+import { Title } from '../../components/typography'
 
 const ResourcesPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>

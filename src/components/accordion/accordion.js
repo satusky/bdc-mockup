@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 // import { ExpandDownIcon as ExpandIcon } from '../icons'
-import { Rotator } from '../anim'
 
 const ExpandIcon = ({ size, color, active, ...rest }) => (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg"

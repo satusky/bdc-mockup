@@ -13,7 +13,6 @@ import { menuItems } from '../data/menu'
 import { List, ListItem } from '../components/list'
 import { useScrollPosition, useWindowWidth } from '../hooks'
 import githubLogo from '../images/icons/github-logo.png'
-import twitterLogo from '../images/icons/twitter-logo.png'
 import hexBackgroundLeftSvg from '../images/hex-background-left.svg'
 import hexBackgroundRightSvg from '../images/hex-background-right.svg'
 
