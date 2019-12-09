@@ -21,8 +21,8 @@ const HexWrapper = styled.span`
     display: inline-block;
     background-color: var(--color-crimson);
     padding: 0;
-    width: calc(1.118 * 6rem);
-    height: 6rem;
+    width: calc(1.118 * 5rem);
+    height: 5rem;
     clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     z-index: -1;
     display: flex;

@@ -16,7 +16,7 @@ const ToolsPage = () => (
         <Title>Tools & Analysis</Title>
         
         <Paragraph>
-            Coming soon...
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium aliquam molestias recusandae accusamus, iure ea, quam doloribus atque porro quidem error magni quia explicabo natus enim eos optio architecto sint consectetur maiores consequatur. Dolorum, quod ullam fugiat illum ipsam tempora, laborum quis harum quas possimus, consequuntur, cumque eligendi modi qui.
         </Paragraph>
 
         <Grid fluid>
