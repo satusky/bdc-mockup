@@ -33,7 +33,7 @@ const DataPoint = ({ icon, title, count }) => {
     return (
         <DataPointWrapper>
             <DataTitle>{ title }</DataTitle>
-            <DataIcon size="60" fill="#fff" style={{ display: 'block', margin: '0.5rem auto' }} />
+            <DataIcon size={ 60 } fill="#fff" style={{ display: 'block', margin: '0.5rem auto' }} />
             <DataCount>{ count }</DataCount>
         </DataPointWrapper>
     )
