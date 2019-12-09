@@ -26,12 +26,12 @@ const SupportCard = ({ title, icon, children }) => {
 const TrainingPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
         <SEO
-            title="Training Resources"
+            title="Learn and Support"
             description=""
             keywords=""
         />
 
-        <Title>Training</Title>
+        <Title>Learn and Support</Title>
 
         <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi fuga. Quis voluptate aut aliquid perferendis tempora alias similique eum accusantium velit consequuntur illum sed nobis, placeat autem inventore vel a iste veritatis, nemo.

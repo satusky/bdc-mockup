@@ -20,8 +20,8 @@ export const menuItems = [
                 path: '/resources/tools',
             },
             {
-                text: 'Training',
-                path: '/resources/training',
+                text: 'Learn',
+                path: '/resources/learn',
             },
         ],
     },
