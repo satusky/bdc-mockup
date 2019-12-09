@@ -49,10 +49,10 @@ const TrainingPage = () => (
                             <SupportCard title="Lorem ipsum dolor" icon={ 'ICON' }>
                                 <List>
                                     {
-                                        [...Array(Math.floor(Math.random() * 3 ) + 1).keys()].map(i => {
+                                        [...Array(Math.floor(Math.random() * 3 ) + 1).keys()].map(j => {
                                             const count = Math.floor(Math.random() * 5) + 2
                                             const loremIpsum = 'Lorem ipsum dolor sit amet consectetur adipisicing elit'.split(' ').slice(0, count).join(' ')
-                                            return <ListItem primary={ <a href="#">{ loremIpsum }</a> } />
+                                            return <ListItem key={ j } primary={ <a href="#">{ loremIpsum }</a> } />
                                         })
                                     }
                                 </List>
