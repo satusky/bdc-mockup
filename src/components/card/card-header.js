@@ -26,5 +26,6 @@ CardHeader.propTypes = {
 CardHeader.defaultProps = {
     fgColor: '#fff',
     bgColor: 'var(--color-crimson)',
+    children: '',
 }
 
