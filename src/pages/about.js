@@ -61,7 +61,7 @@ const AboutPage = () => {
             />
             
             <Hero
-                title="About BioDataCatalyst"
+                title="About BioData Catalyst"
                 backgroundColor="var(--color-eggplant)"
                 backgroundImage="http://picsum.photos/800/400"
                 overlay={ <img src={ AboutBioDataCatalystSvg } alt="" style={{ width: '95%', maxWidth: '1000px', marginBottom: '2rem' }}/> }
