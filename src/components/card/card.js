@@ -4,8 +4,7 @@ import styled from 'styled-components'
 
 export const Card = styled.div`
     overflow: hidden;
-    border-radius: 2rem;
-    box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);
+    ${ props => props.elevate && `box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.25);` }
     margin-bottom: 2rem;
     height: 100%;
     display: flex;
@@ -14,4 +13,9 @@ export const Card = styled.div`
 
 Card.propTypes = {
     children: PropTypes.node.isRequired,
+    elevate: PropTypes.bool.isRequired,
+}
+
+Card.defaultProps = {
+    elevate: true,
 }

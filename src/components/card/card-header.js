@@ -11,10 +11,12 @@ export const CardHeader = styled.div`
     text-align: center;
     padding: 0 15%;
     border-bottom: 2px solid #fff;
+    ${
+        props => props.underline && `border-bottom: 4px solid var(--color-crimson);`
+    }
     position: relative;
     font-size: 133%;
     height: 4rem;
-    ${ props => props.size && props.size === 'large' && 'height: 6rem;' };
 `
 
 CardHeader.propTypes = {

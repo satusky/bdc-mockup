@@ -5,7 +5,7 @@
 html {
     font-family: "Montserrat", sans-serif;
     color: #444;
-    font-size: 11pt;
+    font-size: 13pt;
 }
 
 a {
@@ -13,6 +13,7 @@ a {
 }
 
 :root {
-    --color-crimson: #C1272D;
+    --color-grey: #606264;
+    --color-crimson: #B33243;
     --color-eggplant: #323268;
 };

@@ -1,11 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { Title } from '../typography'
+
+const Border = styled.div`
+    filter: drop-shadow(0 0.5rem 0 var(--color-crimson));
+`
 
 const HeroWrapper = styled.div`
-    height: 600px;
+    // & * { border: 1px solid #f99; }
+    height: 30vw;
+    min-height: 400px;
+    max-height: 500px;
     position: relative;
     margin-bottom: 4rem;
+    ${ props => props.clipped ? 'clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% calc(100% - 10vw));' : undefined }
     &::before {
         content: "";
         position: absolute;
@@ -30,9 +39,12 @@ HeroWrapper.propTypes = {
 
 const Overlay = styled.div`
     position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100% - 3rem);
     width: 100%;
-    height: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 `
@@ -41,39 +53,29 @@ Overlay.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-const Title = styled.h1`
-    display: inline-block;
-    background-color: var(--color-crimson);
-    clip-path: polygon(0% 50%, 1rem 0%, calc(100% - 1rem) 0%, 100% 50%, calc(100% - 1rem) 100%, 1rem 100%, 0% 50%);
+const HeroText = styled(Title)`
     color: #fff;
-    line-height: 4rem;
-    padding: 0 3rem;
-`
-
-Title.propTypes = {
-    children: PropTypes.node.isRequired,
-}
-
-const TitleWrapper = styled.div`
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translate(-50%, 50%);
-    filter: drop-shadow(0 0 0.5rem rgba(0, 0, 2, 0.15));
+    font-size: 200%;
+    @media (min-width: 600px) {
+        font-size: 300%;
+    }
+    width: 45%;
+    max-width: 600px;
     text-align: center;
 `
 
-TitleWrapper.propTypes = {
+HeroText.propTypes = {
     children: PropTypes.node.isRequired,
 }
 
-export const Hero = ({ backgroundColor, backgroundImage, overlay, title }) => {
+export const Hero = ({ clipped, title, backgroundColor, backgroundImage }) => {
     return (
-        <HeroWrapper backgroundColor={ backgroundColor } backgroundImage={ backgroundImage }>
-            <Overlay>
-                { overlay }
-            </Overlay>
-            <TitleWrapper><Title>{ title }</Title></TitleWrapper>
-        </HeroWrapper>
+        <Border>
+            <HeroWrapper clipped={ clipped } backgroundColor={ backgroundColor } backgroundImage={ backgroundImage }>
+                <Overlay>
+                    <HeroText>{ title }</HeroText>
+                </Overlay>
+            </HeroWrapper>
+        </Border>
     )
 }

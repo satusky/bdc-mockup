@@ -23,7 +23,7 @@ export const ListItemContainer = styled.li`
     margin: 0;
     margin-bottom: 1rem;
     padding: 0;
-    line-height: 1.25;
+    line-height: 2.0;
 `
 
 const PrimaryText = styled.span`

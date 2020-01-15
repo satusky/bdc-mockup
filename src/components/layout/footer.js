@@ -1,15 +1,25 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-    background-color: #fff;
-    color: #333;
+    background-color: var(--color-crimson);
+    color: #fff;
     padding: 2rem;
-    filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.5));
+    // filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.5));
     & a {
-        color: var(--color-crimson);
+        color: #fff;
         text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
+        text-decoration: underline;
+    }
+    position: relative;
+    &::before {
+        z-index: -1;
+        content: "";
+        clip-path: polygon(0% 10vw, 100% 0%, 100% 100%, 0% 100%);
+        position: absolute;
+        bottom: calc(100% - 1px);
+        left: 0;
+        width: 100%;
+        height: calc(10vw + 2px);
+        background-color: var(--color-crimson);
     }
 `

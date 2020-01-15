@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import { EducationIcon as FakeIcon } from '../icons'
+import { Heading } from '../typography'
+import { Card, CardHeader, CardBody } from '../card'
+import { SearchInput } from '../form'
 
 const DataPointWrapper = styled.div`
     // border: 1px solid #f99;
-    margin: 1rem;
-    disply: flex;
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
@@ -14,6 +17,7 @@ const DataPointWrapper = styled.div`
 
 const DataText = styled.div`
     // border: 1px solid #f99;
+    padding: 0.25rem 0;
     color: #fff;
     display: block;
     text-transform: uppercase;
@@ -21,19 +25,22 @@ const DataText = styled.div`
 `
 
 const DataTitle = styled(DataText)`
-    font-size: 80%;
+    color: var(--color-crimson);
 `
 
 const DataCount = styled(DataText)`
     font-weight: bold;
+    font-size: 300%;
+    @media (min-width: 768px) {
+        font-size: 250%;
+    }
+    color: var(--color-crimson);
 `
 
-const DataPoint = ({ icon, title, count }) => {
-    const DataIcon = icon
+const DataPoint = ({ title, count }) => {
     return (
         <DataPointWrapper>
             <DataTitle>{ title }</DataTitle>
-            <DataIcon size={ 60 } fill="#fff" style={{ display: 'block', margin: '0.5rem auto' }} />
             <DataCount>{ count }</DataCount>
         </DataPointWrapper>
     )
@@ -41,28 +48,38 @@ const DataPoint = ({ icon, title, count }) => {
 
 export const DataContainer = () => {
     return (
-        <Grid>
-            <Row justify="around">
-                <Col xs={ 6 } sm={ 4 } md={ 2 } style={{ display: 'flex', justifyContent: 'center' }}>
-                    <DataPoint title="Studies" icon={ FakeIcon } count={ Math.floor(Math.random() * 100) } />
-                </Col>
-                <Col xs={ 6 } sm={ 4 } md={ 2 } style={{ display: 'flex', justifyContent: 'center' }}>
-                    <DataPoint title="Participants" icon={ FakeIcon } count={ Math.floor(Math.random() * 100) } />
-                </Col>
-                <Col xs={ 6 } sm={ 4 } md={ 2 } style={{ display: 'flex', justifyContent: 'center' }}>
-                    <DataPoint title="Families" icon={ FakeIcon } count={ Math.floor(Math.random() * 100) } />
-                </Col>
-                <Col xs={ 6 } sm={ 4 } md={ 2 } style={{ display: 'flex', justifyContent: 'center' }}>
-                    <DataPoint title="Samples" icon={ FakeIcon } count={ Math.floor(Math.random() * 100) } />
-                </Col>
-                <Col xs={ 6 } sm={ 4 } md={ 2 } style={{ display: 'flex', justifyContent: 'center' }}>
-                    <DataPoint title="Files" icon={ FakeIcon } count={ Math.floor(Math.random() * 100) } />
-                </Col>
-                <Col xs={ 6 } sm={ 4 } md={ 2 } style={{ display: 'flex', justifyContent: 'center' }}>
-                    <DataPoint title="Size" icon={ FakeIcon } count={ Math.floor(Math.random() * 100) } />
-                </Col>
-            </Row>
-        </Grid>
+        <Card elevate={ false }>
+            <CardHeader bgColor="transparent" fgColor="var(--color-crimson)" underline>
+                Available Data
+            </CardHeader>
+            <CardBody bgColor="transparent">
+                <Grid>
+                    <Row>
+                        <Col xs={ 6 }>
+                            <DataPoint title="Studies" count={ Math.floor(Math.random() * 100) } />
+                        </Col>
+                        <Col xs={ 6 }>
+                            <DataPoint title="Participants" count={ Math.floor(Math.random() * 100) } />
+                        </Col>
+                        <Col xs={ 6 }>
+                            <DataPoint title="Families" count={ Math.floor(Math.random() * 100) } />
+                        </Col>
+                        <Col xs={ 6 }>
+                            <DataPoint title="Samples" count={ Math.floor(Math.random() * 100) } />
+                        </Col>
+                        <Col xs={ 6 }>
+                            <DataPoint title="Files" count={ Math.floor(Math.random() * 100) } />
+                        </Col>
+                        <Col xs={ 6 }>
+                            <DataPoint title="Size" count={ Math.floor(Math.random() * 100) } />
+                        </Col>
+                        <Col xs={ 12 }>
+                            <SearchInput />
+                        </Col>
+                    </Row>
+                </Grid>
+            </CardBody>
+        </Card>
     )
 }
 
