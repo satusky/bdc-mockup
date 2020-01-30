@@ -78,13 +78,15 @@ export const DefaultLayout = ({ children }) => {
                     <Grid fluid>
                         <Row>
                             <Col xs={ 12 } md={ 5 } push={{ md: 7 }}>
-                                <List dense center={ isCompact } right={ !isCompact }>
-                                    <ListItem primary={ <Link to="/faqs">FAQs</Link> } />
-                                    <ListItem primary={ <ExternalLink to="https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/">Documentation</ExternalLink> } />
-                                    <ListItem primary={ <Link to="/legal">Legal</Link> } />
-                                    <ListItem primary={ <Link to="/resources/learn">Support</Link> } />
-                                    <ListItem primary={ <Link to="/contact">Contact</Link> } />
-                                </List>
+                                <Paragraph>
+                                    <List center={ isCompact } right={ !isCompact }>
+                                        <ListItem primary={ <Link to="/faqs">FAQs</Link> } />
+                                        <ListItem primary={ <Link to="/legal">Legal</Link> } />
+                                        <ListItem primary={ <Link to="/contact">Contact</Link> } />
+                                        <ListItem primary={ <Link to="/resources/learn">Support</Link> } />
+                                        <ListItem primary={ <ExternalLink to="https://bdcatalyst.gitbook.io/biodata-catalyst-documentation/">Documentation</ExternalLink> } />
+                                    </List>
+                                </Paragraph>
                             </Col>
                             <Col xs={ 12 } md={ 7 } pull={{ md: 5 }}>
                                 <Paragraph center={ isCompact } left={ !isCompact }>
