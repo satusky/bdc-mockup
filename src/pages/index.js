@@ -5,7 +5,6 @@ import { Card, CardHeader, CardBody } from '../components/card'
 import { PageContent, Container } from '../components/layout'
 import { DataCarousel } from '../components/data-carousel'
 import { HexMenu } from '../components/menus'
-import { Hero } from '../components/hero'
 import { BulletedList, ListItem } from '../components/list'
 import { Hidden } from 'react-grid-system'
 

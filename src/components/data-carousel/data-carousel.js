@@ -1,10 +1,9 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { Hero } from '../hero'
 import { useWindowWidth } from '../../hooks'
-import { animated, useTransition } from 'react-spring'
-import { DetailsPanel, DataDetail, Headline, Description } from './details-panel'
-import { DataPanel, Data, Datum, DatumValue, DatumName } from './data-panel'
+import { useTransition } from 'react-spring'
+import { DetailsPanel, DataDetail } from './details-panel'
+import { DataPanel, Data } from './data-panel'
 import { PauseIcon, PlayIcon } from '../icons'
 
 const INTERVAL = 2 * 1000
@@ -138,7 +137,9 @@ export const DataCarousel = () => {
                 backgroundColor="#00abf5"
                 backgroundImage="https://i.picsum.photos/id/825/900/300.jpg"
                 onMouseOver={ () => setPlayingAnimations(false) }
+                onFocus={ () => setPlayingAnimations(false) }
                 onMouseLeave={ () => setPlayingAnimations(true) }
+                onBlur={ () => setPlayingAnimations(true) }
             >
                 <Overlay compact={ isCompact }>
                     <DetailsPanel flexSize={ isCompact ? '1 0 50%' : '3' }>

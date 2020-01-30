@@ -1,58 +1,12 @@
-import React, { Fragment } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import { SEO } from '../components/seo'
-import { PageContent, Container, LineBreak } from '../components/layout'
+import { PageContent, LineBreak } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
 import { BulletedList, ListItem } from '../components/list'
-import { Card, CardHeader, CardBody } from '../components/card'
-import { Accordion } from '../components/accordion'
-import { Badge } from '../components/badge'
-import AboutBioDataCatalystSvg from '../images/about-hero.svg'
 import { ExternalLink } from '../components/link'
 
-const ccQuery = graphql`{
-    coordinatingCenter: allCoordinatingCenterJson {
-        edges {
-            node {
-                id
-                name
-                title
-                email
-            }
-        }
-    }
-    projectTeams: allProjectTeamsJson {
-        edges {
-            node {
-                id
-                name
-                symbol
-                members {
-                    Institution
-                    Principal_Investigator
-                    Institution_Lead
-                    Department
-                }
-            }
-        }
-    }
-    dataStewards: allDataStewardsJson {
-        edges {
-            node {
-                id
-                name
-                url
-            }
-        }
-    }
-}`
 
 const AboutPage = () => {
-    const data = useStaticQuery(ccQuery)
-    const cc = data.coordinatingCenter.edges.map(({ node }) => ({ ...node }))
-    const projectTeams = data.projectTeams.edges.map(({ node }) => ({ ...node }))
-    const dataStewards = data.dataStewards.edges.map(({ node }) => ({ ...node }))
-
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
             <SEO
