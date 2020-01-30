@@ -42,7 +42,7 @@ const LayoutWrapper = styled.div`
             : `
                 background-image: url(${ hexBackgroundLeftSvg }), url(${ hexBackgroundRightSvg });
                 background-position: -4rem 0, calc(100% + 4rem) 0;
-                background-size: 400px, 400px;
+                background-size: 400px;
                 background-repeat: repeat-y, repeat-y;
                 background-attachment: fixed;
             `
