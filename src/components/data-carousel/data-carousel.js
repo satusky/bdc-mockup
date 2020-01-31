@@ -142,14 +142,14 @@ export const DataCarousel = () => {
                 onBlur={ () => setPlayingAnimations(true) }
             >
                 <Overlay compact={ isCompact }>
-                    <DetailsPanel flexSize={ isCompact ? '1 0 50%' : '3' }>
+                    <DetailsPanel compact={ isCompact }>
                         {
                             detailsTransitions.map(({ item, props, key }) =>(
                                 <DataDetail key={ key } style={ props } item={ item } />
                             ))
                         }
                     </DetailsPanel>
-                    <DataPanel flexSize={ isCompact ? '1 0 50%' : '1' }>
+                    <DataPanel compact={ isCompact }>
                         {
                             dataTransitions.map(({ item, props, key }) => (
                                 <Data key={ key } style={ props } data={ item.data } />
