@@ -18,7 +18,7 @@ const ContactPage = () => (
         </Paragraph>
 
         <Paragraph center>
-            <strong>** Please do not use this form to share and sensitive data. **</strong>
+            <strong>** Please do not use this form to share any sensitive data. **</strong>
         </Paragraph>
 
         <script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
