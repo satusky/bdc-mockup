@@ -125,8 +125,8 @@ export const MobileMenu = ({ items }) => {
                 { visible ? <CloseIcon size="36" fill="var(--color-crimson)" /> : <HamburgerIcon size="36" fill="var(--color-crimson)"  /> }
             </Toggler>
             <MobileNavDrawer active={ visible } onKeyDown={ e => console.log(e) }>
-                <div style={{ marginLeft: '2rem' }}>
-                    <Brand white height="70" />
+                <div style={{ marginLeft: '1.5rem' }}>
+                    <Brand white width="66%" />
                 </div>
                 <MobileNav>
                     {
