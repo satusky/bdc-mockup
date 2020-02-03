@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
 import { PageContent, LineBreak } from '../components/layout'
-import { Title, Heading, Subheading, Paragraph } from '../components/typography'
+import { Title, Heading, Paragraph } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
-import { List, ListItem } from '../components/list'
 import { Accordion } from '../components/accordion'
 import { ExternalLink } from '../components/link'
 
@@ -22,11 +21,6 @@ const FaqPage = () => {
     const [folders, setFolders] = useState()
 
     useEffect(() => {
-        async function asyncForEach(array, callback) {
-            for (let index = 0; index < array.length; index++) {
-                await callback(array[index], index, array);
-            }
-        }
         const fetchArticles = async () => {
             await axios.get(`${ process.env.GATSBY_FRESHDESK_API_ROOT }/solutions/categories/${ FRESHDESK_FAQS_CATEGORY_ID }/folders`, options)
                 .then(response => {
