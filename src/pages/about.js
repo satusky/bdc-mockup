@@ -1,12 +1,65 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SEO } from '../components/seo'
+import { usePartnerLogos, usePlatformLogos } from '../hooks'
+import Img from 'gatsby-image'
 import { PageContent, LineBreak } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
 import { BulletedList, ListItem } from '../components/list'
 import { ExternalLink } from '../components/link'
 
+// Specify the order in which the logos should appear in each logo cloud
+const logoOrder = {
+    partners: [
+        'renci',
+        'rti-international',
+        'broad-institute',
+        'university-of-california-santa-cruz',
+        'university-of-chicago',
+        'vanderbilt-university-medical-center',
+        'harvard-medical-school',
+        'unc-chapel-hill',
+        'lawrence-berkeley-national-laboratory',
+        'oregon-state-university',
+        'university-of-new-mexico-health-sciences-center',
+        'seven-bridges-genomics-inc',
+        'elsevier',
+        'repositive',
+        'united-states-department-of-veterans-affairs',
+    ],
+    platforms: [
+        'dockstore',
+        'gen3',
+        'helx',
+        'pic-sure',
+        'seven-bridges-genomics-inc',
+        'terra',
+    ],
+}
+
+
+const LogoCloud = styled.div`
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+`
+
+const MutedImage = styled(Img)`
+    margin: 1rem;
+    transition: filter 250ms;
+    filter: saturate(25%) opacity(50%);
+    &:hover {
+        filter: saturate(100%) opacity(100%);
+    }
+`
 
 const AboutPage = () => {
+    const partnerLogos = usePartnerLogos().sort((a, b) => logoOrder.partners.indexOf(a.name) - logoOrder.partners.indexOf(b.name))
+    const platformLogos = usePlatformLogos().sort((a, b) => logoOrder.platforms.indexOf(a.name) - logoOrder.platforms.indexOf(b.name))
+
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
             <SEO
@@ -40,46 +93,35 @@ const AboutPage = () => {
             <Paragraph>
                 Currently, researchers and other professionals from the following institutions have received OTA funding from the NHLBI to work on the BioData Catalyst ecosystem:
             </Paragraph>
-
-            <BulletedList>
-                <ListItem primary="Renaissance Computing Institute (RENCI)" />
-                <ListItem primary="RTI International" />
-                <ListItem primary="The Broad Institute" />
-                <ListItem primary="The University of California, Santa Cruz" />
-                <ListItem primary="The University of Chicago" />
-                <ListItem primary="Vanderbilt University Medical Center" />
-                <ListItem primary="Harvard Medical School" />
-                <ListItem primary="University of North Carolina at Chapel Hill" />
-                <ListItem primary="Lawrence Berkeley National Laboratory" />
-                <ListItem primary="Oregon State University" />
-                <ListItem primary="University of New Mexico Health Sciences Center" />
-                <ListItem primary="Seven Bridges Genomics Inc" />
-                <ListItem primary="Elsevier" />
-                <ListItem primary="Repositive" />
-                <ListItem primary="US Department of Veterans Affairs" />
-
-            </BulletedList>
             
-            <Heading>Data Sets Included in BioData Catalyst</Heading>
+            <LogoCloud>
+                {
+                    partnerLogos.map(
+                        logo => (
+                            <MutedImage key={ logo.id } fixed={ logo.childImageSharp.fixed } alt={ `${ logo.name.replace('-', ' ') } logo` } />
+                        )
+                    )
+                }
+            </LogoCloud>
+
+            <Heading>Data Sets Currently in BioData Catalyst</Heading>
 
             <BulletedList>
                 <ListItem primary={ <ExternalLink to="http://www.copdgene.org/">Chronic Obstructive Pulmonary Disease (COPD) Gene</ExternalLink> } />
                 <ListItem primary={ <ExternalLink to="https://www.nhlbiwgs.org/">Trans-Omics for Precision Medicine (TopMed)</ExternalLink> } />
             </BulletedList>
 
-            <Heading>
-                Partners Powering our Ecosystem
-
-            </Heading>
+            <Heading>Partners Powering our Ecosystem</Heading>
             
-            <BulletedList>
-                <ListItem primary="Dockstore" />
-                <ListItem primary="GEN 3 Data Commons" />
-                <ListItem primary="HeLx" />
-                <ListItem primary="PIC-SURE" />
-                <ListItem primary="Seven Bridges" />
-                <ListItem primary="Terra" />
-            </BulletedList>
+            <LogoCloud>
+                {
+                    platformLogos.map(
+                        logo => (
+                            <MutedImage key={ logo.id } fixed={ logo.childImageSharp.fixed } alt={ `${ logo.name.replace('-', ' ') } logo` } />
+                        )
+                    )
+                }
+            </LogoCloud>
 
             <Heading>How You Can Contribute</Heading>
 

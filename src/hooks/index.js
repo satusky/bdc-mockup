@@ -1,3 +1,5 @@
 export * from './use-local-storage'
 export * from './use-scroll-position'
+export * from './use-partner-logos'
+export * from './use-platform-logos'
 export * from './use-window-width'
