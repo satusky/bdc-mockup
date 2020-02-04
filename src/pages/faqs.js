@@ -7,6 +7,7 @@ import { Title, Heading, Paragraph } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Accordion } from '../components/accordion'
 import { ExternalLink } from '../components/link'
+import { Dots as LoadingDots } from '../components/progress'
 
 const FRESHDESK_FAQS_CATEGORY_ID = '60000157358'
 
@@ -52,7 +53,8 @@ const FaqPage = () => {
             <Paragraph>
                 This page includes collections of answers to our most Frequently Asked Questions. 
             </Paragraph>
-
+            
+            { !folders && <LoadingDots color="var(--color-crimson)" /> }
             {
                 folders && folders.map(folder => {
                     return (
