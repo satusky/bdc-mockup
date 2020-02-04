@@ -53,10 +53,6 @@ const LayoutWrapper = styled.div`
 export const DefaultLayout = ({ children }) => {
     const { isCompact } = useWindowWidth()
 
-    // useEffect(() => {
-    //     setStuckHeader(scrollPosition > toolbarElement.current.getBoundingClientRect().height)
-    // }, [scrollPosition])
-
     return typeof isCompact === 'boolean' && (
         <LayoutWrapper compact={ isCompact }>
             <StickyWrapper stuck={ true }>
