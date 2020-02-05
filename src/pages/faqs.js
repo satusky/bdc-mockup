@@ -7,7 +7,7 @@ import { Title, Heading, Paragraph } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
 import { Accordion } from '../components/accordion'
 import { ExternalLink } from '../components/link'
-import { Dots as LoadingDots } from '../components/progress'
+import { Dots as LoadingDots } from '../components/loading'
 
 const FRESHDESK_FAQS_CATEGORY_ID = '60000157358'
 
