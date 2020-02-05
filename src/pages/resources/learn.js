@@ -7,44 +7,47 @@ import { Container as Grid, Row, Col } from 'react-grid-system'
 import { ResourceCard } from '../../components/card'
 import { BulletedList, ListItem } from '../../components/list'
 import { ExternalLink } from '../../components/link'
+import { BlogIcon, CommunityIcon, DocumentsIcon, EventsIcon, FaqsIcon, VideosIcon } from '../../components/icons'
 
 const resources = [
     {
         title: 'Documentation',
+        icon: <DocumentsIcon size="64" fill="var(--color-crimson)" />,
         description: 'Find step-by-step instructions on how to use BioData Catalyst services and tools.',
         links: [
             {
-                text: 'SevenBridges',
+                text: 'SevenBridges Documentation',
                 url: 'https://f4c.readme.io/docs'
             },
             {
-                text: 'Terra Documentation',
+                text: 'Terra Documentation 1',
                 url: 'https://support.terra.bio/hc/en-us/categories/360001399872'
             },
             {
-                text: 'Terra Documentation',
+                text: 'Terra Documentation 2',
                 url: 'https://support.terra.bio/hc/en-us/categories/360002177552'
             },
             {
-                text: 'Gen3',
+                text: 'Gen3 Documentation',
                 url: 'https://gen3.org/get-started/'
             },
             {
-                text: 'https://docs.dockstore.org/en/develop',
+                text: 'Dockstore Documentation',
                 url: 'https://docs.dockstore.org/en/develop/'
             },
         ]
     },
     {
         title: 'Videos',
+        icon: <VideosIcon size="64" fill="var(--color-crimson)" />,
         description: 'BioData Catalyst webinars, workshops, and how to videos.',
         links: [
             {
-                text: 'Gen3',
+                text: 'Gen3 Videos',
                 url: 'https://forums.gen3.org',
             },
             {
-                text: 'Dockstore',
+                text: 'Dockstore Videos',
                 url: 'https://www.youtube.com/watch?v=-JuKsSQja3g',
             },
             {
@@ -55,6 +58,7 @@ const resources = [
     },
     {
         title: 'FAQs',
+        icon: <FaqsIcon size="64" fill="var(--color-crimson)" />,
         description: 'Find answers to frequently asked questions from BioData Catalyst users',
         links: [
             {
@@ -66,13 +70,14 @@ const resources = [
                 url: 'https://support.terra.bio/hc/en-us/articles/360027940952-Free-credits-FAQs',
             },
             {
-                text: 'Dockstore',
+                text: 'Dockstore FAQs',
                 url: 'https://docs.dockstore.org/en/develop/faq.html',
             },
         ]
     },
     {
         title: 'Community Forums',
+        icon: <CommunityIcon size="64" fill="var(--color-crimson)" />,
         description: 'Connect with others using the BioData Catalyst and learn how they are using it.',
         links: [
             {
@@ -91,6 +96,7 @@ const resources = [
     },
     {
         title: 'Blogs & Tutorials',
+        icon: <BlogIcon size="64" fill="var(--color-crimson)" />,
         description: 'Learn about how the BioData Catalyst is evolving and how to use the system from the community.',
         links: [
             {
@@ -113,22 +119,23 @@ const resources = [
     },
     {
         title: 'Upcoming Events',
+        icon: <EventsIcon size="64" fill="var(--color-crimson)" />,
         description: 'Find upcoming BioData Catalyst events or view the archive.',
         links: [
             {
-                text: 'Dockstore',
+                text: 'Dockstore News & Events',
                 url: 'https://docs.dockstore.org/en/develop/news.html',
             },
             {
-                text: 'Gen3',
+                text: 'Gen3 Announcements',
                 url: 'https://forums.gen3.org/c/announcements/6',
             },
             {
-                text: 'Gen3',
+                text: 'Gen3 Webinars',
                 url: 'https://gen3.org/community/webinars/',
             },
             {
-                text: 'Terra',
+                text: 'Terra Community Events',
                 url: 'https://support.terra.bio/hc/en-us/categories/360001430891',
             },
         ]
@@ -162,7 +169,7 @@ const TrainingPage = () => (
                 {
                     resources.map(resource => (
                         <Col xs={ 12 } md={ 6 } xl={ 4 } style={{ margin: '3rem 0' }}>
-                            <ResourceCard key={ resource.title } title={ resource.title } icon={ 'ICON' }>
+                            <ResourceCard key={ resource.title } title={ resource.title } icon={ resource.icon || 'ICON' }>
                                 <Paragraph>{ resource.description }</Paragraph>
                                 <BulletedList>
                                     {
