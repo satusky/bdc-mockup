@@ -20,11 +20,11 @@ const resources = [
                 url: 'https://f4c.readme.io/docs'
             },
             {
-                text: 'Terra Documentation 1',
+                text: 'Terra Documentation',
                 url: 'https://support.terra.bio/hc/en-us/categories/360001399872'
             },
             {
-                text: 'Terra Documentation 2',
+                text: 'Terra Quickstart',
                 url: 'https://support.terra.bio/hc/en-us/categories/360002177552'
             },
             {

@@ -31,15 +31,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `platform-pages`,
+        path: `${ __dirname }/src/data/platforms`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${ __dirname }/src/images`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `logos`,
-        path: `${__dirname}/src/images/logos`,
+        path: `${ __dirname }/src/images/logos`,
       },
     },
     `gatsby-transformer-sharp`,

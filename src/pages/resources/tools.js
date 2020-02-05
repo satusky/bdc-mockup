@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 import { SEO } from '../../components/seo'
 import { PageContent } from '../../components/layout'
 import { Title, Heading, Paragraph } from '../../components/typography'
@@ -13,13 +14,19 @@ const tools = [
         items: [
             {
                 description: 'Use BioData Catalyst powered by Gen3 to discover and learn more about variables in TOPMed projects and to apply for access through dbGaP. Gen3 also allows for search through hosted data and for creating synthetic cohorts of interest and exporting the data to an analysis environment.',
-                launchLink: 'https://gen3.datastage.io/',
-                learnMoreLink: '',
+                links: {
+                    launch: 'https://gen3.datastage.io/',
+                    documentation: '',
+                    learnMore: '/platforms/gen3',
+                },
             },
             {
                 description: 'Explore available data through BioData Catalyst powered by PIC-SURE with interactive search and visualizations for feasibility assessment. Use query results to create a cohort, with the ability to choose specific variables of interest to export into an analysis environment. ',
-                launchLink: 'https://biodatacatalyst.integration.hms.harvard.edu/psamaui/login/?redirection_url=/picsureui/',
-                learnMoreLink: '',
+                links: {
+                    launch: 'https://biodatacatalyst.integration.hms.harvard.edu/psamaui/login/?redirection_url=/picsureui/',
+                    documentation: '',
+                    learnMore: '/platforms/pic-sure',
+                },
             },
         ]
     },
@@ -28,13 +35,19 @@ const tools = [
         items: [
             {
                 description: 'BioData Catalyst powered by Seven Bridges offers collaborative workspaces for analyzing genomics data at scale. Access hosted datasets along with Common Workflow Language pipelines for analysis. This platform also  enables users to bring their own data for analysis and work in RStudio and Jupyterlab Notebooks for interactive analysis.',
-                launchLink: 'https://f4c-accounts.sbgenomics.com/auth/login?next=https%3A%2F%2Ff4c-accounts.sbgenomics.com%2Foauth2%2Fauthorization%3Fresponse_type%3Dcode%26client_id%3D74735b722c33498cb981b6b6e24f659f%26redirect_uri%3Dhttps%253A%252F%252Ff4c.sbgenomics.com%252Foauth2%252Fredirect%26scope%3Dopenid%26state%3DD9lNrFc8pMySUALiuvewZkO0LGl8oc%26nonce%3D111038105642055197041580917835',
-                learnMoreLink: '',
+                links: {
+                    launch: 'https://f4c-accounts.sbgenomics.com/auth/login?next=https%3A%2F%2Ff4c-accounts.sbgenomics.com%2Foauth2%2Fauthorization%3Fresponse_type%3Dcode%26client_id%3D74735b722c33498cb981b6b6e24f659f%26redirect_uri%3Dhttps%253A%252F%252Ff4c.sbgenomics.com%252Foauth2%252Fredirect%26scope%3Dopenid%26state%3DD9lNrFc8pMySUALiuvewZkO0LGl8oc%26nonce%3D111038105642055197041580917835',
+                    documentation: '',
+                    learnMore: '/platforms/seven-bridges',
+                },
             },
             {
                 description: 'BioData Catalyst powered by Terra is a scalable cloud-based platform for democratizing genomic data access and for sharing and computing across large genomic and genomic-related data sets. Terra offers a stand-alone computational workspace model that provides a secure collaborative place to organize data, run and monitor analysis pipelines, and perform interactive analysis using applications such as Jupyter Notebooks.',
-                launchLink: 'https://datastage.terra.bio/',
-                learnMoreLink: '',
+                links: {
+                    launch: 'https://datastage.terra.bio/',
+                    documentation: '',
+                    learnMore: '/platforms/terra',
+                },
             },
         ]
     },
@@ -43,13 +56,19 @@ const tools = [
         items: [
             {
                 description: 'Via Dockstore, search from a catalogue of high-quality Docker-based workflows that easily export to platforms such as Terra or Seven Bridges. Explore organization pages to find collections of workflows from labs, institutions, and consortiums or create a page to share your work with the wider bioinformatics community.',
-                launchLink: 'https://dockstore.org/',
-                learnMoreLink: '',
+                links: {
+                    launch: 'https://dockstore.org/',
+                    documentation: '',
+                    learnMore: '/platforms/dockstore',
+                },
             },
             {
                 description: 'BioData Catalyst powered by HeLx is a web-based platform for collaborative open science. It provides metadata aware data management capabilities with extensive support for sharing and access control. The AppStore also presents tools that can be dynamically launched for each user.',
-                launchLink: 'https://helx.commonsshare.org/',
-                learnMoreLink: '',
+                links: {
+                    launch: 'https://helx.commonsshare.org/',
+                    documentation: '',
+                    learnMore: '/platforms/helx',
+                },
             },
         ]
     },
@@ -61,7 +80,11 @@ const ToolLinks = styled.div`
     margin: 0 0 2rem 0;
 `
 
-const ToolLink = styled(ExternalLink)`
+const InternalToolLink = styled(Link)`
+    margin: 0 0.5rem;
+`
+
+const ExternalToolLink = styled(ExternalLink)`
     margin: 0 0.5rem;
 `
 
@@ -90,8 +113,8 @@ const ToolsPage = () => (
                 <Card key={ tool.title }>
                     <CardHeader>{ tool.title }</CardHeader>
                     <CardBody>
-                        <Grid>
-                            <Row>
+                        <Grid fluid>
+                            <Row gutterWidth={ 48 }>
                                 {
                                     tool.items.map((item, i) => (
                                         <Col key={ i } xs={ 12 } md={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -99,9 +122,11 @@ const ToolsPage = () => (
                                                 { item.description }
                                             </Paragraph>
                                             <ToolLinks>
-                                                <ToolLink to={ item.launchLink }>Launch</ToolLink>
+                                                <ExternalToolLink to={ item.links.launch }>Launch</ExternalToolLink>
                                                 | 
-                                                <ToolLink to="#">Learn More</ToolLink>
+                                                <ExternalToolLink to={ item.links.documentation }>Documentation</ExternalToolLink>
+                                                | 
+                                                <InternalToolLink to={ item.links.learnMore }>Learn More</InternalToolLink>
                                             </ToolLinks>
                                         </Col>
                                     ))
