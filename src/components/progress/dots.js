@@ -5,21 +5,21 @@ import styled, { keyframes } from 'styled-components'
 const throb = keyframes`
     0% {
         opacity: 0;
-        transform: scale(1);
+        transform: scale(1) rotate(180deg);
     }
     33.6% {
-        transform: scale(1.3);
+        transform: scale(1.3) rotate(180deg);
     }
     42.2% {
-        transform: scale(0.4);
+        transform: scale(0.4) rotate(180deg);
     }
     50% {
         opacity: 1;
-        transform: scale(1.5);
+        transform: scale(1.5) rotate(90deg);
     }
     100% {
         opacity: 0;
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
     }
 `
 
