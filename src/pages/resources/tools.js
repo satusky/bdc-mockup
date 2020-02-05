@@ -1,9 +1,69 @@
 import React from 'react'
+import styled from 'styled-components'
 import { SEO } from '../../components/seo'
 import { PageContent } from '../../components/layout'
-import { Title, Paragraph } from '../../components/typography'
+import { Title, Heading, Paragraph } from '../../components/typography'
+import { Card, CardHeader, CardBody } from '../../components/card'
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import { ResourceCard } from '../../components/card'
+import { ExternalLink } from '../../components/link'
+
+const tools = [
+    {
+        title: 'Explore Available Data',
+        items: [
+            {
+                description: 'Use BioData Catalyst powered by Gen3 to discover and learn more about variables in TOPMed projects and to apply for access through dbGaP. Gen3 also allows for search through hosted data and for creating synthetic cohorts of interest and exporting the data to an analysis environment.',
+                launchLink: 'https://gen3.datastage.io/',
+                learnMoreLink: '',
+            },
+            {
+                description: 'Explore available data through BioData Catalyst powered by PIC-SURE with interactive search and visualizations for feasibility assessment. Use query results to create a cohort, with the ability to choose specific variables of interest to export into an analysis environment. ',
+                launchLink: 'https://biodatacatalyst.integration.hms.harvard.edu/psamaui/login/?redirection_url=/picsureui/',
+                learnMoreLink: '',
+            },
+        ]
+    },
+    {
+        title: 'Analyze Data in Cloud-based Shoared Workspaces',
+        items: [
+            {
+                description: 'BioData Catalyst powered by Seven Bridges offers collaborative workspaces for analyzing genomics data at scale. Access hosted datasets along with Common Workflow Language pipelines for analysis. This platform also  enables users to bring their own data for analysis and work in RStudio and Jupyterlab Notebooks for interactive analysis.',
+                launchLink: 'https://f4c-accounts.sbgenomics.com/auth/login?next=https%3A%2F%2Ff4c-accounts.sbgenomics.com%2Foauth2%2Fauthorization%3Fresponse_type%3Dcode%26client_id%3D74735b722c33498cb981b6b6e24f659f%26redirect_uri%3Dhttps%253A%252F%252Ff4c.sbgenomics.com%252Foauth2%252Fredirect%26scope%3Dopenid%26state%3DD9lNrFc8pMySUALiuvewZkO0LGl8oc%26nonce%3D111038105642055197041580917835',
+                learnMoreLink: '',
+            },
+            {
+                description: 'BioData Catalyst powered by Terra is a scalable cloud-based platform for democratizing genomic data access and for sharing and computing across large genomic and genomic-related data sets. Terra offers a stand-alone computational workspace model that provides a secure collaborative place to organize data, run and monitor analysis pipelines, and perform interactive analysis using applications such as Jupyter Notebooks.',
+                launchLink: 'https://datastage.terra.bio/',
+                learnMoreLink: '',
+            },
+        ]
+    },
+    {
+        title: 'Use Community Tools on Controlled-access Datasets',
+        items: [
+            {
+                description: 'Via Dockstore, search from a catalogue of high-quality Docker-based workflows that easily export to platforms such as Terra or Seven Bridges. Explore organization pages to find collections of workflows from labs, institutions, and consortiums or create a page to share your work with the wider bioinformatics community.',
+                launchLink: 'https://dockstore.org/',
+                learnMoreLink: '',
+            },
+            {
+                description: 'BioData Catalyst powered by HeLx is a web-based platform for collaborative open science. It provides metadata aware data management capabilities with extensive support for sharing and access control. The AppStore also presents tools that can be dynamically launched for each user.',
+                launchLink: 'https://helx.commonsshare.org/',
+                learnMoreLink: '',
+            },
+        ]
+    },
+]
+
+const ToolLinks = styled.div`
+    display: flex;
+    justify-content: center;
+    margin: 0 0 2rem 0;
+`
+
+const ToolLink = styled(ExternalLink)`
+    margin: 0 0.5rem;
+`
 
 const ToolsPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
@@ -14,28 +74,44 @@ const ToolsPage = () => (
         />
 
         <Title>Tools & Analysis</Title>
+
+        <Heading>Explore the BioData Catalyst Ecosystem</Heading>
         
         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium aliquam molestias recusandae accusamus, iure ea, quam doloribus atque porro quidem error magni quia explicabo natus enim eos optio architecto sint consectetur maiores consequatur. Dolorum, quod ullam fugiat illum ipsam tempora, laborum quis harum quas possimus, consequuntur, cumque eligendi modi qui.
+            For academic heart, lung, blood, and sleep researchers (with access to TOPMed data and capacity to analyze it),
+            the BioData Catalyst ecosystem provides researchers with several platforms and services
+            for exploring and analyzing both private and publicly hosted datasets in the cloud using pre-built and custom workflows.
         </Paragraph>
 
-        <Grid fluid>
-            <Row>
-                {
-                    [...Array(6).keys()].map(i => {
-                        const wordCount = Math.floor(Math.random() * 35) + 5
-                        const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum ab sequi obcaecati quasi doloremque nihil ea, esse non deserunt illo eligendi eius id sapiente quas aut molestiae, mollitia asperiores, inventore quaerat culpa omnis cupiditate expedita dicta natus. Facere, autem, accusamus.'.split(' ').slice(0, wordCount).join(' ')
-                        return (
-                            <Col key={ i } xs={ 12 } md={ 6 } lg={ 4 } style={{ margin: '3rem 0' }}>
-                                <ResourceCard title="Lorem ipsum dolor" icon={ 'ICON' }>
-                                    { loremIpsum }
-                                </ResourceCard>
-                            </Col>
-                        )
-                    })
-                }
-            </Row>
-        </Grid>
+        <Heading>What do you want to do today?</Heading>
+
+        {
+            tools.map(tool => (
+                <Card key={ tool.title }>
+                    <CardHeader>{ tool.title }</CardHeader>
+                    <CardBody>
+                        <Grid>
+                            <Row>
+                                {
+                                    tool.items.map((item, i) => (
+                                        <Col key={ i } xs={ 12 } md={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                            <Paragraph firstLineStyle="font-style: italic; font-size: 120%;">
+                                                { item.description }
+                                            </Paragraph>
+                                            <ToolLinks>
+                                                <ToolLink to={ item.launchLink }>Launch</ToolLink>
+                                                | 
+                                                <ToolLink to="#">Learn More</ToolLink>
+                                            </ToolLinks>
+                                        </Col>
+                                    ))
+                                }
+                            </Row>
+                        </Grid>
+                    </CardBody>
+                </Card>
+            ))
+        }
 
     </PageContent>
 )

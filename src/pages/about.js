@@ -104,13 +104,6 @@ const AboutPage = () => {
                 }
             </LogoCloud>
 
-            <Heading>Data Sets Currently in BioData Catalyst</Heading>
-
-            <BulletedList>
-                <ListItem primary={ <ExternalLink to="http://www.copdgene.org/">Chronic Obstructive Pulmonary Disease (COPD) Gene</ExternalLink> } />
-                <ListItem primary={ <ExternalLink to="https://www.nhlbiwgs.org/">Trans-Omics for Precision Medicine (TopMed)</ExternalLink> } />
-            </BulletedList>
-
             <Heading>Partners Powering our Ecosystem</Heading>
             
             <LogoCloud>
@@ -127,12 +120,12 @@ const AboutPage = () => {
 
             <Paragraph>
                 BioData Catalyst is a dynamic resource that will be continually developed and refined.
-                The BioData Catalyst Consortium solicits feedback from members and NHLBI on the development of significant processes, emerging standards, and decisions in two main ways:
+                The BioData Catalyst Consortium solicits feedback on the development of significant processes, emerging standards, and decisions in two main ways:
             </Paragraph>
 
             <ol style={{ lineHeight: 2 }}>
-                <li>A Request for Comment (RFC) process. The RFC process endorses transparency and openness during the evolution of BioData Catalyst as a groundbreaking platform providing unparalleled data access and capabilities to researchers across the globe.</li>
                 <li>Ongoing submission and upvoting of ideas via the <ExternalLink to="https://nhlbidatastage.ideascale.com/a/index">NHLBI BioDataCatalyst Ideascale</ExternalLink>.</li>
+                <li>A periodic Request for Comment (RFC) process solicits feedback from BioData Catalyst members and NHLBI. </li>
             </ol>
                            
             <LineBreak count={ 2 } />

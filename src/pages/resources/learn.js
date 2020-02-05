@@ -1,10 +1,139 @@
 import React from 'react'
 import { SEO } from '../../components/seo'
+import { Link } from 'gatsby'
 import { PageContent } from '../../components/layout'
 import { Title, Paragraph } from '../../components/typography'
 import { Container as Grid, Row, Col } from 'react-grid-system'
 import { ResourceCard } from '../../components/card'
-import { List, ListItem } from '../../components/list'
+import { BulletedList, ListItem } from '../../components/list'
+import { ExternalLink } from '../../components/link'
+
+const resources = [
+    {
+        title: 'Documentation',
+        description: 'Find step-by-step instructions on how to use BioData Catalyst services and tools.',
+        links: [
+            {
+                text: 'SevenBridges',
+                url: 'https://f4c.readme.io/docs'
+            },
+            {
+                text: 'Terra Documentation',
+                url: 'https://support.terra.bio/hc/en-us/categories/360001399872'
+            },
+            {
+                text: 'Terra Documentation',
+                url: 'https://support.terra.bio/hc/en-us/categories/360002177552'
+            },
+            {
+                text: 'Gen3',
+                url: 'https://gen3.org/get-started/'
+            },
+            {
+                text: 'https://docs.dockstore.org/en/develop',
+                url: 'https://docs.dockstore.org/en/develop/'
+            },
+        ]
+    },
+    {
+        title: 'Videos',
+        description: 'BioData Catalyst webinars, workshops, and how to videos.',
+        links: [
+            {
+                text: 'Gen3',
+                url: 'https://forums.gen3.org',
+            },
+            {
+                text: 'Dockstore',
+                url: 'https://www.youtube.com/watch?v=-JuKsSQja3g',
+            },
+            {
+                text: 'Terra Workshop Videos',
+                url: 'https://support.terra.bio/hc/en-us/articles/360028444332-Terra-workshop-at-BroadE-May-22-2019',
+            },
+        ]
+    },
+    {
+        title: 'FAQs',
+        description: 'Find answers to frequently asked questions from BioData Catalyst users',
+        links: [
+            {
+                text: 'Gen3 FAQs',
+                url: 'https://gen3.org/resources/faq/',
+            },
+            {
+                text: 'Terra (Free Credits) FAQs',
+                url: 'https://support.terra.bio/hc/en-us/articles/360027940952-Free-credits-FAQs',
+            },
+            {
+                text: 'Dockstore',
+                url: 'https://docs.dockstore.org/en/develop/faq.html',
+            },
+        ]
+    },
+    {
+        title: 'Community Forums',
+        description: 'Connect with others using the BioData Catalyst and learn how they are using it.',
+        links: [
+            {
+                text: 'Terra Forum',
+                url: 'https://support.terra.bio/hc/en-us/community/topics',
+            },
+            {
+                text: 'Dockstore Forum',
+                url: 'https://gitter.im/ga4gh/dockstore',
+            },
+            {
+                text: 'Gen3 Forum',
+                url: 'https://forums.gen3.org/',
+            },
+        ]
+    },
+    {
+        title: 'Blogs & Tutorials',
+        description: 'Learn about how the BioData Catalyst is evolving and how to use the system from the community.',
+        links: [
+            {
+                text: 'Terra Tutorials',
+                url: 'https://datastage.terra.bio/#library/showcase',
+            },
+            {
+                text: 'Terra Blog',
+                url: 'https://support.terra.bio/hc/en-us/sections/360005942552',
+            },
+            {
+                text: 'Terra Release Notes & Service Notifications',
+                url: 'https://support.terra.bio/hc/en-us/categories/360000693572',
+            },
+            {
+                text: 'SevenBridges Blog (Releases)',
+                url: 'https://f4c.readme.io/blog',
+            },
+        ]
+    },
+    {
+        title: 'Upcoming Events',
+        description: 'Find upcoming BioData Catalyst events or view the archive.',
+        links: [
+            {
+                text: 'Dockstore',
+                url: 'https://docs.dockstore.org/en/develop/news.html',
+            },
+            {
+                text: 'Gen3',
+                url: 'https://forums.gen3.org/c/announcements/6',
+            },
+            {
+                text: 'Gen3',
+                url: 'https://gen3.org/community/webinars/',
+            },
+            {
+                text: 'Terra',
+                url: 'https://support.terra.bio/hc/en-us/categories/360001430891',
+            },
+        ]
+    },
+]
 
 const TrainingPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
@@ -17,28 +146,31 @@ const TrainingPage = () => (
         <Title>Learn and Support</Title>
 
         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, quasi fuga. Quis voluptate aut aliquid perferendis tempora alias similique eum accusantium velit consequuntur illum sed nobis, placeat autem inventore vel a iste veritatis, nemo.
+            The NHLBI BioData Catalyst is an ecosystem made up of many [tech word] platforms and partners that support our researchers. 
         </Paragraph>
 
         <Paragraph>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam.
+            Get started on the BioData Catalyst ecosystem with this collection of documentation, videos, FAQs, community forums, tutorials, blog posts, upcoming events, and more from each of our ecosystem platforms and partners. 
+        </Paragraph>
+
+        <Paragraph>
+            For more immediate assistance, contact our <Link to="/contact">help desk</Link>.
         </Paragraph>
 
         <Grid fluid>
             <Row>
                 {
-                    [...Array(9).keys()].map(i => (
-                        <Col key={ i } xs={ 12 } md={ 6 } lg={ 4 } style={{ margin: '3rem 0' }}>
-                            <ResourceCard title="Lorem ipsum dolor" icon={ 'ICON' }>
-                                <List>
+                    resources.map(resource => (
+                        <Col xs={ 12 } md={ 6 } xl={ 4 } style={{ margin: '3rem 0' }}>
+                            <ResourceCard key={ resource.title } title={ resource.title } icon={ 'ICON' }>
+                                <Paragraph>{ resource.description }</Paragraph>
+                                <BulletedList>
                                     {
-                                        [...Array(Math.floor(Math.random() * 3 ) + 1).keys()].map(j => {
-                                            const count = Math.floor(Math.random() * 5) + 2
-                                            const loremIpsum = 'Lorem ipsum dolor sit amet consectetur adipisicing elit'.split(' ').slice(0, count).join(' ')
-                                            return <ListItem key={ j } primary={ <a href="https://bsc-mockup.netlify.com">{ loremIpsum }</a> } />
-                                        })
+                                        resource.links.map(link => (
+                                            <ListItem key={ link.text } primary={ <ExternalLink to={ link.url }>{ link.text }</ExternalLink> } />
+                                        ))
                                     }
-                                </List>
+                                </BulletedList>
                             </ResourceCard>
                         </Col>
                     ))
