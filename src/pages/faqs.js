@@ -54,7 +54,7 @@ const FaqPage = () => {
                 This page includes collections of answers to our most Frequently Asked Questions. 
             </Paragraph>
             
-            { !folders && <LoadingDots color="var(--color-crimson)" /> }
+            { !folders && <LoadingDots color="var(--color-crimson)" text="Loading..." textPlacement="top" /> }
             {
                 folders && folders.map(folder => {
                     return (
