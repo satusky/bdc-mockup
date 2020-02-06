@@ -31,7 +31,7 @@ const tools = [
         ]
     },
     {
-        title: 'Analyze Data in Cloud-based Shoared Workspaces',
+        title: 'Analyze Data in Cloud-based Shared Workspaces',
         items: [
             {
                 description: 'BioData Catalyst powered by Seven Bridges offers collaborative workspaces for analyzing genomics data at scale. Access hosted datasets along with Common Workflow Language pipelines for analysis. This platform also  enables users to bring their own data for analysis and work in RStudio and Jupyterlab Notebooks for interactive analysis.',

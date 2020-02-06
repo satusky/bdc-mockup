@@ -9,6 +9,7 @@ import { Card, CardHeader, CardBody } from '../components/card'
 import { ExternalLink } from '../components/link'
 import { Dots as LoadingDots } from '../components/loading'
 import { Accordion, Panel } from '@mwatson/react-accessible-accordion'
+
 const FRESHDESK_FAQS_CATEGORY_ID = '60000157358'
 
 const options =  {
@@ -21,6 +22,7 @@ const options =  {
 const panelStyles = {
     body: {
         borderBottom: '1px solid #ddd',
+        lineHeight: 1.5,
     }
 }
 
