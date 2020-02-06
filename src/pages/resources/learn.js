@@ -12,7 +12,7 @@ import { BlogIcon, CommunityIcon, DocumentsIcon, EventsIcon, FaqsIcon, VideosIco
 const resources = [
     {
         title: 'Documentation',
-        icon: <DocumentsIcon size="64" fill="var(--color-crimson)" />,
+        icon: <DocumentsIcon size={ 64 } fill="var(--color-crimson)" />,
         description: 'Find step-by-step instructions on how to use BioData Catalyst services and tools.',
         links: [
             {
@@ -39,7 +39,7 @@ const resources = [
     },
     {
         title: 'Videos',
-        icon: <VideosIcon size="64" fill="var(--color-crimson)" />,
+        icon: <VideosIcon size={ 64 } fill="var(--color-crimson)" />,
         description: 'BioData Catalyst webinars, workshops, and how to videos.',
         links: [
             {
@@ -58,7 +58,7 @@ const resources = [
     },
     {
         title: 'FAQs',
-        icon: <FaqsIcon size="64" fill="var(--color-crimson)" />,
+        icon: <FaqsIcon size={ 64 } fill="var(--color-crimson)" />,
         description: 'Find answers to frequently asked questions from BioData Catalyst users',
         links: [
             {
@@ -77,7 +77,7 @@ const resources = [
     },
     {
         title: 'Community Forums',
-        icon: <CommunityIcon size="64" fill="var(--color-crimson)" />,
+        icon: <CommunityIcon size={ 64 } fill="var(--color-crimson)" />,
         description: 'Connect with others using the BioData Catalyst and learn how they are using it.',
         links: [
             {
@@ -96,7 +96,7 @@ const resources = [
     },
     {
         title: 'Blogs & Tutorials',
-        icon: <BlogIcon size="64" fill="var(--color-crimson)" />,
+        icon: <BlogIcon size={ 64 } fill="var(--color-crimson)" />,
         description: 'Learn about how the BioData Catalyst is evolving and how to use the system from the community.',
         links: [
             {
@@ -119,7 +119,7 @@ const resources = [
     },
     {
         title: 'Upcoming Events',
-        icon: <EventsIcon size="64" fill="var(--color-crimson)" />,
+        icon: <EventsIcon size={ 64 } fill="var(--color-crimson)" />,
         description: 'Find upcoming BioData Catalyst events or view the archive.',
         links: [
             {
@@ -168,8 +168,8 @@ const TrainingPage = () => (
             <Row>
                 {
                     resources.map(resource => (
-                        <Col xs={ 12 } md={ 6 } xl={ 4 } style={{ margin: '3rem 0' }}>
-                            <ResourceCard key={ resource.title } title={ resource.title } icon={ resource.icon || 'ICON' }>
+                        <Col key={ resource.title } xs={ 12 } md={ 6 } xl={ 4 } style={{ margin: '3rem 0' }}>
+                            <ResourceCard title={ resource.title } icon={ resource.icon || 'ICON' }>
                                 <Paragraph>{ resource.description }</Paragraph>
                                 <BulletedList dense>
                                     {
