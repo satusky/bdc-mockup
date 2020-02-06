@@ -5,16 +5,22 @@ import { Link } from 'gatsby'
 import { PageContent, LineBreak } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
-import { Accordion } from '../components/accordion'
+// import { Accordion } from '../components/accordion'
 import { ExternalLink } from '../components/link'
 import { Dots as LoadingDots } from '../components/loading'
-
+import { Accordion, Panel } from '@mwatson/react-accessible-accordion'
 const FRESHDESK_FAQS_CATEGORY_ID = '60000157358'
 
 const options =  {
     headers: {
         "Content-Type": "application/json",
         "Authorization": process.env.GATSBY_FRESHDESK_API_KEY,
+    }
+}
+
+const panelStyles = {
+    body: {
+        borderBottom: '1px solid #ddd',
     }
 }
 
@@ -66,13 +72,15 @@ const FaqPage = () => {
                             {
                                 folder.articles ? (
                                     <CardBody style={{ padding: '1rem 0' }}>
-                                        {
-                                            folder.articles.map(article => (
-                                                <Accordion key={ article.id } title={ article.title }>
-                                                    <div dangerouslySetInnerHTML={{ __html: article.description }} />
-                                                </Accordion>
-                                            ))
-                                        }
+                                        <Accordion>
+                                            {
+                                                folder.articles.map(article => (
+                                                    <Panel title={ article.title } id={ article.title } styles={ panelStyles }>
+                                                        <div dangerouslySetInnerHTML={{ __html: article.description }} />
+                                                    </Panel>
+                                                ))
+                                            }
+                                        </Accordion>
                                     </CardBody>
                                 ) : <CardBody>Loading...</CardBody>
                             }
