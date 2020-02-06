@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { SEO } from '../../components/seo'
 import { PageContent } from '../../components/layout'
 import { Title, Heading, Paragraph } from '../../components/typography'
 import { Card, CardHeader, CardBody } from '../../components/card'
-import { Container as Grid, Row, Col } from 'react-grid-system'
+import { Container as Grid, Row, Col, Visible } from 'react-grid-system'
 import { ExternalLink } from '../../components/link'
 
 const tools = [
@@ -88,6 +88,35 @@ const ExternalToolLink = styled(ExternalLink)`
     margin: 0 0.5rem;
 `
 
+const Separator = styled.div`
+    position: relative;
+    height: 100%;
+    width: 100%;
+    ${ props => props.horizontal && `margin: 1rem 0;` }
+    &::after {
+        content: "";
+        position: absolute;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        ${ props => props.horizontal && `top: 0%;` }
+        ${ props => props.vertical && `top: 50%;` }
+        left: 50%;
+        transform: translate(-50%, -50%);
+        ${
+            props => props.horizontal && `
+                height: 1px;
+                width: 80%;
+            `
+        }
+        ${
+            props => props.vertical && `
+                height: 80%;
+                width: 1px;
+            `
+        }
+    }
+`
+
 const ToolsPage = () => (
     <PageContent width="95%" maxWidth="1080px" center gutters>
         <SEO
@@ -117,18 +146,36 @@ const ToolsPage = () => (
                             <Row gutterWidth={ 48 }>
                                 {
                                     tool.items.map((item, i) => (
-                                        <Col key={ i } xs={ 12 } md={ 6 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-                                            <Paragraph firstLineStyle="font-style: italic; font-size: 120%;">
-                                                { item.description }
-                                            </Paragraph>
-                                            <ToolLinks>
-                                                <ExternalToolLink to={ item.links.launch }>Launch</ExternalToolLink>
-                                                | 
-                                                <ExternalToolLink to={ item.links.documentation }>Documentation</ExternalToolLink>
-                                                | 
-                                                <InternalToolLink to={ item.links.learnMore }>Learn More</InternalToolLink>
-                                            </ToolLinks>
-                                        </Col>
+                                        <Fragment>
+                                            <Col key={ i } xs={ 12 } md={ 5 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                                <Paragraph firstLineStyle="font-style: italic; font-size: 120%;">
+                                                    { item.description }
+                                                </Paragraph>
+                                                <ToolLinks>
+                                                    <ExternalToolLink to={ item.links.launch }>Launch</ExternalToolLink>
+                                                    | 
+                                                    <ExternalToolLink to={ item.links.documentation }>Documentation</ExternalToolLink>
+                                                    | 
+                                                    <InternalToolLink to={ item.links.learnMore }>Learn More</InternalToolLink>
+                                                </ToolLinks>
+                                            </Col>
+                                            {
+                                                i + 1 < tool.items.length&& (
+                                                    <Fragment>
+                                                        <Visible md lg xl>
+                                                            <Col md={ 2 }>
+                                                                <Separator vertical />
+                                                            </Col>
+                                                        </Visible>
+                                                        <Visible xs sm>
+                                                            <Col xs={ 12 }>
+                                                                <Separator horizontal />
+                                                            </Col>
+                                                        </Visible>                                                
+                                                    </Fragment>
+                                                )
+                                            }
+                                        </Fragment>
                                     ))
                                 }
                             </Row>
