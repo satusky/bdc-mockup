@@ -146,8 +146,8 @@ const ToolsPage = () => (
                             <Row gutterWidth={ 48 }>
                                 {
                                     tool.items.map((item, i) => (
-                                        <Fragment>
-                                            <Col key={ i } xs={ 12 } md={ 5 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                        <Fragment key={ i }>
+                                            <Col xs={ 12 } md={ 5 } style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                                 <Paragraph firstLineStyle="font-style: italic; font-size: 120%;">
                                                     { item.description }
                                                 </Paragraph>
