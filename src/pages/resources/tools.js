@@ -143,7 +143,7 @@ const ToolsPage = () => (
                     <CardHeader>{ tool.title }</CardHeader>
                     <CardBody>
                         <Grid fluid>
-                            <Row gutterWidth={ 48 }>
+                            <Row gutterWidth={ 0 }>
                                 {
                                     tool.items.map((item, i) => (
                                         <Fragment key={ i }>
