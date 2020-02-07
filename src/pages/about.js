@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { SEO } from '../components/seo'
 import { usePartnerLogos, usePlatformLogos } from '../hooks'
 import Img from 'gatsby-image'
-import { PageContent, LineBreak } from '../components/layout'
+import { PageContent } from '../components/layout'
 import { Title, Heading, Paragraph } from '../components/typography'
 import { BulletedList, ListItem } from '../components/list'
 import { ExternalLink } from '../components/link'
@@ -128,8 +128,6 @@ const AboutPage = () => {
                 <li>A periodic Request for Comment (RFC) process solicits feedback from BioData Catalyst members and NHLBI. </li>
             </ol>
                            
-            <LineBreak count={ 2 } />
-
         </PageContent>
     )
 }

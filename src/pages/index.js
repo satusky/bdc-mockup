@@ -2,7 +2,7 @@ import React from 'react'
 import { SEO } from '../components/seo'
 import { Paragraph } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
-import { PageContent, Container, LineBreak } from '../components/layout'
+import { PageContent, Container } from '../components/layout'
 import { DataCarousel } from '../components/data-carousel'
 import { HexMenu } from '../components/menus'
 import { BulletedList, ListItem } from '../components/list'
@@ -56,8 +56,6 @@ const IndexPage = () => (
             </Card>
 
         </Container>
-
-        <LineBreak count={ 2 } />
 
     </PageContent>
 )

@@ -1,7 +1,7 @@
 import React from 'react'
 import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
-import { PageContent, LineBreak } from '../components/layout'
+import { PageContent } from '../components/layout'
 import { Title, Heading, Paragraph, ErrorMessage } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
 // import { Accordion } from '../components/accordion'
@@ -86,7 +86,6 @@ const FaqPage = () => {
                 If unanswered questions remain, view our complete <ExternalLink to="https://bdcatalyst.freshdesk.com/">Knowledge Base</ExternalLink> or submit a <Link to="/contact">help request</Link> to receive assistance.
             </Paragraph>
 
-            <LineBreak count={ 2 } />
         </PageContent>
     )
 }

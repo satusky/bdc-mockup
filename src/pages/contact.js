@@ -1,6 +1,6 @@
 import React from 'react'
 import { SEO } from '../components/seo'
-import { PageContent, LineBreak } from '../components/layout'
+import { PageContent } from '../components/layout'
 import { Title, Paragraph } from '../components/typography'
 
 const ContactPage = () => (
@@ -27,8 +27,6 @@ const ContactPage = () => (
         </style>
         <iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form" src="https://bdcatalyst.freshdesk.com/widgets/feedback_widget/new?&widgetType=embedded&screenshot=No&captcha=yes" scrolling="no" height="650px" width="100%" frameborder="0" >
         </iframe>
-
-        <LineBreak count={ 8 } />
 
     </PageContent>
 )
