@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React from 'react'
 import { SEO } from '../components/seo'
 import { Link } from 'gatsby'
 import { PageContent, LineBreak } from '../components/layout'
-import { Title, Heading, Paragraph } from '../components/typography'
+import { Title, Heading, Paragraph, ErrorMessage } from '../components/typography'
 import { Card, CardHeader, CardBody } from '../components/card'
 // import { Accordion } from '../components/accordion'
 import { ExternalLink } from '../components/link'
 import { Dots as LoadingDots } from '../components/loading'
+import { useFreshdesk } from '../hooks'
 import { Accordion, Panel } from '@mwatson/react-accessible-accordion'
-
-const FRESHDESK_FAQS_CATEGORY_ID = '60000157358'
-
-const options =  {
-    headers: {
-        "Content-Type": "application/json",
-        "Authorization": process.env.GATSBY_FRESHDESK_API_KEY,
-    }
-}
 
 const panelStyles = {
     body: {
@@ -27,26 +18,7 @@ const panelStyles = {
 }
 
 const FaqPage = () => {
-    const [folders, setFolders] = useState()
-
-    useEffect(() => {
-        const fetchArticles = async () => {
-            await axios.get(`${ process.env.GATSBY_FRESHDESK_API_ROOT }/solutions/categories/${ FRESHDESK_FAQS_CATEGORY_ID }/folders`, options)
-                .then(response => {
-                    const folders = response.data
-                    const articlePromises = folders.map(folder => axios.get(`${ process.env.GATSBY_FRESHDESK_API_ROOT }/solutions/folders/${ folder.id }/articles`, options)
-                        .then(response => {
-                            folder.articles = response.data
-                            return folder
-                        })
-                    )
-                    Promise.all(articlePromises)
-                        .then(responses => setFolders(responses))
-                })
-                .catch(error => console.error(error))
-        }
-        fetchArticles()
-    }, [])
+    const { isLoading, folders, error } = useFreshdesk()
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
@@ -62,9 +34,26 @@ const FaqPage = () => {
                 This page includes collections of answers to our most Frequently Asked Questions. 
             </Paragraph>
             
-            { !folders && <LoadingDots color="var(--color-crimson)" text="Loading..." textPlacement="top" /> }
             {
-                folders && folders.map(folder => {
+                // If an error occurs fetching articles, show error and route users to Freshdesk.
+                error && (
+                    <div>
+                        <ErrorMessage center>{ error }</ErrorMessage>
+                        <Paragraph center>
+                            View the FAQs directly at <ExternalLink to="https://bdcatalyst.freshdesk.com">bdcatalyst.freshdesk.com</ExternalLink>.
+                        </Paragraph>
+                    </div>
+                )
+            }
+            
+            {
+                // Show loading animation while waiting for articles.
+                isLoading && <LoadingDots color="var(--color-crimson)" text="Loading..." textPlacement="top" />
+            }
+
+            {
+                // If loading articles is complete, render them.
+                !isLoading && folders.map(folder => {
                     return (
                         <Card key={ folder.id }>
                             <CardHeader>{ folder.name }</CardHeader>
