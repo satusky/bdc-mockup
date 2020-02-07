@@ -98,22 +98,25 @@ const Separator = styled.div`
         position: absolute;
         border-right: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
-        ${ props => props.horizontal && `top: 0%;` }
-        ${ props => props.vertical && `top: 50%;` }
-        left: 50%;
-        transform: translate(-50%, -50%);
+        opacity: 0.25;
         ${
             props => props.horizontal && `
+                top: 0%;
                 height: 1px;
                 width: 80%;
+                border-image: linear-gradient(to right, transparent 0%, var(--color-crimson) 15% 85%, transparent 100%) 1 1;
             `
         }
         ${
             props => props.vertical && `
+                top: 50%;
                 height: 80%;
                 width: 1px;
+                border-image: linear-gradient(to top, transparent 0%, var(--color-crimson) 15% 85%, transparent 100%) 1 1;
             `
         }
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 `
 
