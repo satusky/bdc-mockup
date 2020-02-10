@@ -7,6 +7,8 @@ import { DataCarousel } from '../components/data-carousel'
 import { HexMenu } from '../components/menus'
 import { BulletedList, ListItem } from '../components/list'
 import { Hidden } from 'react-grid-system'
+import SickleCellImage from '../images/sickle-cell.jpg'
+import CdcScientistImage from '../images/cdc-scientist.jpg'
 
 const IndexPage = () => (
     <PageContent>
@@ -28,7 +30,7 @@ const IndexPage = () => (
                 <CardHeader size="large">
                     What is BioData Catalyst?
                 </CardHeader>
-                <CardBody image={{ placement: 'right', path: 'https://i.picsum.photos/id/844/367/267.jpg' }}>
+                <CardBody image={{ placement: 'right', path: SickleCellImage }}>
                     <Paragraph>
                         NHLBI BioData Catalyst is a cloud-based platform providing tools, applications, and workflows in secure workspaces. By increasing access to NHLBI data sets and innovative data analysis capabilities, BioData Catalyst accelerates efficient biomedical research that drives discovery and scientific advancement, leading to novel diagnostic tools, therapeutic options, and prevention strategies for heart, lung, blood, and sleep disorders.
                     </Paragraph>
@@ -42,7 +44,7 @@ const IndexPage = () => (
                 <CardHeader size="large">
                     What can BioData Catalyst do for you?
                 </CardHeader>
-                    <CardBody image={{ placement: 'left', path: 'https://i.picsum.photos/id/953/2376/2634.jpg' }}>
+                    <CardBody image={{ placement: 'left', path: CdcScientistImage }}>
                     <Paragraph>
                         BioData Catalyst allows NHLBI research investigators to find, access, share, store, cross-link, and compute on large scale data sets. On the platform, researchers will be able to: 
                     </Paragraph>
