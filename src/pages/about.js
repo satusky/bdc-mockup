@@ -23,8 +23,6 @@ const logoOrder = {
         'oregon-state-university',
         'university-of-new-mexico-health-sciences-center',
         'seven-bridges-genomics-inc',
-        'elsevier',
-        'repositive',
         'united-states-department-of-veterans-affairs',
     ],
     platforms: [
