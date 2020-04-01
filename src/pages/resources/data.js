@@ -17,6 +17,8 @@ const DataPage = () => (
             Coming soon...
         </Paragraph>
 
+        <a href="../search">Search page</a>
+
     </PageContent>
 )
 
