@@ -52,7 +52,7 @@ export const DbGapSearch = ({ value, onChange, onSubmit }) => {
     console.log(value)
     return (
         <SearchContainer>
-            <TextInput value={ value } onChange={ onChange } placeholder=" dbGaP Harmonized Variable Search" aria-label="Search query" />
+            <TextInput value={ value } onChange={ onChange } placeholder="Search for a variable" aria-label="Search query" />
             <SearchButton onClick={ onSubmit } aria-label="Search">
                 <MagnifyingGlassIcon size="30" fill="#999" />
             </SearchButton>
