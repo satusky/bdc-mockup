@@ -101,7 +101,7 @@ const SearchPage = () => {
                                 id="results"
                                 data={results.hits.map((listing, index) => {
                                     return (
-                                        (listing._source.study) && (
+                                        (listing._source.study) && (listing._source.name[0] != '') && (
                                           <tr
                                             key={index}
                                             data-item={listing._id}
