@@ -1,64 +1,70 @@
 import React, { Fragment, useState } from 'react'
-import axios from 'axios'
+//import axios from 'axios'
 import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
-import { MonarchSearch } from '../components/form'
+import { DbGapSearch } from '../components/form'
+import { SearchResultsTable } from '../components/form'
 import { Title, Heading, Paragraph } from '../components/typography'
 import { Container as Grid, Row, Col} from 'react-grid-system'
 import { DeleteIcon } from '../components/icons'
 import { ExternalLink } from '../components/link'
 
-const initialState = {
-    rows: 10,
-    start: 0,
+const initialQuery = {
+    index: 'test',
+    query: '',
 }
 
 const initialResponse = {
-    rows: 0,
-    start: 0,
-    data: [],
+    status: '',
+    hits: [],
+    message: '',
 }
 
 const SearchPage = () => {
-    const [query, setQuery] = useState('')
-    const [searchOptions, setSearchOptions] = useState(initialState)
+    const [query, setQuery] = useState(initialQuery)
     const [results, setResults] = useState(initialResponse)
-    const [loading, setLoading] = useState(false)
+    const [submitted, setSubmitted] = useState(false)
+    const [returned, setReturned] = useState(false)
 
-    const handleChangeQuery = e => setQuery(e.target.value)
-
-    const handleChangeOption = property => e => {
-        setSearchOptions({ ...searchOptions, [property]: Math.max(0, +e.target.value) })
-    }
+    const handleChangeQuery = e => setQuery({
+        index: 'test',
+        query: e.target.value,
+    })
 
     const handleSubmit = e => {
-        setLoading(true)
-        console.log('Searching...')
-        var params = new URLSearchParams()
-        params.append('rows', searchOptions.rows)
-        params.append('start', searchOptions.start)
-        params.append('highlight_class', 'hilite')
-        params.append('boost_q', 'category:genotype%5E-10')
-        params.append('prefix', 'HP')
-        params.append('prefix', 'MONDO')
-        params.append('prefix', 'EFO')
-        params.append('prefix', 'OBA')
-        params.append('prefix', 'NCIT')
-        params.append('prefix', '-OMIA')
-        const fetchResults = async () => await axios.get(`https://api-dev.monarchinitiative.org/api/search/entity/autocomplete/${ query }`, {
-            params: params
-        }).then(response => {
-                console.log(response.data)
-                setResults({
-                    rows: searchOptions.rows,
-                    start: searchOptions.start,
-                    data: response.data.docs,
-                })
-            })
-            .catch(error => console.error(error))
+        setResults(initialResponse)
+        setSubmitted(true)
+        setReturned(false)
+        console.log(query)
+        const requestOptions = {
+            method: "POST",
+            headers: { "Content-Type": "application/json"},
+            body: JSON.stringify(query)
+        };
+        const fetchResults = async () => await fetch("http://search.helx-dev.renci.org:5551/search", requestOptions)
+            .then(response => response.json())
+            .then(data => setResults({
+                status: data.status,
+                hits: data.result.hits.hits,
+                message: data.message
+            }))
+            .catch(error => console.log(error));
         fetchResults()
-        setLoading(false)
     }
+
+    const variablesReturned = (results) => {
+        if (results.hits.length > 0) {
+            for (let i = 0; i < results.hits.length; i++) {
+                if (results.hits[i]._source.study) {
+                    return true;
+                    break
+                } else {
+                    return false;
+                }
+            }
+        } 
+    }
+
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
@@ -73,52 +79,61 @@ const SearchPage = () => {
             <Paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ea dolorem natus unde aspernatur, rerum excepturi maiores nobis in iusto adipisci, voluptate quod quas fugit voluptatum. Nostrum maiores dignissimos deleniti.
             </Paragraph>
-            
-            <Paragraph center>
-                <label htmlFor="search-results-start">Start:</label>
-                <input id="search-results-start" type="number" aria-label="Search results starting position" value={ searchOptions.start } onChange={ handleChangeOption('start') }/>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label htmlFor="search-results-rows">Rows:</label>
-                <input id="search-results-rows" type="number" aria-label="Number of search results to render" value={ searchOptions.rows } onChange={ handleChangeOption('rows') }/>
-            </Paragraph>
 
-            <MonarchSearch value={ query } onChange={ handleChangeQuery } onSubmit={ handleSubmit } />
+            <DbGapSearch value={ query.query } onChange={ handleChangeQuery } onSubmit={ handleSubmit } />
 
             <Grid fluid>
                 <Row>
                     <Col xs={ 12 } sm={ 10 }>
                         <Heading>
                             Results &nbsp;
-                            { results.data.length > 0 && <span>({ results.start } - { -1 + results.start + results.data.length })</span> }
                         </Heading>
                     </Col>
                     <Col xs={ 12 } sm={ 2 } style={{ textAlign: 'right' }}>
                         <br/>
-                        <button onClick={ () => setResults([]) } aria-label="Search"><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
+                        <button onClick={ () => setResults({initialResponse}), () => setSubmitted(false) } aria-label="Search"><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        { (submitted) && (variablesReturned(results) ? (
+                            <SearchResultsTable
+                                id="results"
+                                data={results.hits.map((listing, index) => {
+                                    return (
+                                        (listing._source.study) && (
+                                          <tr
+                                            key={index}
+                                            data-item={listing._id}
+                                          >
+                                            <td data-item={listing._id} data-index={index}>
+                                                <h3 id="name">{listing._source.name[0]}</h3>
+                                                <table id="nest-table">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Variable:</td>
+                                                            <td>
+                                                                <a href={`https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/variable.cgi?study_id=${listing._source.study}&phv=${listing._source.var.slice(3,11)}`}>
+                                                                    {listing._source.var}
+                                                                </a>
+                                                            </td>
+                                                            <td>Study:</td>
+                                                            <td>{listing._source.study}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                          </tr>
+                                        )
+                                    );
+                                })}
+                            />
+                        ) : (
+                            <h3>No variables found</h3>
+                        ))}
                     </Col>
                 </Row>
             </Grid>
-
-            {
-                loading ? (
-                    <div>Loading...</div>
-                ) : (
-                    <div>
-                        {
-                            results.data.length > 0 && results.data.map(item => {
-                                return (
-                                    <Fragment>
-                                        <ExternalLink to={ `https://monarch-initiative.github.io/HeliumPhenotypeSearch/${ item.id }` }>{ item.id }</ExternalLink>
-                                        <pre style={{ fontSize: '80%', padding: '2rem', backgroundColor: '#ccc', overflowX: 'scroll' }}>
-                                            { JSON.stringify(item, null, 2) }
-                                        </pre>
-                                    </Fragment>
-                                )
-                            })
-                        }
-                    </div>
-                )
-            }
 
         </PageContent>
     )
