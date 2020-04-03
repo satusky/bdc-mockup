@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from 'react'
-//import axios from 'axios'
+import React, { useState } from 'react'
 import { SEO } from '../components/seo'
 import { PageContent } from '../components/layout'
 import { DbGapSearch } from '../components/form'
@@ -18,13 +17,13 @@ const initialResponse = {
     status: '',
     hits: [],
     message: '',
+    returned: false,
 }
 
 const SearchPage = () => {
     const [query, setQuery] = useState(initialQuery)
     const [results, setResults] = useState(initialResponse)
     const [submitted, setSubmitted] = useState(false)
-    const [returned, setReturned] = useState(false)
 
     const handleChangeQuery = e => setQuery({
         index: 'test',
@@ -33,38 +32,34 @@ const SearchPage = () => {
 
     const handleSubmit = e => {
         setResults(initialResponse)
-        setSubmitted(true)
-        setReturned(false)
+        setSubmitted(false)
         console.log(query)
         const requestOptions = {
             method: "POST",
-            headers: { "Content-Type": "application/json"},
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(query)
         };
         const fetchResults = async () => await fetch("http://search.helx-dev.renci.org:5551/search", requestOptions)
             .then(response => response.json())
-            .then(data => setResults({
-                status: data.status,
-                hits: data.result.hits.hits,
-                message: data.message
-            }))
+            .then(data => {
+                const varResults = data.result.hits.hits.filter((hit) => (hit._source.study && hit._source.name[0] != '')).map((listing, index) => {
+                    [, listing._source.variableDigits] = listing._source.var.match(/^phv(\d+)\.v\d+\.p\d+$/);
+                    return listing
+                });
+                const varReturned = (varResults.length > 0) ? (true) : (false);
+                setResults({
+                    status: data.status,
+                    hits: varResults,
+                    message: data.message,
+                    returned: varReturned
+                });
+                setSubmitted(true);
+            })
             .catch(error => console.log(error));
         fetchResults()
     }
 
-    const variablesReturned = (results) => {
-        if (results.hits.length > 0) {
-            for (let i = 0; i < results.hits.length; i++) {
-                if (results.hits[i]._source.study) {
-                    return true;
-                    break
-                } else {
-                    return false;
-                }
-            }
-        } 
-    }
-
+    console.log(results)
 
     return (
         <PageContent width="95%" maxWidth="1080px" center gutters>
@@ -91,40 +86,39 @@ const SearchPage = () => {
                     </Col>
                     <Col xs={ 12 } sm={ 2 } style={{ textAlign: 'right' }}>
                         <br/>
-                        <button onClick={ () => setResults({initialResponse}), () => setSubmitted(false) } aria-label="Search"><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
+                        <button onClick={ () => setResults(initialResponse), () => setSubmitted(false) } aria-label="Search"><DeleteIcon size={ 32 } fill="var(--color-crimson)" /></button>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
-                        { (submitted) && (variablesReturned(results) ? (
+                        { submitted && ((results.returned) ? (
                             <SearchResultsTable
                                 id="results"
-                                data={results.hits.map((listing, index) => {
+                                data={ results.hits.map((listing, index) => {
+                                    const variableLink =`https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/variable.cgi?study_id=${ listing._source.study }&phv=${ listing._source.variableDigits }`
                                     return (
-                                        (listing._source.study) && (listing._source.name[0] != '') && (
                                           <tr
-                                            key={index}
-                                            data-item={listing._id}
+                                            key={ index }
+                                            data-item={ listing._id }
                                           >
-                                            <td data-item={listing._id} data-index={index}>
-                                                <h3 id="name">{listing._source.name[0]}</h3>
+                                            <td data-item={ listing._id } data-index={ index }>
+                                                <h3 id="name">{ listing._source.name[0] }</h3>
                                                 <table id="nest-table">
                                                     <tbody>
                                                         <tr>
                                                             <td>Variable:</td>
                                                             <td>
-                                                                <a href={`https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/variable.cgi?study_id=${listing._source.study}&phv=${listing._source.var.slice(3,11)}`}>
-                                                                    {listing._source.var}
-                                                                </a>
+                                                                <ExternalLink to={ variableLink }>
+                                                                        { listing._source.var }
+                                                                </ExternalLink>
                                                             </td>
                                                             <td>Study:</td>
-                                                            <td>{listing._source.study}</td>
+                                                            <td>{ listing._source.study }</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </td>
                                           </tr>
-                                        )
                                     );
                                 })}
                             />
